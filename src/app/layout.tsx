@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import SiteShell from "@/components/SiteShell";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nafatechnologies.com"),
-  title: "Nafa Technologies | Never Miss a Lead. Never.",
+  title: "Nafa Technologies — 24/7 AI Call Agents & Speed-to-Lead",
   description:
-    "Nafa builds and deploys 24/7 AI call agents, <5-minute speed-to-lead follow-up systems, and high-converting custom websites for local businesses. Zero fluff, fully done for you.",
+    "Nafa builds and deploys 24/7 AI call agents, <60-second speed-to-lead follow-up systems, and high-converting websites for local businesses. Fully done for you, with zero fluff.",
   keywords: [
     "AI Call Agent",
     "AI Voice Receptionist",
@@ -17,9 +18,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Nafa Technologies" }],
   openGraph: {
-    title: "Nafa Technologies | 24/7 AI Call Agents & Speed-to-Lead",
+    title: "Nafa Technologies — 24/7 AI Call Agents & Speed-to-Lead",
     description:
-      "Never miss a lead again. We deploy AI phone agents and high-converting websites that answer every call and book appointments while you sleep.",
+      "Never miss a lead again. Deploy 24/7 AI phone agents and automated response pipelines that answer every call and book appointments while you sleep.",
     url: "https://nafatechnologies.com",
     siteName: "Nafa Technologies",
     images: [
@@ -44,10 +45,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   viewportFit: "cover",
-  themeColor: "#FBFBFA",
+  themeColor: "#000000",
 };
-
-import SiteShell from "@/components/SiteShell";
 
 export default function RootLayout({
   children,
@@ -55,9 +54,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth bg-black text-white" style={{ background: "#000000", color: "#ffffff" }}>
       <head>
         <link rel="icon" href="/logo.jpg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Instrument+Serif:ital@1&display=swap"
+          rel="stylesheet"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -92,7 +97,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen bg-nafa-canvas text-nafa-charcoal font-sans antialiased selection:bg-amber-100 selection:text-amber-900">
+      <body
+        className="min-h-screen bg-black text-white font-sans antialiased selection:bg-white selection:text-black"
+        style={{ background: "#000000", color: "#ffffff" }}
+      >
         <SiteShell>{children}</SiteShell>
       </body>
     </html>

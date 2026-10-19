@@ -243,30 +243,30 @@ export default function InteractiveAudioDemo() {
   };
 
   return (
-    <section id="demo" className="py-16 sm:py-24 bg-nafa-canvas relative">
+    <section id="demo" className="py-8 sm:py-12 bg-transparent relative text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold mb-4">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            Experience The Technology
+          <div className="badge-pill inline-flex items-center gap-1.5 mb-4">
+            <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+            <span>Experience The Voice Technology</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-nafa-charcoal mb-4">
-            Hear What It Sounds Like in Real Life
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white mb-4">
+            Hear What It Sounds Like in <em className="font-editorial not-italic text-[#9a9a9a]">Real Life</em>
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-nafa-muted max-w-2xl mx-auto leading-relaxed">
-            No robotic telephone trees. Listen to our AI voice agents conduct realistic customer calls, qualify callers, and secure appointments.
+          <p className="text-sm sm:text-base text-[#9a9a9a] max-w-2xl mx-auto leading-relaxed">
+            Zero robotic monotone trees. Listen to our AI voice receptionists conduct realistic customer calls, qualify intent, and secure calendar appointments.
           </p>
 
-          {/* Industry Selector Tabs (Mobile Scrollable) */}
+          {/* Industry Selector Tabs */}
           <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-2 pt-6 no-scrollbar">
             {SCENARIOS.map((s) => (
               <button
                 key={s.id}
                 onClick={() => handleScenarioChange(s.id)}
-                className={`press-scale flex-shrink-0 px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all ${
+                className={`shrink-0 px-4 py-2 rounded-[6px] text-xs sm:text-sm font-medium transition-all cursor-pointer ${
                   activeScenarioId === s.id
-                    ? "bg-nafa-charcoal text-white shadow-sm"
-                    : "bg-white text-nafa-charcoal-muted border border-nafa-border hover:bg-stone-50"
+                    ? "btn-solid text-black font-semibold"
+                    : "bg-white/[0.04] text-[#9a9a9a] border border-white/10 hover:border-white/30 hover:text-white"
                 }`}
               >
                 {s.name}
@@ -276,21 +276,21 @@ export default function InteractiveAudioDemo() {
         </div>
 
         {/* Audio Simulation Player Card */}
-        <div className="apple-glass rounded-3xl p-5 sm:p-8 lg:p-10 shadow-apple-card border border-white/80 max-w-4xl mx-auto mb-14">
-          <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-6 pb-6 border-b border-nafa-border/60">
+        <div className="apple-glass rounded-lg p-5 sm:p-8 lg:p-10 border border-white/15 max-w-4xl mx-auto mb-14">
+          <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-6 pb-6 border-b border-white/10">
             {/* Scenario Meta */}
             <div>
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-extrabold uppercase tracking-wider text-nafa-gold bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-white/90 bg-white/[0.05] border border-white/15 px-2.5 py-0.5 rounded-[4px]">
                   {scenario.industry}
                 </span>
-                <span className="text-xs text-nafa-muted">Simulated Inbound Call</span>
+                <span className="text-xs text-[#9a9a9a]">Simulated Inbound Call</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-nafa-charcoal mt-1">
+              <h3 className="text-xl sm:text-2xl font-medium text-white tracking-tight mt-1">
                 {scenario.summary}
               </h3>
-              <p className="text-xs sm:text-sm text-nafa-muted mt-0.5">
-                Caller: <span className="font-semibold text-nafa-charcoal">{scenario.caller}</span>
+              <p className="text-xs sm:text-sm text-[#9a9a9a] mt-0.5">
+                Caller: <span className="font-medium text-white">{scenario.caller}</span>
               </p>
             </div>
 
@@ -298,7 +298,7 @@ export default function InteractiveAudioDemo() {
             <div className="flex items-center gap-3">
               <button
                 onClick={handleTogglePlay}
-                className="press-scale py-3 px-6 rounded-2xl bg-nafa-gold hover:bg-nafa-gold-hover text-white font-bold text-sm shadow-apple-gold flex items-center gap-2.5 transition-all"
+                className="btn btn-solid h-[40px] px-5 text-xs sm:text-sm font-semibold flex items-center gap-2"
                 aria-label={isPlaying ? "Pause audio call" : "Play audio call"}
               >
                 {isPlaying ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current" />}
@@ -307,7 +307,7 @@ export default function InteractiveAudioDemo() {
 
               <button
                 onClick={handleReset}
-                className="p-3 rounded-2xl bg-white border border-nafa-border hover:bg-stone-50 text-nafa-charcoal"
+                className="p-2.5 rounded-[6px] bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] text-white cursor-pointer"
                 title="Restart Call"
                 aria-label="Restart call"
               >
@@ -316,23 +316,23 @@ export default function InteractiveAudioDemo() {
 
               <button
                 onClick={() => setAudioMuted(!audioMuted)}
-                className="p-3 rounded-2xl bg-white border border-nafa-border hover:bg-stone-50 text-nafa-charcoal"
+                className="p-2.5 rounded-[6px] bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] text-white cursor-pointer"
                 title={audioMuted ? "Unmute Sound" : "Mute Sound"}
                 aria-label="Toggle audio mute"
               >
-                {audioMuted ? <VolumeX className="w-4 h-4 text-red-500" /> : <Volume2 className="w-4 h-4" />}
+                {audioMuted ? <VolumeX className="w-4 h-4 text-red-400" /> : <Volume2 className="w-4 h-4" />}
               </button>
             </div>
           </div>
 
           {/* Animated Waveform Visualizer */}
           <div className="py-6 sm:py-8">
-            <div className="flex items-center justify-between text-xs text-nafa-muted font-mono mb-2">
+            <div className="flex items-center justify-between text-xs text-[#9a9a9a] font-mono mb-2">
               <span>0:{currentTime < 10 ? `0${currentTime}` : currentTime}</span>
-              <span className="flex items-center gap-1.5 font-sans font-semibold text-nafa-charcoal">
+              <span className="flex items-center gap-1.5 font-sans font-medium text-white">
                 {isPlaying ? (
                   <>
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                     Call Active (0.3s latency)
                   </>
                 ) : (
@@ -343,7 +343,7 @@ export default function InteractiveAudioDemo() {
             </div>
 
             {/* Waveform Bars */}
-            <div className="h-16 bg-nafa-canvas-muted/80 rounded-2xl p-3 flex items-center justify-between gap-1 border border-nafa-border/40 overflow-hidden">
+            <div className="h-16 bg-black/50 rounded-[6px] p-3 flex items-center justify-between gap-1 border border-white/10 overflow-hidden">
               {Array.from({ length: 42 }).map((_, i) => {
                 const isAI = currentTime % 6 >= 3;
                 const dynamicHeight = isPlaying
@@ -364,9 +364,9 @@ export default function InteractiveAudioDemo() {
                     className={`w-full rounded-full transition-all duration-150 ${
                       isPlaying
                         ? isAI
-                          ? "bg-amber-500"
-                          : "bg-emerald-500"
-                        : "bg-stone-300"
+                          ? "bg-white"
+                          : "bg-white/60"
+                        : "bg-white/20"
                     }`}
                   />
                 );
@@ -386,33 +386,33 @@ export default function InteractiveAudioDemo() {
               return (
                 <div
                   key={index}
-                  className={`p-3.5 sm:p-4 rounded-2xl transition-all duration-300 ${
+                  className={`p-3.5 rounded-[6px] transition-all duration-200 ${
                     item.speaker === "ai"
                       ? isCurrent
-                        ? "bg-amber-50 border-2 border-amber-300 shadow-xs"
+                        ? "bg-white/15 border border-white/40 shadow-sm"
                         : isPassed
-                        ? "bg-amber-50/50 border border-amber-100"
-                        : "bg-stone-50/40 opacity-40 border border-transparent"
+                        ? "bg-white/[0.06] border border-white/15"
+                        : "bg-white/[0.02] opacity-35 border border-transparent"
                       : isCurrent
-                      ? "bg-emerald-50 border-2 border-emerald-300 shadow-xs"
+                      ? "bg-white/10 border border-white/30 shadow-sm"
                       : isPassed
-                      ? "bg-white border border-nafa-border/60"
-                      : "bg-stone-50/40 opacity-40 border border-transparent"
+                      ? "bg-white/[0.03] border border-white/10"
+                      : "bg-white/[0.02] opacity-35 border border-transparent"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
                     <span
-                      className={`text-[11px] font-black uppercase tracking-wider ${
-                        item.speaker === "ai" ? "text-nafa-gold" : "text-emerald-700"
+                      className={`text-[11px] font-semibold uppercase tracking-wider ${
+                        item.speaker === "ai" ? "text-white" : "text-[#9a9a9a]"
                       }`}
                     >
                       {item.speaker === "ai" ? "Nafa AI Agent" : "Caller"}
                     </span>
-                    <span className="text-[10px] text-nafa-muted font-mono">
+                    <span className="text-[10px] text-[#9a9a9a] font-mono">
                       0:{item.time < 10 ? `0${item.time}` : item.time}
                     </span>
                   </div>
-                  <p className="text-xs sm:text-sm font-medium text-nafa-charcoal leading-relaxed">
+                  <p className="text-xs sm:text-sm font-normal text-white leading-relaxed">
                     "{item.text}"
                   </p>
                 </div>
@@ -422,31 +422,31 @@ export default function InteractiveAudioDemo() {
         </div>
 
         {/* Speed-to-Lead Sandbox Simulator */}
-        <div className="apple-glass-card rounded-3xl p-6 sm:p-10 shadow-apple-card border border-nafa-gold/30 bg-gradient-to-b from-white to-amber-50/30 max-w-4xl mx-auto">
+        <div className="apple-glass rounded-lg p-6 sm:p-10 border border-white/15 max-w-4xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-8 justify-between">
             <div className="w-full lg:w-1/2 space-y-3">
-              <span className="text-xs font-black uppercase tracking-wider text-nafa-gold bg-amber-100/80 px-3 py-1 rounded-full inline-flex items-center gap-1.5">
-                <Zap className="w-3.5 h-3.5 text-amber-600" />
+              <span className="badge-pill text-xs inline-flex items-center gap-1.5">
+                <Zap className="w-3.5 h-3.5 text-white" />
                 Live Speed-to-Lead Simulator
               </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-nafa-charcoal">
+              <h3 className="text-2xl sm:text-3xl font-medium tracking-tight text-white">
                 See How Fast We Contact New Leads
               </h3>
-              <p className="text-xs sm:text-sm text-nafa-muted leading-relaxed">
-                Test our outbound agent right now. Submit mock details to trigger a live simulation of the automated 5-minute qualification workflow.
+              <p className="text-xs sm:text-sm text-[#9a9a9a] leading-relaxed">
+                Test our outbound agent right now. Submit mock details to trigger a live simulation of the automated 60-second qualification workflow.
               </p>
-              <div className="flex items-center gap-2 text-xs text-nafa-muted pt-1">
-                <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              <div className="flex items-center gap-2 text-xs text-[#9a9a9a] pt-1">
+                <ShieldCheck className="w-4 h-4 text-white" />
                 <span>Simulated sandbox mode (safe test, no spam calls)</span>
               </div>
             </div>
 
             {/* Test Form & Progress State */}
-            <div className="w-full lg:w-1/2 bg-white rounded-2xl p-5 sm:p-6 border border-nafa-border shadow-xs">
+            <div className="w-full lg:w-1/2 bg-[#0c0c0c] rounded-[6px] p-5 sm:p-6 border border-white/15">
               {!speedTestRunning ? (
                 <form onSubmit={handleStartSpeedTest} className="space-y-3.5">
                   <div>
-                    <label className="block text-xs font-bold text-nafa-charcoal mb-1">
+                    <label className="block text-xs font-medium text-white/90 mb-1">
                       Lead Name:
                     </label>
                     <input
@@ -455,11 +455,11 @@ export default function InteractiveAudioDemo() {
                       placeholder="e.g. Michael Scott"
                       value={testLeadName}
                       onChange={(e) => setTestLeadName(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-nafa-border bg-nafa-canvas text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+                      className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-nafa-charcoal mb-1">
+                    <label className="block text-xs font-medium text-white/90 mb-1">
                       Phone Number:
                     </label>
                     <input
@@ -468,12 +468,12 @@ export default function InteractiveAudioDemo() {
                       placeholder="(555) 019-2834"
                       value={testLeadPhone}
                       onChange={(e) => setTestLeadPhone(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-nafa-border bg-nafa-canvas text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+                      className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="press-scale w-full py-3 px-4 rounded-xl bg-nafa-gold hover:bg-nafa-gold-hover text-white font-bold text-xs sm:text-sm shadow-apple-gold flex items-center justify-center gap-2"
+                    className="btn btn-solid w-full h-[40px] text-xs sm:text-sm font-semibold flex items-center justify-center gap-2"
                   >
                     <Zap className="w-4 h-4" />
                     <span>Trigger Speed-to-Lead Test</span>
@@ -481,26 +481,26 @@ export default function InteractiveAudioDemo() {
                 </form>
               ) : (
                 <div className="space-y-4 py-2">
-                  <div className="flex items-center justify-between pb-3 border-b border-nafa-border/60">
-                    <span className="text-xs font-bold text-nafa-charcoal">
+                  <div className="flex items-center justify-between pb-3 border-b border-white/10">
+                    <span className="text-xs font-medium text-white">
                       Speed-to-Lead Workflow Active
                     </span>
-                    <span className="text-xs font-mono font-bold text-amber-600">
-                      Target: &lt;5 mins
+                    <span className="text-xs font-mono font-medium text-white/90">
+                      Target: &lt;60s
                     </span>
                   </div>
 
                   <div className="space-y-3 text-xs">
-                    <div className="flex items-center gap-2.5 text-emerald-700 font-semibold">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    <div className="flex items-center gap-2.5 text-white font-medium">
+                      <CheckCircle2 className="w-4 h-4 text-white" />
                       <span>1. Web form lead received for {testLeadName}</span>
                     </div>
 
                     <div
                       className={`flex items-center gap-2.5 transition-opacity duration-300 ${
                         speedTestStep >= 2
-                          ? "text-emerald-700 font-semibold"
-                          : "text-nafa-muted opacity-40"
+                          ? "text-white font-medium"
+                          : "text-[#9a9a9a] opacity-40"
                       }`}
                     >
                       <CheckCircle2 className="w-4 h-4" />
@@ -510,8 +510,8 @@ export default function InteractiveAudioDemo() {
                     <div
                       className={`flex items-center gap-2.5 transition-opacity duration-300 ${
                         speedTestStep >= 3
-                          ? "text-emerald-700 font-semibold"
-                          : "text-nafa-muted opacity-40"
+                          ? "text-white font-medium"
+                          : "text-[#9a9a9a] opacity-40"
                       }`}
                     >
                       <CheckCircle2 className="w-4 h-4" />
@@ -521,11 +521,11 @@ export default function InteractiveAudioDemo() {
                     <div
                       className={`flex items-center gap-2.5 transition-opacity duration-300 ${
                         speedTestStep >= 4
-                          ? "text-emerald-700 font-bold bg-emerald-50 p-2.5 rounded-xl border border-emerald-200"
-                          : "text-nafa-muted opacity-40"
+                          ? "text-white font-semibold bg-white/10 p-2.5 rounded-[6px] border border-white/20"
+                          : "text-[#9a9a9a] opacity-40"
                       }`}
                     >
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                      <CheckCircle2 className="w-4 h-4 text-white" />
                       <span>
                         4. Connected! Caller qualified & booked on calendar!
                       </span>
@@ -538,7 +538,7 @@ export default function InteractiveAudioDemo() {
                         setSpeedTestRunning(false);
                         setSpeedTestStep(0);
                       }}
-                      className="press-scale w-full mt-2 py-2 rounded-xl border border-nafa-border text-xs font-semibold text-nafa-charcoal hover:bg-stone-50"
+                      className="btn btn-ghost w-full h-[36px] mt-2 text-xs font-medium"
                     >
                       Reset Test
                     </button>
@@ -552,3 +552,4 @@ export default function InteractiveAudioDemo() {
     </section>
   );
 }
+

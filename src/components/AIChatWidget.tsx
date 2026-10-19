@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { MessageSquare, X, Send, Bot, Sparkles, Calendar, ArrowRight, User } from "lucide-react";
+import { X, Send, Bot, Calendar, ArrowRight } from "lucide-react";
 
 interface Message {
   id: string;
@@ -23,7 +23,7 @@ export default function AIChatWidget({ onOpenSchedule, onOpenQuote }: AIChatWidg
     {
       id: "1",
       sender: "bot",
-      text: "Hi there! I'm Nafa's AI Assistant. How can I help you stop losing leads today?",
+      text: "Hello! I'm Nafa's AI Assistant. How can I help you deploy 24/7 call answering or <60s lead response?",
       time: "Just now",
     },
   ]);
@@ -38,7 +38,7 @@ export default function AIChatWidget({ onOpenSchedule, onOpenQuote }: AIChatWidg
 
   const quickPrompts = [
     "How does Speed-to-Lead work?",
-    "Will the AI voice sound robotic?",
+    "Will the voice sound robotic?",
     "What's in the Full Growth Bundle?",
     "How fast can you set this up?",
   ];
@@ -57,35 +57,34 @@ export default function AIChatWidget({ onOpenSchedule, onOpenQuote }: AIChatWidg
     setMessages((prev) => [...prev, userMsg]);
     if (!textToSend) setInput("");
 
-    // Intelligent auto-response based on PRD knowledge
     setTimeout(() => {
       let botReply =
-        "Thanks for asking! Nafa specializes in 24/7 AI call agents and <5-minute speed-to-lead follow-up so you never miss another customer inquiry.";
+        "Nafa engineers custom 24/7 AI voice receptionists and <60-second speed-to-lead follow-up systems so your business never misses revenue.";
       let action: "schedule" | "quote" | undefined = undefined;
 
       const lower = query.toLowerCase();
       if (lower.includes("speed-to-lead") || lower.includes("speed")) {
         botReply =
-          "Our Speed-to-Lead Agent contacts web leads in under 60 seconds. Studies show that contacting within 5 minutes makes you 21x more likely to convert the lead!";
+          "Our Speed-to-Lead system calls and messages new inquiries in under 60 seconds. Responding within 5 minutes increases conversion rates by up to 21x.";
         action = "quote";
       } else if (lower.includes("robot") || lower.includes("sound") || lower.includes("voice")) {
         botReply =
-          "Not robotic at all! We use natural conversational neural voices with natural breathing and sub-second response times. You can test our interactive audio demo above to hear it!";
+          "Zero robotic monotone. We use low-latency, natural conversational speech with human cadence, natural pauses, and full CRM integration. Listen to our live voice demo!";
       } else if (lower.includes("bundle") || lower.includes("growth")) {
         botReply =
-          "The Full Growth System combines our high-converting website, the Speed-to-Lead agent, and the 24/7 AI Call Agent. That way no call and no web lead is ever missed.";
+          "The Full Growth Architecture includes the high-converting site, speed-to-lead outbound agent, and 24/7 inbound voice receptionist for full coverage.";
         action = "quote";
       } else if (lower.includes("fast") || lower.includes("timeline") || lower.includes("setup")) {
         botReply =
-          "We deploy most systems in 5 to 7 business days! We build everything done-for-you with zero outsourcing.";
+          "Systems go live in 5 to 7 business days! 100% done-for-you with direct engineer handoff.";
         action = "schedule";
       } else if (lower.includes("cost") || lower.includes("price") || lower.includes("quote")) {
         botReply =
-          "We customize pricing to your call volume so you don't overpay for unused minutes. Click below to get an exact custom quote!";
+          "Pricing scales cleanly based on your expected monthly call volume. Request a tailored proposal or book a call with our team!";
         action = "quote";
       } else {
         botReply =
-          "I can schedule a quick 15-minute strategy call with our engineering team, or generate a custom quote for your business!";
+          "Would you like to book a 15-minute architecture session with our engineering team, or receive a tailored quote?";
         action = "schedule";
       }
 
@@ -99,24 +98,24 @@ export default function AIChatWidget({ onOpenSchedule, onOpenQuote }: AIChatWidg
           action,
         },
       ]);
-    }, 700);
+    }, 600);
   };
 
   return (
     <>
-      {/* Floating Toggle Button (Pill on Desktop, Circle on Mobile) */}
+      {/* Floating Toggle Button */}
       <div className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-40">
         {!isOpen ? (
           <button
             onClick={() => setIsOpen(true)}
-            className="press-scale flex items-center gap-2.5 p-3.5 sm:px-5 sm:py-3.5 rounded-full bg-nafa-charcoal hover:bg-black text-white shadow-apple-float border border-white/20 transition-all"
+            className="flex items-center gap-2.5 px-4 py-2.5 rounded-[6px] border border-white/20 bg-black/90 hover:bg-neutral-900 text-white shadow-2xl backdrop-blur-xl transition-all cursor-pointer"
             aria-label="Open AI Assistant"
           >
             <div className="relative">
-              <Bot className="w-5 h-5 text-amber-400" />
-              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-500 rounded-full border-2 border-nafa-charcoal animate-pulse"></span>
+              <Bot className="w-4 h-4 text-white" />
+              <span className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
             </div>
-            <span className="hidden sm:inline font-bold text-xs sm:text-sm">
+            <span className="text-xs font-medium tracking-tight text-white/95">
               Ask Nafa AI
             </span>
           </button>
@@ -126,35 +125,35 @@ export default function AIChatWidget({ onOpenSchedule, onOpenQuote }: AIChatWidg
       {/* Floating Chat Sheet / Window */}
       {isOpen && (
         <div
-          className="fixed bottom-0 sm:bottom-6 right-0 sm:right-6 z-50 w-full sm:w-[380px] h-[85vh] sm:h-[540px] bg-nafa-canvas sm:rounded-3xl rounded-t-3xl border border-nafa-border shadow-apple-float flex flex-col overflow-hidden animate-in slide-in-from-bottom-6 duration-300"
+          className="fixed bottom-0 sm:bottom-6 right-0 sm:right-6 z-50 w-full sm:w-[380px] h-[85vh] sm:h-[520px] bg-[#0c0c0c] sm:rounded-lg rounded-t-lg border border-white/15 shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-6 duration-200 text-white"
           role="dialog"
           aria-label="Nafa AI Assistant Chat"
         >
           {/* Header */}
-          <div className="apple-glass p-4 border-b border-nafa-border/60 flex items-center justify-between">
+          <div className="p-3.5 px-4 border-b border-white/10 bg-white/[0.02] flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-amber-500 text-white flex items-center justify-center font-bold">
-                <Bot className="w-5 h-5" />
+              <div className="w-7 h-7 rounded-[5px] border border-white/20 bg-white/10 text-white flex items-center justify-center">
+                <Bot className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-nafa-charcoal flex items-center gap-1.5">
-                  Nafa Assistant
-                  <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <h4 className="text-xs font-semibold text-white flex items-center gap-1.5">
+                  Nafa AI Agent
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                 </h4>
-                <p className="text-[11px] text-nafa-muted">24/7 AI Automation Agent</p>
+                <p className="text-[10px] text-[#9a9a9a]">24/7 Voice & Systems Assistant</p>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="p-1.5 rounded-full hover:bg-stone-200/60 text-nafa-charcoal"
+              className="p-1 rounded-md border border-white/10 bg-white/[0.04] hover:bg-white/[0.1] text-white/70 hover:text-white transition-colors cursor-pointer"
               aria-label="Close chat"
             >
-              <X className="w-5 h-5" />
+              <X className="w-3.5 h-3.5" />
             </button>
           </div>
 
           {/* Messages Stream */}
-          <div className="flex-1 p-4 overflow-y-auto space-y-3 bg-stone-50/50">
+          <div className="flex-1 p-4 overflow-y-auto space-y-3 bg-black/40">
             {messages.map((m) => (
               <div
                 key={m.id}
@@ -163,10 +162,10 @@ export default function AIChatWidget({ onOpenSchedule, onOpenQuote }: AIChatWidg
                 }`}
               >
                 <div
-                  className={`max-w-[85%] p-3.5 rounded-2xl text-xs sm:text-sm leading-relaxed shadow-2xs ${
+                  className={`max-w-[85%] p-3 rounded-[6px] text-xs leading-relaxed ${
                     m.sender === "user"
-                      ? "bg-nafa-charcoal text-white rounded-br-xs"
-                      : "bg-white text-nafa-charcoal border border-nafa-border/60 rounded-bl-xs"
+                      ? "bg-white text-black font-medium"
+                      : "bg-white/[0.05] text-white border border-white/10"
                   }`}
                 >
                   {m.text}
@@ -177,10 +176,10 @@ export default function AIChatWidget({ onOpenSchedule, onOpenQuote }: AIChatWidg
                         setIsOpen(false);
                         onOpenQuote();
                       }}
-                      className="mt-2.5 w-full py-2 px-3 rounded-xl bg-nafa-gold text-white font-bold text-xs flex items-center justify-center gap-1.5 hover:bg-nafa-gold-hover"
+                      className="mt-2.5 w-full btn btn-solid h-[34px] text-xs"
                     >
                       <span>Request Free Quote</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-3 h-3 ml-1" />
                     </button>
                   )}
 
@@ -190,14 +189,14 @@ export default function AIChatWidget({ onOpenSchedule, onOpenQuote }: AIChatWidg
                         setIsOpen(false);
                         onOpenSchedule();
                       }}
-                      className="mt-2.5 w-full py-2 px-3 rounded-xl bg-nafa-charcoal text-white font-bold text-xs flex items-center justify-center gap-1.5 hover:bg-black"
+                      className="mt-2.5 w-full btn btn-solid h-[34px] text-xs"
                     >
-                      <Calendar className="w-3.5 h-3.5 text-amber-400" />
-                      <span>Book 15-Min Strategy Call</span>
+                      <Calendar className="w-3 h-3 mr-1" />
+                      <span>Book Strategy Call</span>
                     </button>
                   )}
                 </div>
-                <span className="text-[10px] text-nafa-muted mt-1 px-1 font-mono">
+                <span className="text-[10px] text-[#9a9a9a] mt-1 px-1 font-mono">
                   {m.time}
                 </span>
               </div>
@@ -206,12 +205,12 @@ export default function AIChatWidget({ onOpenSchedule, onOpenQuote }: AIChatWidg
           </div>
 
           {/* Quick suggestions pills */}
-          <div className="p-2 border-t border-nafa-border/40 bg-white/70 overflow-x-auto flex gap-1.5 no-scrollbar">
+          <div className="p-2 border-t border-white/10 bg-white/[0.02] overflow-x-auto flex gap-1.5 no-scrollbar">
             {quickPrompts.map((qp, i) => (
               <button
                 key={i}
                 onClick={() => handleSend(qp)}
-                className="flex-shrink-0 text-[11px] font-semibold bg-stone-100 hover:bg-stone-200 text-nafa-charcoal px-2.5 py-1 rounded-full border border-stone-200/60"
+                className="shrink-0 text-[11px] bg-white/[0.04] hover:bg-white/[0.08] text-[#9a9a9a] hover:text-white px-2.5 py-1 rounded-[5px] border border-white/10 transition-colors cursor-pointer"
               >
                 {qp}
               </button>
@@ -219,21 +218,21 @@ export default function AIChatWidget({ onOpenSchedule, onOpenQuote }: AIChatWidg
           </div>
 
           {/* Input Bar */}
-          <div className="p-3 border-t border-nafa-border bg-white flex items-center gap-2">
+          <div className="p-2.5 border-t border-white/10 bg-black/60 flex items-center gap-2">
             <input
               type="text"
               placeholder="Ask about AI calls, speed-to-lead..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
-              className="flex-1 px-3.5 py-2.5 rounded-xl border border-nafa-border bg-nafa-canvas text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="flex-1 px-3 py-2 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs text-white placeholder-white/40 focus:outline-none focus:border-white/50"
             />
             <button
               onClick={() => handleSend()}
-              className="p-2.5 rounded-xl bg-nafa-gold hover:bg-nafa-gold-hover text-white transition-all"
+              className="btn btn-solid h-[34px] px-3 text-xs"
               aria-label="Send message"
             >
-              <Send className="w-4 h-4" />
+              <Send className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>

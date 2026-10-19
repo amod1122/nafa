@@ -1,187 +1,178 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Calendar, Menu, X, ArrowRight, PhoneCall } from "lucide-react";
 import { useSiteModals } from "@/context/ModalContext";
 
+const navItems = [
+  { href: "/services", label: "Services" },
+  { href: "/how-it-works", label: "Process" },
+  { href: "/case-studies", label: "Work" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/demo", label: "Live Demo" },
+];
+
+const mobileExtraItems = [
+  { href: "/about", label: "About Nafa" },
+  { href: "/industries", label: "Industries" },
+  { href: "/blog", label: "Insights" },
+  { href: "/contact", label: "Contact Us" },
+];
+
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
-  const { openSchedule, openQuoteModal } = useSiteModals();
+  const { openSchedule } = useSiteModals();
 
+  // Close mobile menu on route change
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    setMenuOpen(false);
+  }, [pathname]);
 
-  const navLinks = [
-    { href: "/services", label: "Services" },
-    { href: "/how-it-works", label: "How It Works" },
-    { href: "/case-studies", label: "Case Studies" },
-    { href: "/demo", label: "Live Demo" },
-    { href: "/pricing", label: "Pricing" },
-    { href: "/about", label: "About" },
-    { href: "/blog", label: "Blog" },
-    { href: "/contact", label: "Contact" },
-  ];
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.classList.add("menu-open");
+    } else {
+      document.body.classList.remove("menu-open");
+    }
+    return () => {
+      document.body.classList.remove("menu-open");
+    };
+  }, [menuOpen]);
 
   return (
-    <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled
-            ? "apple-glass py-2.5 shadow-apple-card"
-            : "bg-nafa-canvas/85 backdrop-blur-md py-3.5 border-b border-nafa-border/40"
-        }`}
+    <header className="site-header">
+      {/* Left: Brand Logo */}
+      <Link
+        href="/"
+        className="logo appear appear--scale inline-flex items-center gap-2.5 justify-self-start text-white no-underline group"
+        aria-label="Nafa Technologies home"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
+        <span className="grid h-[22px] w-[22px] place-items-center text-white transition-transform duration-300 group-hover:scale-110">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g transform="rotate(-30 12 12)">
+              <circle cx="7.3" cy="3.2" r="1.45" />
+              <rect x="5.5" y="4.7" width="3.6" height="14.6" rx="1.8" />
+              <rect x="14.9" y="4.7" width="3.6" height="14.6" rx="1.8" />
+              <circle cx="16.7" cy="20.8" r="1.45" />
+            </g>
+          </svg>
+        </span>
+        <span className="text-[15.5px] font-semibold tracking-[-0.03em] text-white">
+          Nafa<span className="font-normal text-[#9a9a9a]">.tech</span>
+        </span>
+      </Link>
+
+      {/* Center: Liquid-metal Navigation Pills */}
+      <nav
+        id="site-nav"
+        aria-label="Primary navigation"
+        className="hidden lg:flex items-center gap-2 justify-self-center"
+      >
+        {navItems.map((item, idx) => {
+          const isActive =
+            pathname === item.href ||
+            (item.href === "/services" && pathname.startsWith("/services/"));
+          return (
             <Link
-              href="/"
-              className="flex items-center gap-2.5 group focus:outline-none"
-              aria-label="Nafa Technologies Home"
+              key={item.href}
+              href={item.href}
+              className={`nav-pill appear ${
+                idx % 2 === 0 ? "appear--scale" : "appear--soft"
+              } ${isActive ? "border-white/80 bg-white/10 text-white" : ""}`}
+              style={{ animationDelay: `${0.06 * (idx + 1)}s` }}
             >
-              <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-nafa-border/60 shadow-xs flex-shrink-0">
-                <Image
-                  src="/logo.jpg"
-                  alt="Nafa Technologies"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-200"
-                  priority
-                />
-              </div>
-              <div className="flex items-baseline gap-1">
-                <span className="font-extrabold tracking-tight text-nafa-charcoal text-base sm:text-lg">
-                  &lt; Nafa <span className="font-medium text-nafa-charcoal-muted">Technologies</span> &gt;
-                </span>
-              </div>
+              {item.label}
             </Link>
+          );
+        })}
+      </nav>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center space-x-6 text-[13px] font-semibold text-nafa-charcoal-muted">
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`transition-colors duration-150 py-1 ${
-                      isActive
-                        ? "text-nafa-charcoal font-bold border-b-2 border-nafa-gold"
-                        : "hover:text-nafa-charcoal"
-                    } ${link.href === "/demo" ? "flex items-center gap-1.5" : ""}`}
-                  >
-                    {link.href === "/demo" && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    )}
-                    {link.label}
-                  </Link>
-                );
-              })}
-            </nav>
+      {/* Right: CTA & Mobile Burger */}
+      <div className="flex items-center gap-3 justify-self-end">
+        <button
+          onClick={openSchedule}
+          className="btn btn-solid appear appear--scale hidden sm:inline-flex"
+          style={{ animationDelay: "0.2s" }}
+        >
+          Book Discovery Call
+        </button>
 
-            {/* CTA Buttons */}
-            <div className="hidden sm:flex items-center gap-2.5">
-              <button
-                onClick={() => openQuoteModal()}
-                className="press-scale px-3.5 py-1.5 text-xs font-bold rounded-full border border-nafa-charcoal/20 text-nafa-charcoal hover:bg-black/5 transition-all"
-              >
-                Free Quote
-              </button>
-              <button
-                onClick={openSchedule}
-                className="press-scale px-4 py-1.5 text-xs font-bold rounded-full bg-nafa-gold hover:bg-nafa-gold-hover text-white shadow-apple-gold flex items-center gap-1.5 transition-all"
-              >
-                <Calendar className="w-3.5 h-3.5" />
-                Book Meeting
-              </button>
-            </div>
+        <button
+          onClick={() => setMenuOpen((prev) => !prev)}
+          className={`burger-btn ${menuOpen ? "is-active" : ""}`}
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-nav"
+        >
+          <span className="burger-bar" />
+          <span className="burger-bar" />
+          <span className="burger-bar" />
+        </button>
+      </div>
 
-            {/* Mobile Menu & Quick Action Toggle */}
-            <div className="flex items-center gap-2 lg:hidden">
-              <button
-                onClick={openSchedule}
-                className="press-scale px-3 py-1.5 text-xs font-bold rounded-full bg-nafa-gold text-white shadow-xs flex items-center gap-1.5"
-                aria-label="Book a call"
+      {/* Mobile Menu Overlay */}
+      {menuOpen && (
+        <div
+          id="mobile-nav"
+          className="fixed inset-x-0 top-[65px] bottom-0 z-50 bg-black/95 backdrop-blur-2xl px-6 py-8 flex flex-col justify-between overflow-y-auto border-t border-white/10"
+        >
+          <div className="grid gap-2">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#9a9a9a] mb-2 px-2">
+              Navigation
+            </p>
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center justify-between rounded-md border border-white/10 bg-white/[0.03] px-4 py-3.5 text-sm font-medium text-white transition-colors hover:border-white/30 hover:bg-white/[0.08]"
               >
-                <Calendar className="w-3 h-3" />
-                Book
-              </button>
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-xl text-nafa-charcoal hover:bg-black/5 focus:outline-none transition-colors"
-                aria-label="Toggle navigation menu"
+                <span>{item.label}</span>
+                <span className="text-xs text-[#9a9a9a]">→</span>
+              </Link>
+            ))}
+
+            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#9a9a9a] mt-4 mb-2 px-2">
+              Explore More
+            </p>
+            {mobileExtraItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center justify-between rounded-md border border-white/5 bg-transparent px-4 py-3 text-sm text-[#9a9a9a] transition-colors hover:border-white/20 hover:text-white"
               >
-                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-              </button>
-            </div>
+                <span>{item.label}</span>
+                <span className="text-xs text-white/40">→</span>
+              </Link>
+            ))}
+          </div>
+
+          <div className="pt-6 border-t border-white/10 grid gap-3 mt-6">
+            <button
+              onClick={() => {
+                setMenuOpen(false);
+                openSchedule();
+              }}
+              className="btn btn-solid w-full h-[46px] text-sm"
+            >
+              Book Discovery Call
+            </button>
+            <p className="text-center text-xs text-[#9a9a9a]">
+              24/7 Voice & Speed-to-Lead Infrastructure
+            </p>
           </div>
         </div>
-
-        {/* Mobile Dropdown Sheet */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden px-4 pt-3 pb-6 border-t border-nafa-border/50 bg-nafa-canvas/98 backdrop-blur-2xl animate-in fade-in slide-in-from-top-2 duration-200">
-            <nav className="flex flex-col space-y-2 pt-2">
-              <Link
-                href="/"
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-semibold text-nafa-charcoal px-3 py-2 rounded-xl hover:bg-black/5"
-              >
-                Home
-              </Link>
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`text-sm font-semibold px-3 py-2 rounded-xl flex items-center justify-between ${
-                    pathname === link.href
-                      ? "bg-amber-100/60 text-amber-950 font-bold"
-                      : "text-nafa-charcoal hover:bg-black/5"
-                  }`}
-                >
-                  <span>{link.label}</span>
-                  {link.href === "/demo" && (
-                    <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">
-                      Audio Test
-                    </span>
-                  )}
-                </Link>
-              ))}
-
-              <div className="pt-3 border-t border-nafa-border/50 flex flex-col gap-2">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    openQuoteModal();
-                  }}
-                  className="w-full py-2.5 rounded-xl border border-nafa-charcoal/20 text-nafa-charcoal font-bold text-xs hover:bg-black/5 flex items-center justify-center gap-2"
-                >
-                  Request a Free Custom Quote
-                </button>
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    openSchedule();
-                  }}
-                  className="w-full py-2.5 rounded-xl bg-nafa-gold text-white font-bold text-xs shadow-apple-gold flex items-center justify-center gap-2"
-                >
-                  <Calendar className="w-3.5 h-3.5" />
-                  Book 15-Min Discovery Call
-                </button>
-              </div>
-            </nav>
-          </div>
-        )}
-      </header>
-    </>
+      )}
+    </header>
   );
 }

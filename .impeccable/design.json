@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "visualWorld": "night-shift-signal-field",
+  "mode": "persuade",
+  "signature": "perspective grid with a warm horizon signal",
+  "tokens": {
+    "ink": "#050A12",
+    "surface": "#0B1320",
+    "raised": "#111D2E",
+    "content": "#F4F7FB",
+    "muted": "#A6B4C7",
+    "signal": "#F2B84B",
+    "handled": "#63D6A3"
+  }
+}

@@ -10,7 +10,12 @@ import QuoteModal from "@/components/QuoteModal";
 import LeadCardModal from "@/components/LeadCardModal";
 import { ModalProvider, useSiteModals } from "@/context/ModalContext";
 
+import { usePathname } from "next/navigation";
+
 function ShellInner({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   const {
     isScheduleOpen,
     closeSchedule,
@@ -25,13 +30,33 @@ function ShellInner({ children }: { children: React.ReactNode }) {
   } = useSiteModals();
 
   return (
-    <div className="min-h-screen flex flex-col bg-nafa-canvas text-nafa-charcoal selection:bg-amber-100 selection:text-amber-900">
+    <div className="relative min-h-screen flex flex-col bg-black text-white selection:bg-white selection:text-black">
+      {/* Background video layer */}
+      <div className="hero-photo-wrap" aria-hidden="true">
+        <video
+          className="hero-video"
+          autoPlay
+          loop
+          muted
+          playsInline
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260818_072341_50851634-bbc3-4c33-9acc-7647d4db44aa.mp4"
+        />
+      </div>
+
+      {/* Film grain overlay */}
+      <div className="grain" aria-hidden="true" />
+
+      {/* Header */}
       <Navbar />
-      <main className="flex-1">{children}</main>
-      <Footer />
+
+      {/* Main Content */}
+      <main className="relative z-10 flex-1">{children}</main>
+
+      {/* Secondary Pages Footer */}
+      {!isHome && <Footer />}
 
       {/* Global Persistent Elements */}
-      <MobileStickyBar />
+      {!isHome && <MobileStickyBar />}
       <AIChatWidget onOpenSchedule={openSchedule} onOpenQuote={openQuoteModal} />
 
       {/* Global Modals */}

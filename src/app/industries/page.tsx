@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import {
   Wrench,
   Stethoscope,
@@ -9,10 +8,8 @@ import {
   Home,
   Car,
   Scissors,
-  CheckCircle2,
   Calendar,
   ArrowRight,
-  ShieldCheck,
   Sparkles,
 } from "lucide-react";
 import { useSiteModals } from "@/context/ModalContext";
@@ -23,7 +20,7 @@ export default function IndustriesPage() {
   const industries = [
     {
       id: "home-services",
-      name: "Home Services (HVAC, Plumbing, Roofing, Cleaning)",
+      name: "Home Services (HVAC, Plumbing, Roofing)",
       icon: Wrench,
       painPoint:
         "Emergency calls happen after 5 PM and on weekends. If a homeowner has a leaking pipe or broken furnace, they call the first company that picks up.",
@@ -48,12 +45,12 @@ export default function IndustriesPage() {
       painPoint:
         "Personal injury and family law leads go cold within minutes. Potential clients submit forms to multiple law firms simultaneously.",
       solution:
-        "Our Speed-to-Lead agent calls online submissions in under 60 seconds, pre-screens the case facts, and connects qualified callers to your intake paralegal.",
+        "Our Speed-to-Lead agent calls online submissions in under 60 seconds, pre-screens the case facts, and connects qualified callers to your intake team.",
       stat: "21x higher prospect qualification rate compared to next-day follow-up.",
     },
     {
       id: "real-estate",
-      name: "Real Estate Agencies & Property Management",
+      name: "Real Estate & Property Management",
       icon: Home,
       painPoint:
         "Realtors are constantly on property showings or closing meetings, missing buyer calls and tenant inquiries.",
@@ -84,18 +81,18 @@ export default function IndustriesPage() {
   ];
 
   return (
-    <div className="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div className="pt-28 pb-20 sm:pt-36 sm:pb-28 text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-nafa-gold border border-amber-200 text-xs font-bold mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
-            Specialized for Appointment-Driven Businesses
+          <div className="badge-pill inline-flex items-center gap-1.5 mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-white" />
+            <span>Specialized for Appointment-Driven Businesses</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-nafa-charcoal tracking-tight mb-4">
-            Industries We Serve
+          <h1 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-4">
+            Industries We <em className="font-editorial not-italic text-[#9a9a9a]">Serve</em>
           </h1>
-          <p className="text-base sm:text-lg text-nafa-muted max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-[#9a9a9a] max-w-2xl mx-auto leading-relaxed">
             Every industry has unique caller expectations and intake questions. We pre-train our AI voice and speed-to-lead agents with terminology and qualification rules built specifically for your field.
           </p>
         </div>
@@ -107,50 +104,50 @@ export default function IndustriesPage() {
             return (
               <div
                 key={ind.id}
-                className="apple-glass rounded-3xl p-6 sm:p-8 shadow-apple-card border border-white flex flex-col justify-between"
+                className="apple-glass rounded-lg p-6 sm:p-8 flex flex-col justify-between"
               >
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-amber-100 text-nafa-gold flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-6 h-6" />
+                    <div className="w-10 h-10 rounded-[6px] border border-white/15 bg-white/[0.05] text-white flex items-center justify-center shrink-0">
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <h2 className="text-xl sm:text-2xl font-extrabold text-nafa-charcoal">
+                    <h2 className="text-xl sm:text-2xl font-medium text-white tracking-tight">
                       {ind.name}
                     </h2>
                   </div>
 
-                  <div className="space-y-2 text-xs sm:text-sm">
+                  <div className="space-y-2.5 text-xs sm:text-sm">
                     <div>
-                      <strong className="text-red-700 block text-xs uppercase tracking-wider mb-1">
+                      <strong className="text-white/70 block text-xs uppercase tracking-wider mb-1">
                         The Pain Point:
                       </strong>
-                      <p className="text-nafa-muted leading-relaxed">{ind.painPoint}</p>
+                      <p className="text-[#9a9a9a] leading-relaxed">{ind.painPoint}</p>
                     </div>
 
-                    <div className="pt-2">
-                      <strong className="text-emerald-700 block text-xs uppercase tracking-wider mb-1">
+                    <div className="pt-1">
+                      <strong className="text-white block text-xs uppercase tracking-wider mb-1">
                         The Nafa Solution:
                       </strong>
-                      <p className="text-nafa-charcoal font-medium leading-relaxed">{ind.solution}</p>
+                      <p className="text-white/90 leading-relaxed">{ind.solution}</p>
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200 text-xs font-semibold text-amber-950">
-                    💡 <strong>Result:</strong> {ind.stat}
+                  <div className="p-3 rounded-[6px] bg-white/[0.02] border border-white/10 text-xs text-[#9a9a9a]">
+                    💡 <strong className="text-white">Result:</strong> {ind.stat}
                   </div>
                 </div>
 
-                <div className="pt-5 mt-4 border-t border-nafa-border/40 flex items-center justify-between">
+                <div className="pt-5 mt-4 border-t border-white/10 flex items-center justify-between">
                   <button
                     onClick={() => openQuoteModal(`${ind.name} Automation`)}
-                    className="press-scale text-xs font-bold text-nafa-gold hover:text-amber-800 flex items-center gap-1"
+                    className="text-xs font-medium text-white hover:underline flex items-center gap-1 cursor-pointer"
                   >
                     <span>Get quote for your industry</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                   <button
                     onClick={openSchedule}
-                    className="press-scale text-xs font-bold text-nafa-charcoal hover:underline"
+                    className="btn btn-ghost h-[32px] px-3 text-xs"
                   >
                     Book Call
                   </button>
@@ -161,24 +158,24 @@ export default function IndustriesPage() {
         </div>
 
         {/* CTA */}
-        <div className="apple-glass-card rounded-3xl p-8 sm:p-12 shadow-apple-card border border-nafa-border/60 text-center max-w-3xl mx-auto space-y-4">
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-nafa-charcoal">
+        <div className="apple-glass rounded-lg p-8 sm:p-12 text-center max-w-3xl mx-auto space-y-4 border border-white/20">
+          <h3 className="text-2xl sm:text-3xl font-medium tracking-tight text-white">
             Don't see your exact industry listed?
           </h3>
-          <p className="text-xs sm:text-sm text-nafa-muted max-w-xl mx-auto">
+          <p className="text-xs sm:text-sm text-[#9a9a9a] max-w-xl mx-auto">
             If your business relies on incoming phone calls, web quote forms, or scheduled calendar appointments, Nafa can build and deploy a custom system for you in 5 to 7 days.
           </p>
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <button
               onClick={openSchedule}
-              className="press-scale py-3.5 px-7 rounded-2xl bg-nafa-gold hover:bg-nafa-gold-hover text-white font-bold text-sm shadow-apple-gold flex items-center justify-center gap-2"
+              className="btn btn-solid h-[42px] px-7 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2"
             >
               <Calendar className="w-4 h-4" />
               <span>Book Strategy Session</span>
             </button>
             <button
               onClick={() => openQuoteModal()}
-              className="press-scale py-3.5 px-6 rounded-2xl bg-white border border-nafa-border text-nafa-charcoal font-semibold text-sm hover:bg-stone-50"
+              className="btn btn-ghost h-[42px] px-6 text-xs sm:text-sm"
             >
               Request Custom Quote
             </button>

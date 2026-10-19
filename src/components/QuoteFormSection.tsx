@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Send, ShieldCheck, Clock, Sparkles, CheckCircle2 } from "lucide-react";
+import { Send, Sparkles } from "lucide-react";
 
 export interface LeadData {
   name: string;
@@ -45,32 +45,32 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
       };
       setIsSubmitting(false);
       onLeadSubmitted(newLead);
-    }, 600);
+    }, 450);
   };
 
   return (
-    <section id="quote" className="py-16 sm:py-24 bg-nafa-canvas relative">
+    <section id="quote" className="py-12 sm:py-16 bg-transparent relative text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-nafa-gold border border-amber-200 text-xs font-bold mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
-            Fast & Tailored
+          <div className="badge-pill inline-flex items-center gap-1.5 mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-white" />
+            <span>Fast & Tailored Architecture</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-nafa-charcoal mb-4">
-            Get Your Free Custom Quote
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white mb-4">
+            Get Your Free <em className="font-editorial not-italic text-[#9a9a9a]">Custom Quote</em>
           </h2>
-          <p className="text-sm sm:text-base text-nafa-muted max-w-xl mx-auto">
+          <p className="text-sm sm:text-base text-[#9a9a9a] max-w-xl mx-auto">
             Tell us about your business. We will prepare an exact proposal with zero fluff and target response within 5 minutes.
           </p>
         </div>
 
         {/* The Quote Form Card */}
-        <div className="apple-glass rounded-3xl p-6 sm:p-10 shadow-apple-card border border-white/80">
+        <div className="apple-glass rounded-lg p-6 sm:p-10 border border-white/15">
           <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-nafa-charcoal mb-1.5">
-                  Your Full Name <span className="text-amber-600">*</span>
+                <label className="block text-xs font-medium text-white/90 mb-1.5">
+                  Your Full Name <span className="text-white/60">*</span>
                 </label>
                 <input
                   type="text"
@@ -78,13 +78,13 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
                   placeholder="e.g. John Miller"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-nafa-border bg-white text-sm text-nafa-charcoal focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all"
+                  className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-nafa-charcoal mb-1.5">
-                  Company / Business Name <span className="text-amber-600">*</span>
+                <label className="block text-xs font-medium text-white/90 mb-1.5">
+                  Company / Business Name <span className="text-white/60">*</span>
                 </label>
                 <input
                   type="text"
@@ -92,15 +92,15 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
                   placeholder="e.g. Miller Roofing & Siding"
                   value={formData.businessName}
                   onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-nafa-border bg-white text-sm text-nafa-charcoal focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all"
+                  className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-nafa-charcoal mb-1.5">
-                  Business Email <span className="text-amber-600">*</span>
+                <label className="block text-xs font-medium text-white/90 mb-1.5">
+                  Business Email <span className="text-white/60">*</span>
                 </label>
                 <input
                   type="email"
@@ -108,13 +108,13 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
                   placeholder="john@millerroofing.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-nafa-border bg-white text-sm text-nafa-charcoal focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all"
+                  className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-nafa-charcoal mb-1.5">
-                  Phone Number (for Speed-to-Lead) <span className="text-amber-600">*</span>
+                <label className="block text-xs font-medium text-white/90 mb-1.5">
+                  Phone Number (for Speed-to-Lead) <span className="text-white/60">*</span>
                 </label>
                 <input
                   type="tel"
@@ -122,20 +122,20 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
                   placeholder="(555) 342-8901"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-nafa-border bg-white text-sm text-nafa-charcoal focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all"
+                  className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-nafa-charcoal mb-1.5">
-                  Your Industry <span className="text-amber-600">*</span>
+                <label className="block text-xs font-medium text-white/90 mb-1.5">
+                  Your Industry <span className="text-white/60">*</span>
                 </label>
                 <select
                   value={formData.industry}
                   onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-nafa-border bg-white text-sm text-nafa-charcoal focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all"
+                  className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-[#141414] text-xs sm:text-sm text-white focus:outline-none focus:border-white/50"
                 >
                   <option value="Home Services (HVAC / Plumbing / Roofing)">
                     Home Services (HVAC, Plumbing, Roofing)
@@ -152,13 +152,13 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-nafa-charcoal mb-1.5">
-                  System Needed <span className="text-amber-600">*</span>
+                <label className="block text-xs font-medium text-white/90 mb-1.5">
+                  System Needed <span className="text-white/60">*</span>
                 </label>
                 <select
                   value={formData.serviceNeeded}
                   onChange={(e) => setFormData({ ...formData, serviceNeeded: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-nafa-border bg-white text-sm text-nafa-charcoal focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all"
+                  className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-[#141414] text-xs sm:text-sm text-white focus:outline-none focus:border-white/50"
                 >
                   <option value="Full Growth System (All-in-One)">
                     Full Growth System (All-in-One Bundle)
@@ -175,7 +175,7 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-nafa-charcoal mb-1.5">
+              <label className="block text-xs font-medium text-white/90 mb-1.5">
                 Current Estimated Monthly Call / Lead Volume (Optional):
               </label>
               <textarea
@@ -183,19 +183,19 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
                 placeholder="e.g. We get roughly 50-80 calls a month and miss around 10-15 during after-hours."
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl border border-nafa-border bg-white text-sm text-nafa-charcoal focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all"
+                className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
               />
             </div>
 
             {/* TCPA Consent Note */}
-            <p className="text-[11px] text-nafa-muted leading-tight">
+            <p className="text-[11px] text-[#9a9a9a] leading-tight">
               By submitting, you agree to receive follow-up communication from Nafa Technologies regarding your inquiry. We respect your privacy and never sell your information.
             </p>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className="press-scale w-full py-4 px-6 rounded-2xl bg-nafa-gold hover:bg-nafa-gold-hover text-white font-extrabold text-sm sm:text-base shadow-apple-gold flex items-center justify-center gap-2.5 transition-all"
+              className="btn btn-solid w-full h-[44px] text-xs sm:text-sm font-semibold flex items-center justify-center gap-2"
             >
               {isSubmitting ? (
                 <span>Generating Lead Card...</span>

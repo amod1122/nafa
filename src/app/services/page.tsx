@@ -8,8 +8,6 @@ import {
   Globe,
   CheckCircle2,
   ArrowRight,
-  ShieldCheck,
-  Calendar,
   Sparkles,
   ChevronRight,
 } from "lucide-react";
@@ -29,7 +27,7 @@ export default function ServicesPage() {
       bullets: [
         "24/7/365 coverage — nights, weekends, and holidays",
         "Never puts callers on hold or routes to voicemail",
-        "Qualifies callers and captures exact project/appointment specs",
+        "Qualifies callers and captures exact project & appointment specs",
         "Integrates with your existing phone number with zero friction",
       ],
       bestFor: "Contractors, clinics, law firms, and service businesses losing after-hours leads.",
@@ -44,10 +42,10 @@ export default function ServicesPage() {
       bullets: [
         "Calls web inquiries within 60 seconds (Harvard 5-minute rule)",
         "21x higher qualification rate than 30-minute follow-ups",
-        "Warm transfers hot prospects directly to your technician or desk",
+        "Warm transfers hot prospects directly to your team",
         "Handles objection questions and calendar booking automatically",
       ],
-      bestFor: "Businesses running paid ads (Google LSA, Facebook) or getting web inquiries.",
+      bestFor: "Businesses running paid ads (Google LSA, Meta) or high-volume lead funnels.",
     },
     {
       id: "ai-website",
@@ -55,9 +53,9 @@ export default function ServicesPage() {
       icon: Globe,
       tag: "Digital Foundation",
       href: "/services/ai-website",
-      desc: "A modern, ultra-fast website designed specifically for appointment-driven local businesses. Pre-configured with call capture, instant quote triggers, and AI agent integrations.",
+      desc: "A modern, ultra-fast website designed specifically for appointment-driven businesses. Pre-configured with call capture, instant quote triggers, and AI agent integrations.",
       bullets: [
-        "Engineered strictly for conversions: turns visitors into phone calls and forms",
+        "Engineered strictly for conversions: turns visitors into phone calls and booked appointments",
         "Lightning-fast mobile load times (under 2 seconds)",
         "High-performance hosting and custom domain included",
         "Pre-wired to feed leads directly into your Speed-to-Lead agent",
@@ -71,80 +69,80 @@ export default function ServicesPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-nafa-gold border border-amber-200 text-xs font-bold mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
-            Core Capabilities • 100% Done For You
+          <div className="badge-pill inline-flex items-center gap-2 mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-white" />
+            <span>Core Capabilities • 100% Done For You</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-nafa-charcoal tracking-tight mb-4">
-            Our AI Automation Services
+          <h1 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-4">
+            Our AI <em className="font-editorial not-italic text-[#9a9a9a]">Automation</em> Systems
           </h1>
-          <p className="text-base sm:text-lg text-nafa-muted max-w-2xl mx-auto leading-relaxed">
-            We don't hand you software to figure out on your own. Nafa designs, builds, tests, and manages high-impact automation systems for your business.
+          <p className="text-base sm:text-lg text-[#9a9a9a] max-w-2xl mx-auto leading-relaxed">
+            We don't hand you software to figure out on your own. Nafa designs, builds, tests, and manages high-impact voice and response systems for your business.
           </p>
         </div>
 
         {/* 3 Core Offers Detail Cards */}
-        <div className="space-y-8 mb-16 sm:mb-24">
-          {services.map((svc, i) => {
+        <div className="space-y-6 mb-16 sm:mb-24">
+          {services.map((svc) => {
             const Icon = svc.icon;
             return (
               <div
                 key={svc.id}
-                className="apple-glass rounded-3xl p-6 sm:p-10 shadow-apple-card border border-white flex flex-col lg:flex-row gap-8 items-start justify-between"
+                className="apple-glass rounded-lg p-6 sm:p-8 flex flex-col lg:flex-row gap-8 items-start justify-between text-white"
               >
                 <div className="space-y-4 max-w-2xl">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-amber-100 text-nafa-gold flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-6 h-6" />
+                    <div className="w-10 h-10 rounded-[6px] border border-white/15 bg-white/[0.05] text-white flex items-center justify-center shrink-0">
+                      <Icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-nafa-gold">
+                      <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#9a9a9a]">
                         {svc.tag}
                       </span>
-                      <h2 className="text-2xl sm:text-3xl font-extrabold text-nafa-charcoal">
+                      <h2 className="text-xl sm:text-2xl font-medium text-white tracking-tight">
                         {svc.name}
                       </h2>
                     </div>
                   </div>
 
-                  <p className="text-sm sm:text-base text-nafa-muted leading-relaxed">
+                  <p className="text-sm sm:text-[15px] text-[#9a9a9a] leading-relaxed">
                     {svc.desc}
                   </p>
 
                   <div className="space-y-2 pt-2">
-                    <span className="text-xs font-bold uppercase tracking-wider text-nafa-charcoal block">
+                    <span className="text-xs font-medium uppercase tracking-wider text-white/80 block">
                       Key Capabilities:
                     </span>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-nafa-charcoal">
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm text-white/90">
                       {svc.bullets.map((b, idx) => (
                         <li key={idx} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-4 h-4 text-white shrink-0 mt-0.5" />
                           <span>{b}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-amber-50/60 border border-amber-200/50 text-xs text-amber-900">
-                    <strong>Best for:</strong> {svc.bestFor}
+                  <div className="p-3 rounded-[6px] bg-white/[0.02] border border-white/10 text-xs text-[#9a9a9a]">
+                    <strong className="text-white">Best for:</strong> {svc.bestFor}
                   </div>
                 </div>
 
-                <div className="w-full lg:w-64 flex flex-col gap-3 flex-shrink-0 pt-2 lg:pt-0">
+                <div className="w-full lg:w-60 flex flex-col gap-3 shrink-0 pt-2 lg:pt-0">
                   <Link
                     href={svc.href}
-                    className="press-scale w-full py-3 px-4 rounded-xl bg-nafa-charcoal text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 hover:bg-black shadow-sm"
+                    className="btn btn-ghost w-full h-[42px] text-xs sm:text-sm"
                   >
                     <span>View Service Details</span>
-                    <ChevronRight className="w-4 h-4" />
+                    <ChevronRight className="w-4 h-4 ml-1" />
                   </Link>
 
                   <button
                     onClick={() => openQuoteModal(svc.name)}
-                    className="press-scale w-full py-3 px-4 rounded-xl bg-nafa-gold text-white font-bold text-xs sm:text-sm hover:bg-nafa-gold-hover shadow-apple-gold flex items-center justify-center gap-1.5"
+                    className="btn btn-solid w-full h-[42px] text-xs sm:text-sm font-semibold"
                   >
                     <span>Get Custom Quote</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-3.5 h-3.5 ml-1" />
                   </button>
                 </div>
               </div>
@@ -152,42 +150,42 @@ export default function ServicesPage() {
           })}
         </div>
 
-        {/* Growth Bundles Section (PRD Section 4.4 & 5.2) */}
-        <div className="apple-glass rounded-3xl p-8 sm:p-12 shadow-apple-card border border-nafa-gold/40 bg-gradient-to-br from-nafa-surface via-amber-50/30 to-nafa-surface text-center lg:text-left mb-16">
+        {/* Growth Bundles Section */}
+        <div className="apple-glass rounded-lg p-8 sm:p-10 text-center lg:text-left mb-16 border border-white/20">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="space-y-3 max-w-2xl">
-              <span className="text-xs font-black uppercase tracking-wider text-nafa-gold bg-amber-100 px-3 py-1 rounded-full inline-block">
+              <span className="badge-pill text-xs">
                 ★ Maximized Conversion Package
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-nafa-charcoal">
-                The Full Growth System
+              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-white">
+                The Full <em className="font-editorial not-italic text-[#9a9a9a]">Growth System</em>
               </h2>
-              <p className="text-sm text-nafa-muted leading-relaxed">
+              <p className="text-sm text-[#9a9a9a] leading-relaxed">
                 Connect your <strong>High-Converting Website</strong> with both the <strong>Speed-to-Lead Agent</strong> and <strong>24/7 AI Call Agent</strong>. Inbound callers never hit voicemail, and every website form is called back in under 60 seconds.
               </p>
-              <div className="flex flex-wrap gap-4 pt-2 text-xs font-semibold text-nafa-charcoal">
+              <div className="flex flex-wrap gap-4 pt-2 text-xs font-medium text-white/90">
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Complete End-to-End Setup
+                  <CheckCircle2 className="w-4 h-4 text-white" /> Complete End-to-End Setup
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Bundled Package Discount
+                  <CheckCircle2 className="w-4 h-4 text-white" /> Bundled Architecture Discount
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Ongoing Voice Model Tuning
+                  <CheckCircle2 className="w-4 h-4 text-white" /> Ongoing Neural Voice Model Tuning
                 </span>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 w-full lg:w-60 flex-shrink-0">
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 w-full lg:w-56 shrink-0">
               <button
                 onClick={() => openQuoteModal("The Full Growth System")}
-                className="press-scale py-3.5 px-6 rounded-2xl bg-nafa-gold hover:bg-nafa-gold-hover text-white font-extrabold text-sm shadow-apple-gold flex items-center justify-center gap-2"
+                className="btn btn-solid w-full h-[42px] text-xs sm:text-sm font-semibold"
               >
                 Request Bundle Quote
               </button>
               <button
                 onClick={openSchedule}
-                className="press-scale py-3.5 px-5 rounded-2xl bg-white border border-nafa-border text-nafa-charcoal font-bold text-sm hover:bg-stone-50"
+                className="btn btn-ghost w-full h-[42px] text-xs sm:text-sm"
               >
                 Schedule Walkthrough
               </button>

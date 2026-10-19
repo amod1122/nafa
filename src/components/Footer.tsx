@@ -1,184 +1,125 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { ShieldCheck, Calendar, ArrowUp } from "lucide-react";
+import { ArrowUp, ArrowUpRight } from "lucide-react";
 import { useSiteModals } from "@/context/ModalContext";
 
+const groups = [
+  {
+    label: "Solutions",
+    links: [
+      ["AI Call Agent", "/services/ai-call-agent"],
+      ["Speed-to-Lead", "/services/speed-to-lead"],
+      ["AI Website", "/services/ai-website"],
+      ["All Services", "/services"],
+    ],
+  },
+  {
+    label: "Platform",
+    links: [
+      ["How It Works", "/how-it-works"],
+      ["Case Studies", "/case-studies"],
+      ["Live Demo", "/demo"],
+      ["Industries", "/industries"],
+      ["Pricing & Bundles", "/pricing"],
+    ],
+  },
+  {
+    label: "Company",
+    links: [
+      ["About Nafa", "/about"],
+      ["Insights", "/blog"],
+      ["Contact", "/contact"],
+      ["Privacy Policy", "/privacy-policy"],
+      ["Terms of Service", "/terms-of-service"],
+    ],
+  },
+];
+
 export default function Footer() {
-  const { openSchedule, openQuoteModal } = useSiteModals();
+  const { openSchedule } = useSiteModals();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <footer className="bg-nafa-charcoal text-white pt-14 pb-24 sm:pb-14 border-t border-nafa-charcoal/20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 pb-10 border-b border-white/10">
-          {/* Brand Col */}
-          <div className="space-y-3.5 md:col-span-2">
-            <Link href="/" className="inline-flex items-center gap-2.5">
-              <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-white/20 flex-shrink-0">
-                <Image src="/logo.jpg" alt="Nafa Technologies" fill className="object-cover" />
-              </div>
-              <span className="font-extrabold tracking-tight text-white text-lg">
-                &lt; Nafa <span className="font-light text-stone-400">Technologies</span> &gt;
+    <footer className="relative z-10 border-t border-white/10 bg-black/90 backdrop-blur-xl mt-24">
+      <div className="mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
+        <div className="grid gap-12 lg:grid-cols-[1.3fr_2fr]">
+          <div>
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2.5 text-white no-underline group"
+              aria-label="Nafa Technologies home"
+            >
+              <span className="grid h-[22px] w-[22px] place-items-center text-white transition-transform duration-300 group-hover:scale-110">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g transform="rotate(-30 12 12)">
+                    <circle cx="7.3" cy="3.2" r="1.45" />
+                    <rect x="5.5" y="4.7" width="3.6" height="14.6" rx="1.8" />
+                    <rect x="14.9" y="4.7" width="3.6" height="14.6" rx="1.8" />
+                    <circle cx="16.7" cy="20.8" r="1.45" />
+                  </g>
+                </svg>
+              </span>
+              <span className="text-[15.5px] font-semibold tracking-[-0.03em] text-white">
+                Nafa<span className="font-normal text-[#9a9a9a]">.tech</span>
               </span>
             </Link>
 
-            <p className="text-stone-300 text-xs sm:text-sm leading-relaxed max-w-sm">
-              Nafa Technologies builds and deploys 24/7 AI call agents, &lt;5-minute speed-to-lead systems, and high-converting websites. Fully done for you, with zero fluff.
+            <p className="mt-4 max-w-sm text-sm leading-6 text-[#9a9a9a]">
+              Operational AI voice infrastructure, immediate speed-to-lead systems, and high-converting web architecture for businesses that never miss an opportunity.
             </p>
 
-            <div className="pt-1">
-              <span className="text-[11px] uppercase font-extrabold tracking-wider text-amber-400 block mb-0.5">
-                Tagline:
-              </span>
-              <p className="text-sm sm:text-base font-bold text-white italic">
-                "Never Miss a Lead. Never."
-              </p>
-            </div>
-          </div>
-
-          {/* Solutions Col */}
-          <div className="space-y-2.5">
-            <h4 className="text-xs uppercase tracking-wider font-extrabold text-stone-400">
-              Solutions
-            </h4>
-            <ul className="space-y-1.5 text-xs sm:text-sm text-stone-300">
-              <li>
-                <Link href="/services" className="hover:text-amber-400 transition-colors">
-                  All Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/ai-call-agent" className="hover:text-amber-400 transition-colors">
-                  AI Call Agent
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/speed-to-lead" className="hover:text-amber-400 transition-colors">
-                  Speed-to-Lead Agent
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/ai-website" className="hover:text-amber-400 transition-colors">
-                  AI Websites
-                </Link>
-              </li>
-              <li>
-                <Link href="/pricing" className="hover:text-amber-400 transition-colors">
-                  Pricing & Bundles
-                </Link>
-              </li>
-              <li>
-                <Link href="/demo" className="hover:text-amber-400 transition-colors">
-                  Interactive Audio Demo
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Company & Proof Col */}
-          <div className="space-y-2.5">
-            <h4 className="text-xs uppercase tracking-wider font-extrabold text-stone-400">
-              Company
-            </h4>
-            <ul className="space-y-1.5 text-xs sm:text-sm text-stone-300">
-              <li>
-                <Link href="/how-it-works" className="hover:text-amber-400 transition-colors">
-                  How It Works
-                </Link>
-              </li>
-              <li>
-                <Link href="/case-studies" className="hover:text-amber-400 transition-colors">
-                  Case Studies
-                </Link>
-              </li>
-              <li>
-                <Link href="/industries" className="hover:text-amber-400 transition-colors">
-                  Industries We Serve
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-amber-400 transition-colors">
-                  About Nafa
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="hover:text-amber-400 transition-colors">
-                  Blog & Articles
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-amber-400 transition-colors">
-                  Contact Us
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Actions Col */}
-          <div className="space-y-2.5">
-            <h4 className="text-xs uppercase tracking-wider font-extrabold text-stone-400">
-              Get Started
-            </h4>
-            <div className="space-y-2">
+            <div className="mt-6 flex items-center gap-3">
               <button
                 onClick={openSchedule}
-                className="press-scale w-full py-2.5 px-3 rounded-xl bg-nafa-gold hover:bg-nafa-gold-hover text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm"
+                className="btn btn-solid h-[38px] px-4 text-xs font-medium"
               >
-                <Calendar className="w-3.5 h-3.5" />
-                <span>Book 15-Min Call</span>
-              </button>
-              <button
-                onClick={() => openQuoteModal()}
-                className="press-scale w-full py-2 px-3 rounded-xl bg-stone-800 hover:bg-stone-700 text-stone-200 text-xs font-semibold flex items-center justify-center gap-1.5"
-              >
-                <span>Request Free Quote</span>
+                Book Discovery Call <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
               </button>
             </div>
+          </div>
 
-            <div className="pt-2 text-[11px] text-stone-400 space-y-0.5">
-              <div>United States • English Only</div>
-              <div>Direct Engineers • Zero Outsourcing</div>
-            </div>
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+            {groups.map((group) => (
+              <div key={group.label}>
+                <h3 className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#9a9a9a]">
+                  {group.label}
+                </h3>
+                <ul className="mt-4 space-y-2.5">
+                  {group.links.map(([label, href]) => (
+                    <li key={href}>
+                      <Link
+                        href={href}
+                        className="text-[13.5px] text-[#9a9a9a] transition-colors hover:text-white"
+                      >
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Legal & Compliance Footer Note */}
-        <div className="pt-6 text-[11px] text-stone-400 space-y-2.5 leading-relaxed">
-          <div className="flex items-center gap-1.5 text-stone-300 font-bold">
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span>Compliance & TCPA Disclosure</span>
-          </div>
-          <p>
-            Nafa Technologies deploys custom AI voice receptionists and speed-to-lead automation. Automated outbound communications and call recordings comply with federal TCPA regulations and state-level disclosure requirements.
-          </p>
-
-          <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-white/10 text-stone-400">
-            <div>
-              © {new Date().getFullYear()} Nafa Technologies. All rights reserved. Founded 2025.
-            </div>
-
-            <div className="flex items-center gap-4 text-xs">
-              <Link href="/privacy-policy" className="hover:text-amber-400 transition-colors underline">
-                Privacy Policy
-              </Link>
-              <Link href="/terms-of-service" className="hover:text-amber-400 transition-colors underline">
-                Terms of Service
-              </Link>
-              <button
-                onClick={scrollToTop}
-                className="p-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-300"
-                aria-label="Back to top"
-              >
-                <ArrowUp className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
+        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-[#9a9a9a] sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} Nafa Technologies. All rights reserved.</p>
+          <button
+            onClick={scrollToTop}
+            className="inline-flex items-center gap-1.5 self-start text-[#9a9a9a] transition-colors hover:text-white sm:self-auto cursor-pointer"
+          >
+            Back to top <ArrowUp className="h-3.5 w-3.5" />
+          </button>
         </div>
       </div>
     </footer>

@@ -1,14 +1,11 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import {
   Calendar,
   CheckCircle2,
   ArrowRight,
-  ShieldCheck,
   Sparkles,
-  HelpCircle,
   PhoneCall,
   Zap,
   Globe,
@@ -67,23 +64,23 @@ export default function PricingPage() {
   ];
 
   return (
-    <div className="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div className="pt-28 pb-20 sm:pt-36 sm:pb-28 text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-nafa-gold border border-amber-200 text-xs font-bold mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
-            Transparent & Customized to Your Volume
+          <div className="badge-pill inline-flex items-center gap-1.5 mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-white" />
+            <span>Transparent & Customized to Your Volume</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-nafa-charcoal tracking-tight mb-4">
-            Pricing Tailored to Your Business
+          <h1 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-4">
+            Pricing <em className="font-editorial not-italic text-[#9a9a9a]">Tailored</em> to Your Scale
           </h1>
-          <p className="text-base sm:text-lg text-nafa-muted max-w-2xl mx-auto leading-relaxed">
-            Every business has different call volumes and lead flows. We build custom-tailored systems with zero fluff so you only pay for what you actually need.
+          <p className="text-base sm:text-lg text-[#9a9a9a] max-w-2xl mx-auto leading-relaxed">
+            Every business has different call volumes and lead flows. We engineer custom-tailored systems with zero fluff so you only pay for what you actually need.
           </p>
 
-          <div className="mt-4 p-4 rounded-2xl bg-amber-50/80 border border-amber-200 text-xs text-amber-900 max-w-xl mx-auto">
-            <strong>Why no one-size-fits-all prices?</strong> A local dental office with 50 calls a month needs a different setup than a multi-truck plumbing company handling 600 emergency calls. A quick 15-minute call produces an exact quote with zero obligation.
+          <div className="mt-5 p-4 rounded-[6px] bg-white/[0.03] border border-white/10 text-xs text-[#9a9a9a] max-w-xl mx-auto text-left sm:text-center">
+            <strong className="text-white">Why no generic rigid pricing?</strong> A local dental office with 50 calls a month needs a different setup than a multi-truck plumbing company handling 600 emergency calls. A quick 15-minute call produces an exact quote with zero obligation.
           </div>
         </div>
 
@@ -94,28 +91,28 @@ export default function PricingPage() {
             return (
               <div
                 key={idx}
-                className="apple-glass-card rounded-3xl p-6 sm:p-8 shadow-apple-card border border-white flex flex-col justify-between"
+                className="apple-glass rounded-lg p-6 sm:p-8 flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-amber-100 text-nafa-gold flex items-center justify-center mb-5">
-                    <Icon className="w-6 h-6" />
+                  <div className="w-10 h-10 rounded-[6px] border border-white/15 bg-white/[0.05] text-white flex items-center justify-center mb-5">
+                    <Icon className="w-5 h-5" />
                   </div>
-                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-nafa-gold">
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-[#9a9a9a]">
                     {offer.subtitle}
                   </span>
-                  <h3 className="text-xl font-extrabold text-nafa-charcoal mt-1 mb-3">
+                  <h3 className="text-xl font-medium text-white tracking-tight mt-1 mb-2">
                     {offer.name}
                   </h3>
-                  <p className="text-xs text-nafa-muted mb-5 leading-relaxed">
-                    <strong>Who it fits:</strong> {offer.whoItFits}
+                  <p className="text-xs text-[#9a9a9a] mb-5 leading-relaxed">
+                    <strong className="text-white">Who it fits:</strong> {offer.whoItFits}
                   </p>
 
                   <div className="space-y-2 mb-6">
-                    <span className="text-xs font-bold text-nafa-charcoal block">What is included:</span>
-                    <ul className="space-y-2 text-xs text-nafa-charcoal">
+                    <span className="text-xs font-medium text-white/80 block">What is included:</span>
+                    <ul className="space-y-2 text-xs text-white/90">
                       {offer.features.map((f, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-white shrink-0 mt-0.5" />
                           <span>{f}</span>
                         </li>
                       ))}
@@ -125,58 +122,58 @@ export default function PricingPage() {
 
                 <button
                   onClick={() => openQuoteModal(offer.name)}
-                  className="press-scale w-full py-3 px-4 rounded-xl border border-nafa-charcoal/20 text-nafa-charcoal hover:bg-black/5 font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all mt-2"
+                  className="btn btn-ghost w-full h-[40px] text-xs sm:text-sm font-medium flex items-center justify-center gap-1.5 mt-2"
                 >
                   <span>{offer.ctaText}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 ml-1" />
                 </button>
               </div>
             );
           })}
         </div>
 
-        {/* Bundles Breakdown (PRD Section 4.4 & 5.5) */}
-        <div className="apple-glass rounded-3xl p-8 sm:p-12 shadow-apple-card border border-nafa-gold/40 bg-gradient-to-r from-nafa-surface via-amber-50/40 to-nafa-surface mb-16">
+        {/* Bundles Breakdown */}
+        <div className="apple-glass rounded-lg p-8 sm:p-12 mb-16 border border-white/20">
           <div className="max-w-3xl mx-auto text-center space-y-4">
-            <span className="text-xs font-black uppercase tracking-wider text-nafa-gold bg-amber-100 px-3 py-1 rounded-full inline-block">
+            <span className="badge-pill text-xs">
               Combine Systems for Maximum Savings
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-nafa-charcoal">
-              Growth System Bundles
+            <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-white">
+              Growth System <em className="font-editorial not-italic text-[#9a9a9a]">Bundles</em>
             </h2>
-            <p className="text-xs sm:text-sm text-nafa-muted leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#9a9a9a] leading-relaxed">
               Bundling offers saves you significant upfront engineering fees and ensures your marketing, phone answering, and outbound callbacks communicate in one synchronized pipeline.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left pt-4">
-              <div className="p-5 rounded-2xl bg-white border border-nafa-border">
-                <h4 className="font-extrabold text-base text-nafa-charcoal mb-1">
+              <div className="p-5 rounded-[6px] bg-white/[0.03] border border-white/10">
+                <h4 className="font-medium text-base text-white mb-1">
                   Website + Speed-to-Lead Bundle
                 </h4>
-                <p className="text-xs text-nafa-muted mb-3">
+                <p className="text-xs text-[#9a9a9a] mb-4">
                   A high-converting website built specifically to feed leads straight into your automated 60-second callback agent.
                 </p>
                 <button
                   onClick={() => openQuoteModal("Website + Speed-to-Lead Bundle")}
-                  className="press-scale w-full py-2.5 px-3 rounded-xl bg-nafa-charcoal text-white font-bold text-xs"
+                  className="btn btn-ghost w-full h-[38px] text-xs font-medium"
                 >
                   Request Bundle Quote
                 </button>
               </div>
 
-              <div className="p-5 rounded-2xl bg-white border border-amber-300 shadow-xs relative">
-                <span className="absolute -top-2.5 right-4 bg-nafa-gold text-white text-[10px] font-black uppercase px-2 py-0.5 rounded-full">
+              <div className="p-5 rounded-[6px] bg-white/[0.06] border border-white/25 relative">
+                <span className="absolute -top-2.5 right-4 bg-white text-black text-[10px] font-bold uppercase px-2 py-0.5 rounded-[4px]">
                   Best Value
                 </span>
-                <h4 className="font-extrabold text-base text-nafa-charcoal mb-1">
+                <h4 className="font-medium text-base text-white mb-1">
                   The Full Growth System
                 </h4>
-                <p className="text-xs text-nafa-muted mb-3">
+                <p className="text-xs text-[#9a9a9a] mb-4">
                   Website + Speed-to-Lead + AI Call Agent. Complete 360° coverage so no phone call and no web inquiry is ever lost.
                 </p>
                 <button
                   onClick={() => openQuoteModal("The Full Growth System")}
-                  className="press-scale w-full py-2.5 px-3 rounded-xl bg-nafa-gold hover:bg-nafa-gold-hover text-white font-bold text-xs shadow-apple-gold"
+                  className="btn btn-solid w-full h-[38px] text-xs font-semibold"
                 >
                   Request Full System Quote
                 </button>
@@ -187,20 +184,20 @@ export default function PricingPage() {
 
         {/* CTA */}
         <div className="text-center space-y-4">
-          <h3 className="text-2xl font-bold text-nafa-charcoal">
+          <h3 className="text-2xl font-medium tracking-tight text-white">
             Ready to find out the exact quote for your business?
           </h3>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <button
               onClick={openSchedule}
-              className="press-scale py-3.5 px-7 rounded-2xl bg-nafa-charcoal hover:bg-black text-white font-bold text-sm shadow-sm flex items-center justify-center gap-2"
+              className="btn btn-solid h-[42px] px-6 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2"
             >
-              <Calendar className="w-4 h-4 text-amber-400" />
-              <span>Book 15-Minute Strategy Call</span>
+              <Calendar className="w-4 h-4" />
+              <span>Book Discovery Call</span>
             </button>
             <button
               onClick={() => openQuoteModal()}
-              className="press-scale py-3.5 px-6 rounded-2xl bg-white border border-nafa-border text-nafa-charcoal font-semibold text-sm hover:bg-stone-50"
+              className="btn btn-ghost h-[42px] px-6 text-xs sm:text-sm"
             >
               Send Free Quote Request
             </button>

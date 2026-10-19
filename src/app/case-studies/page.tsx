@@ -1,17 +1,11 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import {
   Star,
   CheckCircle2,
   Calendar,
-  ArrowRight,
   TrendingUp,
-  ShieldCheck,
-  Building,
-  Clock,
-  Sparkles,
 } from "lucide-react";
 import { useSiteModals } from "@/context/ModalContext";
 
@@ -85,77 +79,77 @@ export default function CaseStudiesPage() {
   ];
 
   return (
-    <div className="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div className="pt-28 pb-20 sm:pt-36 sm:pb-28 text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold mb-4">
-            <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
-            Case Studies & Proven Impact
+          <div className="badge-pill inline-flex items-center gap-1.5 mb-4">
+            <TrendingUp className="w-3.5 h-3.5 text-white" />
+            <span>Case Studies & Proven Impact</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-nafa-charcoal tracking-tight mb-4">
-            How Local Businesses Win More Clients
+          <h1 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-4">
+            How Local Businesses <em className="font-editorial not-italic text-[#9a9a9a]">Win</em> More Clients
           </h1>
-          <p className="text-base sm:text-lg text-nafa-muted max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-[#9a9a9a] max-w-2xl mx-auto leading-relaxed">
             Real-world breakdowns of how appointment-driven companies stop bleeding leads to missed calls and slow follow-ups.
           </p>
         </div>
 
         {/* Detailed Case Studies */}
-        <div className="space-y-12 mb-16">
+        <div className="space-y-8 mb-16">
           {studies.map((study, idx) => (
             <div
               key={idx}
-              className="apple-glass rounded-3xl p-6 sm:p-10 shadow-apple-card border border-white space-y-6"
+              className="apple-glass rounded-lg p-6 sm:p-10 space-y-6"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-nafa-border/60">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
                 <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-xs font-extrabold uppercase tracking-wider text-nafa-gold bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#d8d8d8] bg-white/[0.05] border border-white/15 px-2.5 py-0.5 rounded-[4px]">
                       {study.industry}
                     </span>
-                    <span className="text-xs text-nafa-muted">{study.location}</span>
+                    <span className="text-xs text-[#9a9a9a]">{study.location}</span>
                   </div>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-nafa-charcoal">
+                  <h2 className="text-2xl sm:text-3xl font-medium text-white tracking-tight">
                     {study.company}
                   </h2>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-nafa-canvas border border-nafa-border text-center sm:text-right flex-shrink-0">
-                  <div className="text-3xl font-black text-nafa-charcoal font-mono tracking-tight">
+                <div className="p-4 rounded-[6px] bg-white/[0.03] border border-white/15 text-center sm:text-right shrink-0">
+                  <div className="text-2xl sm:text-3xl font-medium text-white font-mono tracking-tight">
                     {study.statPrimary}
                   </div>
-                  <div className="text-xs font-bold text-emerald-700">{study.statLabel}</div>
-                  <div className="text-[11px] text-nafa-muted">{study.subStat}</div>
+                  <div className="text-xs font-medium text-white/90">{study.statLabel}</div>
+                  <div className="text-[11px] text-[#9a9a9a]">{study.subStat}</div>
                 </div>
               </div>
 
               {/* Challenge vs Solution Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm">
-                <div className="p-5 rounded-2xl bg-red-50/40 border border-red-100 space-y-2">
-                  <strong className="text-xs uppercase font-bold tracking-wider text-red-700 block">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+                <div className="p-4 rounded-[6px] bg-white/[0.02] border border-white/10 space-y-2">
+                  <strong className="text-xs uppercase font-medium tracking-wider text-white/80 block">
                     The Challenge:
                   </strong>
-                  <p className="text-nafa-muted leading-relaxed">{study.challenge}</p>
+                  <p className="text-[#9a9a9a] leading-relaxed">{study.challenge}</p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-amber-50/40 border border-amber-100 space-y-2">
-                  <strong className="text-xs uppercase font-bold tracking-wider text-amber-800 block">
+                <div className="p-4 rounded-[6px] bg-white/[0.04] border border-white/15 space-y-2">
+                  <strong className="text-xs uppercase font-medium tracking-wider text-white block">
                     The Nafa Solution:
                   </strong>
-                  <p className="text-nafa-muted leading-relaxed">{study.solution}</p>
+                  <p className="text-[#9a9a9a] leading-relaxed">{study.solution}</p>
                 </div>
               </div>
 
               {/* Measured Results */}
               <div className="space-y-2">
-                <strong className="text-xs uppercase font-bold tracking-wider text-nafa-charcoal block">
+                <strong className="text-xs uppercase font-medium tracking-wider text-white/80 block">
                   Measured Business Results:
                 </strong>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-nafa-charcoal">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm text-white/90">
                   {study.results.map((r, i) => (
                     <div key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-white shrink-0 mt-0.5" />
                       <span>{r}</span>
                     </div>
                   ))}
@@ -163,16 +157,16 @@ export default function CaseStudiesPage() {
               </div>
 
               {/* Quote */}
-              <div className="p-5 rounded-2xl bg-white border border-nafa-border/60">
-                <div className="flex items-center text-amber-500 mb-2">
+              <div className="p-4 rounded-[6px] bg-white/[0.02] border border-white/10">
+                <div className="flex items-center text-white mb-2">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                    <Star key={i} className="w-3.5 h-3.5 fill-current text-white/80" />
                   ))}
                 </div>
-                <p className="text-xs sm:text-sm text-nafa-charcoal italic leading-relaxed mb-2">
+                <p className="text-xs sm:text-sm text-white/95 italic leading-relaxed mb-2">
                   "{study.quote}"
                 </p>
-                <span className="text-xs font-bold text-nafa-muted">— {study.author}</span>
+                <span className="text-xs font-medium text-[#9a9a9a]">— {study.author}</span>
               </div>
             </div>
           ))}
@@ -180,23 +174,23 @@ export default function CaseStudiesPage() {
 
         {/* CTA */}
         <div className="text-center space-y-4">
-          <h3 className="text-2xl font-bold text-nafa-charcoal">
+          <h3 className="text-2xl font-medium tracking-tight text-white">
             Want Similar Results for Your Business?
           </h3>
-          <p className="text-xs sm:text-sm text-nafa-muted max-w-xl mx-auto">
+          <p className="text-xs sm:text-sm text-[#9a9a9a] max-w-xl mx-auto">
             Schedule a 15-minute discovery consultation to see how our AI call and speed-to-lead agents can be tailored to your workflow.
           </p>
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <button
               onClick={openSchedule}
-              className="press-scale py-3.5 px-7 rounded-2xl bg-nafa-gold hover:bg-nafa-gold-hover text-white font-bold text-sm shadow-apple-gold flex items-center justify-center gap-2"
+              className="btn btn-solid h-[42px] px-6 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2"
             >
               <Calendar className="w-4 h-4" />
               <span>Book Discovery Call</span>
             </button>
             <button
               onClick={() => openQuoteModal()}
-              className="press-scale py-3.5 px-6 rounded-2xl bg-white border border-nafa-border text-nafa-charcoal font-semibold text-sm hover:bg-stone-50"
+              className="btn btn-ghost h-[42px] px-6 text-xs sm:text-sm"
             >
               Request Custom Quote
             </button>

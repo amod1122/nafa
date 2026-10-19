@@ -45,48 +45,48 @@ export default function QuoteModal({
       };
       setIsSubmitting(false);
       onLeadSubmitted(newLead);
-    }, 500);
+    }, 400);
   };
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/50 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
       role="dialog"
       aria-modal="true"
     >
-      <div className="w-full sm:max-w-lg bg-nafa-canvas sm:rounded-3xl rounded-t-3xl border border-nafa-border shadow-apple-float overflow-hidden max-h-[92vh] flex flex-col animate-in slide-in-from-bottom-8 duration-300">
+      <div className="w-full sm:max-w-lg bg-[#0a0a0a] border border-white/15 sm:rounded-lg rounded-t-lg shadow-2xl overflow-hidden max-h-[92vh] flex flex-col animate-in slide-in-from-bottom-6 duration-200 text-white">
         {/* Mobile Handle */}
         <div className="sm:hidden pt-3 pb-1 flex justify-center">
-          <div className="w-12 h-1.5 rounded-full bg-stone-300"></div>
+          <div className="w-10 h-1 rounded-full bg-white/20"></div>
         </div>
 
         {/* Header */}
-        <div className="p-5 sm:p-6 pb-4 border-b border-nafa-border/60 flex items-start justify-between">
+        <div className="p-5 sm:p-6 pb-4 border-b border-white/10 flex items-start justify-between">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 text-nafa-gold text-[11px] font-black uppercase tracking-wider mb-1">
-              <Sparkles className="w-3 h-3 text-amber-600" />
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[5px] border border-white/15 bg-white/[0.04] text-[#d8d8d8] text-[11px] font-medium tracking-wide mb-2">
+              <Sparkles className="w-3 h-3 text-white" />
               Tailored Proposal
             </div>
-            <h3 className="text-xl sm:text-2xl font-black text-nafa-charcoal">
+            <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-white">
               Get Your Custom Quote
             </h3>
-            <p className="text-xs text-nafa-muted">
+            <p className="text-xs text-[#9a9a9a] mt-1">
               Zero fluff. We review your details and respond in &lt;5 minutes.
             </p>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-full hover:bg-stone-200/60 text-nafa-charcoal transition-colors"
+            className="p-1.5 rounded-md border border-white/10 bg-white/[0.04] hover:bg-white/[0.1] text-white/70 hover:text-white transition-colors"
             aria-label="Close quote modal"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Form Body */}
         <form onSubmit={handleSubmit} className="p-5 sm:p-6 space-y-3.5 overflow-y-auto">
           <div>
-            <label className="block text-xs font-bold text-nafa-charcoal mb-1">
+            <label className="block text-xs font-medium text-white/90 mb-1.5">
               Your Full Name *
             </label>
             <input
@@ -95,12 +95,12 @@ export default function QuoteModal({
               placeholder="e.g. Sarah Jenkins"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-nafa-border bg-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-nafa-charcoal mb-1">
+            <label className="block text-xs font-medium text-white/90 mb-1.5">
               Business Name *
             </label>
             <input
@@ -109,13 +109,13 @@ export default function QuoteModal({
               placeholder="e.g. Apex Family Dental"
               value={formData.businessName}
               onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-nafa-border bg-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
             />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-bold text-nafa-charcoal mb-1">
+              <label className="block text-xs font-medium text-white/90 mb-1.5">
                 Email *
               </label>
               <input
@@ -124,11 +124,11 @@ export default function QuoteModal({
                 placeholder="sarah@apexdental.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-nafa-border bg-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
               />
             </div>
             <div>
-              <label className="block text-xs font-bold text-nafa-charcoal mb-1">
+              <label className="block text-xs font-medium text-white/90 mb-1.5">
                 Phone Number *
               </label>
               <input
@@ -137,20 +137,20 @@ export default function QuoteModal({
                 placeholder="(555) 234-5678"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-nafa-border bg-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-bold text-nafa-charcoal mb-1">
+              <label className="block text-xs font-medium text-white/90 mb-1.5">
                 Industry
               </label>
               <select
                 value={formData.industry}
                 onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-nafa-border bg-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-[#141414] text-xs sm:text-sm text-white focus:outline-none focus:border-white/50"
               >
                 <option value="Home Services (HVAC / Plumbing / Roofing)">Home Services</option>
                 <option value="Dental or Medical Clinic">Dental or Medical</option>
@@ -163,13 +163,13 @@ export default function QuoteModal({
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-nafa-charcoal mb-1">
+              <label className="block text-xs font-medium text-white/90 mb-1.5">
                 System Needed
               </label>
               <select
                 value={formData.serviceNeeded}
                 onChange={(e) => setFormData({ ...formData, serviceNeeded: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-nafa-border bg-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-[#141414] text-xs sm:text-sm text-white focus:outline-none focus:border-white/50"
               >
                 <option value="Full Growth System (All-in-One)">Full Growth System</option>
                 <option value="AI Call Agent (Voice Receptionist)">AI Call Agent</option>
@@ -180,7 +180,7 @@ export default function QuoteModal({
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-nafa-charcoal mb-1">
+            <label className="block text-xs font-medium text-white/90 mb-1.5">
               Monthly Call / Lead Volume (Optional)
             </label>
             <input
@@ -188,14 +188,14 @@ export default function QuoteModal({
               placeholder="e.g. ~50 calls/month"
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full px-3.5 py-2 rounded-xl border border-nafa-border bg-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full px-3.5 py-2 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
             />
           </div>
 
           <button
             type="submit"
             disabled={isSubmitting}
-            className="press-scale w-full py-3.5 px-4 rounded-xl bg-nafa-gold hover:bg-nafa-gold-hover text-white font-extrabold text-sm shadow-apple-gold flex items-center justify-center gap-2 mt-2"
+            className="btn btn-solid w-full h-[44px] text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 mt-2"
           >
             <Send className="w-4 h-4" />
             <span>{isSubmitting ? "Generating Lead Card..." : "Send Request (<5 Min Response)"}</span>

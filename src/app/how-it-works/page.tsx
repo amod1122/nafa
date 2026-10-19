@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import {
   PhoneCall,
   Hammer,
@@ -9,9 +8,7 @@ import {
   Headphones,
   CheckCircle2,
   Calendar,
-  ArrowRight,
   ShieldCheck,
-  Sparkles,
   Users,
 } from "lucide-react";
 import { useSiteModals } from "@/context/ModalContext";
@@ -71,59 +68,59 @@ export default function HowItWorksPage() {
   ];
 
   return (
-    <div className="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div className="pt-28 pb-20 sm:pt-36 sm:pb-28 text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 text-nafa-charcoal border border-nafa-border text-xs font-bold mb-4">
-            <ShieldCheck className="w-3.5 h-3.5 text-nafa-gold" />
-            Zero Fluff • Direct Access to Builders
+          <div className="badge-pill inline-flex items-center gap-1.5 mb-4">
+            <ShieldCheck className="w-3.5 h-3.5 text-white" />
+            <span>Zero Fluff • Direct Access to Builders</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-nafa-charcoal tracking-tight mb-4">
-            How We Get You Live in Days, Not Months
+          <h1 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-4">
+            How We Get You Live in <em className="font-editorial not-italic text-[#9a9a9a]">Days</em>, Not Months
           </h1>
-          <p className="text-base sm:text-lg text-nafa-muted max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-[#9a9a9a] max-w-2xl mx-auto leading-relaxed">
             You don't have to hire developers, learn complex software, or manage outsourced contractors. We engineer, deploy, and support your systems directly.
           </p>
         </div>
 
         {/* 4 Stages Detailed Walkthrough */}
-        <div className="space-y-8 mb-16">
+        <div className="space-y-6 mb-16">
           {stages.map((stage) => {
             const Icon = stage.icon;
             return (
               <div
                 key={stage.step}
-                className="apple-glass rounded-3xl p-6 sm:p-10 shadow-apple-card border border-white flex flex-col md:flex-row gap-6 md:gap-8 items-start justify-between"
+                className="apple-glass rounded-lg p-6 sm:p-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start justify-between"
               >
-                <div className="flex items-center gap-4 flex-shrink-0">
-                  <div className="w-14 h-14 rounded-2xl bg-amber-50 text-nafa-gold border border-amber-200 flex items-center justify-center font-bold">
-                    <Icon className="w-7 h-7" />
+                <div className="flex items-center gap-4 shrink-0">
+                  <div className="w-12 h-12 rounded-[6px] border border-white/15 bg-white/[0.05] text-white flex items-center justify-center font-semibold">
+                    <Icon className="w-6 h-6" />
                   </div>
                   <div>
-                    <span className="text-xs font-black uppercase text-amber-600 tracking-wider">
+                    <span className="text-[11px] font-semibold uppercase text-white/90 tracking-wider">
                       Stage {stage.step}
                     </span>
-                    <div className="text-xs text-nafa-muted font-bold">{stage.duration}</div>
+                    <div className="text-xs text-[#9a9a9a] font-mono">{stage.duration}</div>
                   </div>
                 </div>
 
                 <div className="space-y-3 flex-1">
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-nafa-charcoal">
+                  <h2 className="text-xl sm:text-2xl font-medium text-white tracking-tight">
                     {stage.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-nafa-muted leading-relaxed">
+                  </h2>
+                  <p className="text-xs sm:text-sm text-[#9a9a9a] leading-relaxed">
                     {stage.desc}
                   </p>
 
                   <div className="pt-2">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-nafa-charcoal block mb-1.5">
+                    <span className="text-[11px] font-medium uppercase tracking-wider text-white/80 block mb-1.5">
                       What We Deliver:
                     </span>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-nafa-charcoal font-medium">
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-white/90">
                       {stage.deliverables.map((item, idx) => (
                         <li key={idx} className="flex items-center gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-white shrink-0" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -136,27 +133,27 @@ export default function HowItWorksPage() {
         </div>
 
         {/* No Outsourcing Guarantee Banner */}
-        <div className="apple-glass-card rounded-3xl p-8 sm:p-12 shadow-apple-card border border-nafa-border/60 text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="w-12 h-12 rounded-2xl bg-amber-100 text-nafa-gold mx-auto flex items-center justify-center font-bold">
-            <Users className="w-6 h-6" />
+        <div className="apple-glass rounded-lg p-8 sm:p-12 text-center max-w-3xl mx-auto space-y-4 mb-16 border border-white/20">
+          <div className="w-10 h-10 rounded-[6px] border border-white/15 bg-white/[0.05] text-white mx-auto flex items-center justify-center">
+            <Users className="w-5 h-5" />
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-nafa-charcoal">
-            The Nafa Promise: No Outsourcing, No Middlemen
+          <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-white">
+            The Nafa Promise: <em className="font-editorial not-italic text-[#9a9a9a]">No Outsourcing</em>, No Middlemen
           </h2>
-          <p className="text-xs sm:text-sm text-nafa-muted leading-relaxed max-w-xl mx-auto">
+          <p className="text-xs sm:text-sm text-[#9a9a9a] leading-relaxed max-w-xl mx-auto">
             When you partner with Nafa Technologies, the people on your strategy calls are the same engineers building and tuning your voice models. We never farm work out to cheap overseas contractors.
           </p>
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
             <button
               onClick={openSchedule}
-              className="press-scale py-3.5 px-7 rounded-2xl bg-nafa-gold hover:bg-nafa-gold-hover text-white font-bold text-sm shadow-apple-gold flex items-center justify-center gap-2"
+              className="btn btn-solid h-[42px] px-6 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2"
             >
               <Calendar className="w-4 h-4" />
-              <span>Book Your 15-Minute Discovery Call</span>
+              <span>Book Your Discovery Call</span>
             </button>
             <button
               onClick={() => openQuoteModal()}
-              className="press-scale py-3.5 px-6 rounded-2xl bg-white border border-nafa-border text-nafa-charcoal font-semibold text-sm hover:bg-stone-50"
+              className="btn btn-ghost h-[42px] px-6 text-xs sm:text-sm"
             >
               Get a Free Quote
             </button>
