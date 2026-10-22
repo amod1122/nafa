@@ -10,12 +10,7 @@ import QuoteModal from "@/components/QuoteModal";
 import LeadCardModal from "@/components/LeadCardModal";
 import { ModalProvider, useSiteModals } from "@/context/ModalContext";
 
-import { usePathname } from "next/navigation";
-
 function ShellInner({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
-  const isHome = pathname === "/";
-
   const {
     isScheduleOpen,
     closeSchedule,
@@ -52,11 +47,11 @@ function ShellInner({ children }: { children: React.ReactNode }) {
       {/* Main Content */}
       <main className="relative z-10 flex-1">{children}</main>
 
-      {/* Secondary Pages Footer */}
-      {!isHome && <Footer />}
+      {/* Global Footer */}
+      <Footer />
 
       {/* Global Persistent Elements */}
-      {!isHome && <MobileStickyBar />}
+      <MobileStickyBar />
       <AIChatWidget onOpenSchedule={openSchedule} onOpenQuote={openQuoteModal} />
 
       {/* Global Modals */}

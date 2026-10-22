@@ -1,9 +1,14 @@
 "use client";
 
 import React from "react";
-import { Star, Building2, TrendingUp, ShieldCheck, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Star, TrendingUp, CheckCircle2, ArrowRight } from "lucide-react";
+import { useSiteModals } from "@/context/ModalContext";
 
 export default function SocialProof() {
+  const { openSchedule } = useSiteModals();
+
   const caseStudies = [
     {
       industry: "Home Services (HVAC & Plumbing)",
@@ -20,8 +25,8 @@ export default function SocialProof() {
     {
       industry: "Healthcare & Dental",
       title: "Apex Family Dental Practice",
-      metric: "34%",
-      metricLabel: "Increase in New Patient Bookings",
+      metric: "+38 Bookings",
+      metricLabel: "New Monthly Patient Appointments",
       stat: "< 3 Min Follow-up",
       challenge: "Front desk staff overwhelmed with patient check-ins during peak phone hours.",
       solution: "Nafa Speed-to-Lead Agent handles online inquiries instantly.",
@@ -44,69 +49,97 @@ export default function SocialProof() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-nafa-canvas relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold mb-4">
-            <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
-            Proven Real-World Impact
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-nafa-charcoal mb-4">
-            Built for Local Businesses That Depend on Inquiries
-          </h2>
-          <p className="text-sm sm:text-base md:text-lg text-nafa-muted max-w-2xl mx-auto leading-relaxed">
-            See how appointment-driven service companies turn missed calls and slow follow-ups into booked revenue.
-          </p>
+    <section id="case-studies" className="relative py-24 sm:py-32 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto">
+      {/* Header */}
+      <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="badge-pill inline-flex items-center gap-2 mb-4">
+          <TrendingUp className="w-3.5 h-3.5 text-white" />
+          <span className="text-[12.5px] text-white/90">Validated Field Results</span>
         </div>
 
-        {/* Case Studies Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {caseStudies.map((study, idx) => (
-            <div
-              key={idx}
-              className="apple-glass-card rounded-3xl p-6 sm:p-8 shadow-apple-card border border-white flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-nafa-gold bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
-                    {study.industry}
-                  </span>
-                  <div className="flex items-center text-amber-500">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                    ))}
-                  </div>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.035em] text-white leading-[1.1]">
+          Measured in revenue,{" "}
+          <em className="font-editorial not-italic text-[#9a9a9a]">
+            not vanity metrics.
+          </em>
+        </h2>
+
+        <p className="mt-4 text-[15px] sm:text-[16px] text-[#9a9a9a] max-w-2xl mx-auto leading-relaxed">
+          See how high-intent local businesses recover thousands in lost monthly pipeline with autonomous voice and response infrastructure.
+        </p>
+      </div>
+
+      {/* Case Studies Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {caseStudies.map((study, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: idx * 0.1 }}
+            className="interactive-card p-6 sm:p-8 flex flex-col justify-between group"
+          >
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-white/70 px-2 py-0.5 rounded bg-white/5 border border-white/10">
+                  {study.industry}
+                </span>
+                <div className="flex items-center gap-0.5 text-white/80">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="w-3 h-3 fill-current" />
+                  ))}
                 </div>
-
-                <h3 className="text-lg font-extrabold text-nafa-charcoal mb-4">
-                  {study.title}
-                </h3>
-
-                {/* Highlight Metric */}
-                <div className="p-4 rounded-2xl bg-nafa-canvas border border-nafa-border/60 mb-5">
-                  <div className="text-3xl font-black text-nafa-charcoal tracking-tight">
-                    {study.metric}
-                  </div>
-                  <div className="text-xs font-bold text-emerald-700 mt-0.5">
-                    {study.metricLabel}
-                  </div>
-                  <div className="text-[11px] text-nafa-muted mt-1 font-medium flex items-center gap-1">
-                    <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                    {study.stat}
-                  </div>
-                </div>
-
-                <p className="text-xs sm:text-sm text-nafa-muted italic leading-relaxed mb-6">
-                  "{study.quote}"
-                </p>
               </div>
 
-              <div className="pt-4 border-t border-nafa-border/50 text-xs text-nafa-charcoal font-bold">
-                — {study.author}
+              <h3 className="text-lg font-semibold text-white tracking-[-0.01em] mb-4">
+                {study.title}
+              </h3>
+
+              {/* Highlight Metric */}
+              <div className="p-4 rounded-md bg-white/[0.04] border border-white/10 mb-5">
+                <div className="text-3xl font-mono font-bold text-white tracking-tight">
+                  {study.metric}
+                </div>
+                <div className="text-xs font-semibold text-emerald-400 mt-0.5">
+                  {study.metricLabel}
+                </div>
+                <div className="text-[11px] text-[#9a9a9a] mt-1 font-mono flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+                  <span>{study.stat}</span>
+                </div>
               </div>
+
+              <p className="text-xs sm:text-sm text-[#9a9a9a] italic leading-relaxed mb-6">
+                &ldquo;{study.quote}&rdquo;
+              </p>
             </div>
-          ))}
-        </div>
+
+            <div className="pt-4 border-t border-white/8 flex items-center justify-between">
+              <span className="text-xs font-medium text-white/90">
+                {study.author}
+              </span>
+              <Link
+                href="/case-studies"
+                className="text-xs text-[#9a9a9a] hover:text-white flex items-center gap-1 transition-colors"
+              >
+                <span>Read Study</span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* View All Case Studies Link */}
+      <div className="mt-12 text-center">
+        <Link
+          href="/case-studies"
+          className="btn btn-ghost h-[40px] px-6 text-xs font-medium"
+        >
+          <span>View All Client Case Studies</span>
+          <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
+        </Link>
       </div>
     </section>
   );

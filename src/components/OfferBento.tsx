@@ -1,193 +1,198 @@
 "use client";
 
 import React from "react";
-import { PhoneCall, Zap, Globe, CheckCircle2, ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  PhoneCall,
+  Zap,
+  Globe,
+  CheckCircle2,
+  ArrowRight,
+  ShieldCheck,
+  Bot,
+  CalendarCheck,
+  Sparkles,
+} from "lucide-react";
+import { useSiteModals } from "@/context/ModalContext";
 
-interface OfferBentoProps {
-  onOpenSchedule: () => void;
-  onOpenQuote: () => void;
-}
+export default function OfferBento() {
+  const { openSchedule, openQuoteModal } = useSiteModals();
 
-export default function OfferBento({ onOpenSchedule, onOpenQuote }: OfferBentoProps) {
+  const systems = [
+    {
+      id: "ai-call-agent",
+      badge: "Inbound Voice Infrastructure",
+      title: "AI Voice Receptionist",
+      subtitle: "24/7/365 Phone Answering",
+      description:
+        "Human-grade conversational AI that answers inbound phone calls in under one second. Qualifies caller intent, answers complex business FAQs, and books revenue onto your calendar.",
+      features: [
+        "Human speech cadence with zero robotic monotone delays",
+        "Direct live calendar sync (Google, Outlook, CRM calendars)",
+        "Handles after-hours, weekend shifts, and holiday overflows",
+        "Seamless warm transfers to live technicians for emergencies",
+      ],
+      link: "/services/ai-call-agent",
+      icon: PhoneCall,
+      highlight: false,
+    },
+    {
+      id: "speed-to-lead",
+      badge: "High-ROI Conversion Engine",
+      title: "Speed-to-Lead Pipeline",
+      subtitle: "<60s Inbound Response Time",
+      description:
+        "The instant a prospect submits a lead form or requests a quote, our autonomous pipeline dials their phone and triggers conversational SMS in under 45 seconds.",
+      features: [
+        "78% of customers buy from the business that responds first",
+        "Autonomous multi-channel trigger (instant phone call + SMS)",
+        "Instant lead qualification and calendar booking",
+        "Zero leads go cold in an unattended email inbox",
+      ],
+      link: "/services/speed-to-lead",
+      icon: Zap,
+      highlight: true,
+    },
+    {
+      id: "ai-website",
+      badge: "Conversion Architecture",
+      title: "Conversion-Engineered AI Web",
+      subtitle: "Sub-Second Load Speeds",
+      description:
+        "Ultra-fast, mobile-first web platforms built for immediate conversion. Embedded with interactive AI voice and chat intake widgets that turn visitors into scheduled bookings.",
+      features: [
+        "Ultra-fast performance (<1s LCP, 99+ PageSpeed score)",
+        "Embedded interactive AI voice demo and quote simulators",
+        "Designed for local service intent and high mobile conversion",
+        "Zero lock-in with full client ownership of code and domain",
+      ],
+      link: "/services/ai-website",
+      icon: Globe,
+      highlight: false,
+    },
+  ];
+
   return (
-    <section id="services" className="py-16 sm:py-24 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-nafa-gold border border-amber-200/80 text-xs font-bold mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
-            Zero Fluff • Fully Done For You
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-nafa-charcoal mb-4">
-            Three High-Impact Systems to Grow Your Business
-          </h2>
-          <p className="text-sm sm:text-base md:text-lg text-nafa-muted max-w-2xl mx-auto leading-relaxed">
-            We do not sell complicated software you have to configure yourself. Nafa designs, programs, and deploys every system for you.
-          </p>
+    <section id="services" className="relative py-24 sm:py-32 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto">
+      {/* Section Header */}
+      <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="badge-pill inline-flex items-center gap-2 mb-4">
+          <Bot className="w-3.5 h-3.5 text-white" />
+          <span className="text-[12.5px] text-white/90">Core Operational Systems</span>
         </div>
 
-        {/* 3 Core Bento Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          {/* Offer 1: AI Call Agent */}
-          <div className="apple-glass-card rounded-3xl p-6 sm:p-8 shadow-apple-card border border-white flex flex-col justify-between group hover:border-nafa-gold/40 transition-all duration-300">
-            <div>
-              <div className="w-12 h-12 rounded-2xl bg-amber-100/70 text-nafa-gold flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
-                <PhoneCall className="w-6 h-6" />
-              </div>
-              <span className="text-xs font-bold uppercase tracking-wider text-nafa-gold">
-                Inbound Voice
-              </span>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-nafa-charcoal mt-1 mb-3">
-                AI Call Agent
-              </h3>
-              <p className="text-xs sm:text-sm text-nafa-muted leading-relaxed mb-6">
-                A 24/7 virtual voice receptionist that sounds human, answers every inbound call instantly, answers business FAQs, and locks appointments directly into your calendar.
-              </p>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.035em] text-white leading-[1.1]">
+          Engineered to capture every dollar{" "}
+          <em className="font-editorial not-italic text-[#9a9a9a]">
+            your competitors miss.
+          </em>
+        </h2>
 
-              <ul className="space-y-2.5 text-xs sm:text-sm text-nafa-charcoal mb-6">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Zero hold time & zero voicemail:</strong> Answers on the first ring 24/7/365.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Full qualification:</strong> Screens callers, checks job requirements, and collects addresses.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>No number change required:</strong> Simple forwarding from your existing business line.</span>
-                </li>
-              </ul>
-            </div>
-
-            <button
-              onClick={onOpenQuote}
-              className="press-scale w-full py-3 px-4 rounded-xl border border-nafa-charcoal/20 text-nafa-charcoal font-bold text-xs sm:text-sm hover:bg-black/5 flex items-center justify-center gap-1.5 transition-all mt-4"
-            >
-              <span>Get Quote for AI Receptionist</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
-
-          {/* Offer 2: Speed-to-Lead Agent */}
-          <div className="apple-glass-card rounded-3xl p-6 sm:p-8 shadow-apple-card border border-nafa-gold/40 bg-gradient-to-b from-white to-amber-50/20 flex flex-col justify-between group relative">
-            <div className="absolute -top-3 right-6 bg-nafa-gold text-white text-[11px] font-extrabold uppercase tracking-wider py-1 px-3 rounded-full shadow-xs">
-              Highest ROI
-            </div>
-
-            <div>
-              <div className="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center mb-6 group-hover:scale-105 transition-transform shadow-xs">
-                <Zap className="w-6 h-6" />
-              </div>
-              <span className="text-xs font-bold uppercase tracking-wider text-nafa-gold">
-                Outbound Follow-up
-              </span>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-nafa-charcoal mt-1 mb-3">
-                Speed-to-Lead Agent
-              </h3>
-              <p className="text-xs sm:text-sm text-nafa-muted leading-relaxed mb-6">
-                An intelligent outbound AI agent that automatically calls new web leads within seconds of submitting a form, quotes, or inquiries, locking them in before competitors even wake up.
-              </p>
-
-              <ul className="space-y-2.5 text-xs sm:text-sm text-nafa-charcoal mb-6">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Under 5-minute contact:</strong> Beats the industry standard 42-hour response lag.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Warm transfer to your phone:</strong> Connects hot buyers straight to you or your techs.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>21x higher qualification:</strong> Reaches customers while your service is top of mind.</span>
-                </li>
-              </ul>
-            </div>
-
-            <button
-              onClick={onOpenQuote}
-              className="press-scale w-full py-3 px-4 rounded-xl bg-nafa-gold text-white font-bold text-xs sm:text-sm hover:bg-nafa-gold-hover shadow-apple-gold flex items-center justify-center gap-1.5 transition-all mt-4"
-            >
-              <span>Get Quote for Speed-to-Lead</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
-
-          {/* Offer 3: High-Converting AI Website */}
-          <div className="apple-glass-card rounded-3xl p-6 sm:p-8 shadow-apple-card border border-white flex flex-col justify-between group hover:border-nafa-gold/40 transition-all duration-300">
-            <div>
-              <div className="w-12 h-12 rounded-2xl bg-stone-100 text-nafa-charcoal flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
-                <Globe className="w-6 h-6" />
-              </div>
-              <span className="text-xs font-bold uppercase tracking-wider text-nafa-muted">
-                Digital Foundation
-              </span>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-nafa-charcoal mt-1 mb-3">
-                High-Converting Website
-              </h3>
-              <p className="text-xs sm:text-sm text-nafa-muted leading-relaxed mb-6">
-                A custom, modern website built specifically for appointment-driven businesses. Optimized for mobile, fast loading, high conversion, and pre-wired for call and lead automation.
-              </p>
-
-              <ul className="space-y-2.5 text-xs sm:text-sm text-nafa-charcoal mb-6">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Domain and ultra-fast hosting included:</strong> Zero technical overhead for you.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Engineered for conversion:</strong> Turns passive search clicks into booked calls and form leads.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Pre-integrated with AI:</strong> Direct triggers to your Speed-to-Lead and voice agents.</span>
-                </li>
-              </ul>
-            </div>
-
-            <button
-              onClick={onOpenQuote}
-              className="press-scale w-full py-3 px-4 rounded-xl border border-nafa-charcoal/20 text-nafa-charcoal font-bold text-xs sm:text-sm hover:bg-black/5 flex items-center justify-center gap-1.5 transition-all mt-4"
-            >
-              <span>Get Quote for AI Website</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        </div>
-
-        {/* Growth Bundle Feature Box */}
-        <div className="apple-glass rounded-3xl p-6 sm:p-10 shadow-apple-card border border-nafa-gold/30 bg-gradient-to-r from-nafa-surface via-amber-50/30 to-nafa-surface">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-            <div className="space-y-2 text-center lg:text-left">
-              <span className="text-xs font-black uppercase tracking-wider text-nafa-gold bg-amber-100/70 px-3 py-1 rounded-full inline-block">
-                ★ Recommended Package
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-nafa-charcoal">
-                The Full Growth System
-              </h3>
-              <p className="text-xs sm:text-sm text-nafa-muted max-w-xl">
-                Combine the <strong>High-Converting Website + Speed-to-Lead + AI Call Agent</strong> into a single automated pipeline. Never miss an inbound phone call, and contact every web inquiry within 5 minutes.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto">
-              <button
-                onClick={onOpenQuote}
-                className="press-scale w-full sm:w-auto py-3.5 px-6 rounded-2xl bg-nafa-gold hover:bg-nafa-gold-hover text-white font-bold text-sm shadow-apple-gold flex items-center justify-center gap-2"
-              >
-                <span>Request Bundle Pricing</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-              <button
-                onClick={onOpenSchedule}
-                className="press-scale w-full sm:w-auto py-3.5 px-5 rounded-2xl bg-white hover:bg-stone-50 border border-nafa-border text-nafa-charcoal font-semibold text-sm flex items-center justify-center gap-2"
-              >
-                Schedule Consultation
-              </button>
-            </div>
-          </div>
-        </div>
+        <p className="mt-4 text-[15px] sm:text-[16px] text-[#9a9a9a] max-w-2xl mx-auto leading-relaxed">
+          We don't hand you generic software subscriptions to manage yourself. Nafa designs, programs, integrates, and operates your autonomous client acquisition systems end-to-end.
+        </p>
       </div>
+
+      {/* 3 Core Systems Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        {systems.map((system, idx) => {
+          const Icon = system.icon;
+          return (
+            <motion.div
+              key={system.id}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className={`interactive-card p-6 sm:p-8 flex flex-col justify-between group ${
+                system.highlight
+                  ? "border-white/30 bg-gradient-to-b from-white/[0.08] via-black/80 to-black/95 shadow-xl shadow-white/[0.02]"
+                  : ""
+              }`}
+            >
+              <div>
+                {/* Card Top Pill */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-10 h-10 rounded-md bg-white/[0.06] border border-white/12 flex items-center justify-center text-white group-hover:scale-105 transition-transform duration-300">
+                    <Icon className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-white/70 px-2 py-0.5 rounded bg-white/5 border border-white/10">
+                    {system.badge}
+                  </span>
+                </div>
+
+                <div className="text-xs font-mono text-[#9a9a9a] uppercase tracking-wider mb-1">
+                  {system.subtitle}
+                </div>
+                <h3 className="text-xl sm:text-2xl font-medium text-white tracking-[-0.02em] mb-3">
+                  {system.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-[#9a9a9a] leading-relaxed mb-6">
+                  {system.description}
+                </p>
+
+                {/* Features List */}
+                <ul className="space-y-2.5 text-xs sm:text-sm text-white/80 mb-8 border-t border-white/8 pt-6">
+                  {system.features.map((feat, fIdx) => (
+                    <li key={fIdx} className="flex items-start gap-2.5">
+                      <CheckCircle2 className="w-4 h-4 text-white/90 shrink-0 mt-0.5" />
+                      <span className="leading-snug">{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="space-y-2 pt-4 border-t border-white/10">
+                <button
+                  onClick={() => openQuoteModal(system.title)}
+                  className="btn btn-solid w-full h-[38px] text-xs font-medium"
+                >
+                  <span>Configure {system.title}</span>
+                </button>
+                <Link
+                  href={system.link}
+                  className="btn btn-ghost w-full h-[38px] text-xs font-medium gap-1 text-[#9a9a9a] hover:text-white"
+                >
+                  <span>Architecture Details</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+
+      {/* Bottom Integration Assurance */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="mt-12 rounded-lg border border-white/12 bg-white/[0.02] p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left"
+      >
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+          </div>
+          <div>
+            <div className="text-sm font-medium text-white">
+              Zero Telephone Disruption • Keep Your Existing Phone Number
+            </div>
+            <div className="text-xs text-[#9a9a9a]">
+              Configured via simple conditional forwarding. No phone line replacements, no hardware installations.
+            </div>
+          </div>
+        </div>
+
+        <button
+          onClick={openSchedule}
+          className="btn btn-ghost h-[38px] px-4 text-xs font-medium shrink-0"
+        >
+          <span>Schedule System Review</span>
+        </button>
+      </motion.div>
     </section>
   );
 }

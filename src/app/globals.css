@@ -227,17 +227,6 @@ body {
   color: var(--muted, #9a9a9a);
 }
 
-/* Single viewport desktop lock rule */
-@media (min-width: 901px) {
-  .desktop-viewport-lock {
-    height: 100vh;
-    height: 100dvh;
-    overflow: hidden;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-  }
-}
-
 /* Header 3-column layout */
 .site-header {
   display: grid;
@@ -433,10 +422,11 @@ body {
     transition: none !important;
     animation: none !important;
   }
-  .appear, .badge-star {
+  .appear, .badge-star, .wave-anim, .radar-ring {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
+    animation: none !important;
   }
 }
 
@@ -450,3 +440,91 @@ body {
   box-shadow: 0 20px 50px -25px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
+/* Interactive Card with rich hover animation */
+.interactive-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(10, 10, 10, 0.75) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease,
+              background 0.35s ease;
+  overflow: hidden;
+}
+
+.interactive-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.8),
+              0 0 24px rgba(255, 255, 255, 0.06);
+}
+
+/* Liquid metal custom range input for calculator */
+input[type="range"].liquid-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 3px;
+  outline: none;
+  transition: background 0.2s;
+}
+
+input[type="range"].liquid-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ffffff 0%, #d8d8d8 100%);
+  border: 2px solid #000000;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="range"].liquid-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.18);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.95);
+}
+
+input[type="range"].liquid-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ffffff 0%, #d8d8d8 100%);
+  border: 2px solid #000000;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+}
+
+/* Audio waveform bars */
+@keyframes wave-bar {
+  0%, 100% { height: 6px; }
+  50% { height: 26px; }
+}
+
+.wave-anim {
+  animation: wave-bar 1.2s ease-in-out infinite;
+}
+
+/* Radar pulse */
+@keyframes radar-pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+.radar-ring {
+  animation: radar-pulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Silver text gradient */
+.text-gradient-silver {
+  background: linear-gradient(180deg, #ffffff 0%, #b0b0b0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
