@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, HelpCircle, Sparkles } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useSiteModals } from "@/context/ModalContext";
 
 interface FAQItem {
@@ -60,16 +60,11 @@ export default function FAQAccordion() {
 
   return (
     <section id="faqs" className="relative py-24 sm:py-32 px-6 sm:px-10 lg:px-12 max-w-5xl mx-auto">
-      <div className="text-center max-w-2xl mx-auto mb-16">
-        <div className="badge-pill inline-flex items-center gap-2 mb-4">
-          <HelpCircle className="w-3.5 h-3.5 text-white" />
-          <span className="text-[12.5px] text-white/90">Frequently Asked Questions</span>
-        </div>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.035em] text-white leading-[1.1]">
-          Everything you need to know about{" "}
-          <em className="font-editorial not-italic text-[#9a9a9a]">Nafa deployment.</em>
+      <div className="text-center max-w-3xl mx-auto mb-16">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.03em] text-white leading-[1.1]">
+          Everything you need to know about Nafa deployment.
         </h2>
-        <p className="mt-4 text-[15px] sm:text-[16px] text-[#9a9a9a]">
+        <p className="mt-4 text-[15px] sm:text-[16px] text-[#A6B4C7] max-w-[65ch] mx-auto leading-relaxed">
           Direct answers to common questions about voice fidelity, security, integrations, and deployment timelines.
         </p>
       </div>
@@ -92,11 +87,11 @@ export default function FAQAccordion() {
             >
               <button
                 onClick={() => toggle(idx)}
-                className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+                className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 cursor-pointer focus:outline-none min-h-[52px]"
                 aria-expanded={isOpen}
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-white/50 px-2 py-0.5 rounded bg-white/5 border border-white/10 hidden sm:inline-block">
+                  <span className="text-xs font-mono uppercase tracking-wider text-[#A6B4C7] px-2 py-0.5 rounded bg-white/5 border border-white/10 hidden sm:inline-block">
                     {faq.category}
                   </span>
                   <span className="text-[15px] sm:text-[16px] font-medium text-white tracking-[-0.01em]">
@@ -104,7 +99,7 @@ export default function FAQAccordion() {
                   </span>
                 </div>
                 <div
-                  className={`w-7 h-7 rounded flex items-center justify-center border border-white/10 bg-white/5 text-white shrink-0 transition-transform duration-300 ${
+                  className={`w-8 h-8 rounded flex items-center justify-center border border-white/10 bg-white/5 text-white shrink-0 transition-transform duration-300 ${
                     isOpen ? "rotate-180 bg-white/10 border-white/30" : ""
                   }`}
                 >
@@ -121,7 +116,7 @@ export default function FAQAccordion() {
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-6 pt-1 text-[14px] sm:text-[14.5px] leading-relaxed text-[#9a9a9a] border-t border-white/5">
+                    <div className="px-6 pb-6 pt-1 text-sm leading-relaxed text-[#A6B4C7] border-t border-white/5 max-w-[58ch]">
                       {faq.answer}
                     </div>
                   </motion.div>
@@ -133,16 +128,16 @@ export default function FAQAccordion() {
       </div>
 
       {/* Still have questions banner */}
-      <div className="mt-12 rounded-lg border border-white/12 bg-white/[0.03] p-6 text-center sm:flex sm:items-center sm:justify-between sm:text-left">
+      <div className="mt-12 rounded-lg border border-white/12 bg-white/[0.02] p-6 text-center sm:flex sm:items-center sm:justify-between sm:text-left">
         <div>
           <div className="text-sm font-semibold text-white">Have a specific technical question?</div>
-          <div className="text-xs text-[#9a9a9a] mt-0.5">
+          <div className="text-xs text-[#A6B4C7] mt-1">
             Our founding engineering team answers all questions directly on our 15-minute discovery call.
           </div>
         </div>
         <button
           onClick={openSchedule}
-          className="btn btn-ghost h-[38px] px-5 text-xs font-medium mt-4 sm:mt-0 shrink-0"
+          className="btn btn-ghost h-[40px] px-5 text-xs font-medium mt-4 sm:mt-0 shrink-0"
         >
           <span>Ask An Engineer</span>
         </button>

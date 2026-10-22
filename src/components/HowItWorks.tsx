@@ -8,7 +8,6 @@ import {
   CalendarCheck,
   TrendingUp,
   ArrowRight,
-  Workflow,
   CheckCircle2,
 } from "lucide-react";
 import { useSiteModals } from "@/context/ModalContext";
@@ -75,19 +74,11 @@ export default function HowItWorks() {
     <section id="how-it-works" className="relative py-24 sm:py-32 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <div className="badge-pill inline-flex items-center gap-2 mb-4">
-          <Workflow className="w-3.5 h-3.5 text-white" />
-          <span className="text-[12.5px] text-white/90">Zero Friction Deployment</span>
-        </div>
-
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.035em] text-white leading-[1.1]">
-          Live in days,{" "}
-          <em className="font-editorial not-italic text-[#9a9a9a]">
-            not months.
-          </em>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.03em] text-white leading-[1.1]">
+          Live in days, not months.
         </h2>
 
-        <p className="mt-4 text-[15px] sm:text-[16px] text-[#9a9a9a] max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-4 text-[15px] sm:text-[16px] text-[#A6B4C7] max-w-[65ch] mx-auto leading-relaxed">
           You don't need an internal IT team or AI experience. Our founding engineers program and deploy your entire infrastructure done-for-you.
         </p>
       </div>
@@ -106,31 +97,30 @@ export default function HowItWorks() {
               className="interactive-card p-6 flex flex-col justify-between group"
             >
               <div>
-                <div className="flex items-center justify-between mb-5">
-                  <span className="text-2xl font-mono font-bold text-white/20 group-hover:text-white/60 transition-colors">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-2xl font-mono font-bold text-white/60 group-hover:text-white transition-colors">
                     {item.step}
                   </span>
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-white/60 px-2 py-0.5 rounded bg-white/5 border border-white/10">
+                  <span className="text-xs font-mono uppercase tracking-wider text-[#A6B4C7] px-2 py-0.5 rounded bg-white/5 border border-white/10">
                     {item.badge}
                   </span>
                 </div>
 
-                <div className="w-9 h-9 rounded bg-white/[0.06] border border-white/12 flex items-center justify-center text-white mb-4 group-hover:scale-105 transition-transform">
-                  <Icon className="w-4 h-4 text-white" />
+                <div className="flex items-center gap-2.5 mb-3">
+                  <Icon className="w-5 h-5 text-emerald-400 shrink-0" />
+                  <h3 className="text-base font-semibold text-white tracking-[-0.01em]">
+                    {item.title}
+                  </h3>
                 </div>
 
-                <h3 className="text-base font-semibold text-white tracking-[-0.01em] mb-2.5">
-                  {item.title}
-                </h3>
-
-                <p className="text-xs text-[#9a9a9a] leading-relaxed mb-5">
+                <p className="text-sm text-[#A6B4C7] leading-relaxed mb-5">
                   {item.description}
                 </p>
 
-                <ul className="space-y-2 text-[12px] text-white/70 border-t border-white/8 pt-4">
+                <ul className="space-y-2.5 text-xs text-white/90 border-t border-white/8 pt-4">
                   {item.points.map((pt, pIdx) => (
                     <li key={pIdx} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-white/90 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                       <span>{pt}</span>
                     </li>
                   ))}
@@ -138,7 +128,7 @@ export default function HowItWorks() {
               </div>
 
               <div className="mt-6 pt-4 border-t border-white/8">
-                <span className="text-[11px] font-mono text-[#9a9a9a]">
+                <span className="text-xs font-mono text-[#A6B4C7]">
                   Timeline: ~{idx === 0 ? "Day 1" : idx === 1 ? "Days 2-3" : idx === 2 ? "Days 4-5" : "Day 6-7"}
                 </span>
               </div>
@@ -151,10 +141,10 @@ export default function HowItWorks() {
       <div className="mt-12 text-center">
         <button
           onClick={openSchedule}
-          className="btn btn-solid h-[42px] px-6 text-xs font-semibold gap-2 shadow-lg"
+          className="btn btn-solid h-[44px] px-7 text-xs font-semibold gap-2 shadow-lg"
         >
           <span>Schedule Stage One Discovery</span>
-          <ArrowRight className="w-3.5 h-3.5" />
+          <ArrowRight className="w-4 h-4" />
         </button>
       </div>
     </section>

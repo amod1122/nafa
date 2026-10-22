@@ -67,7 +67,7 @@ export default function Navbar() {
           </svg>
         </span>
         <span className="text-[15.5px] font-semibold tracking-[-0.03em] text-white">
-          Nafa<span className="font-normal text-[#9a9a9a]">.tech</span>
+          Nafa<span className="font-normal text-[#A6B4C7]">.tech</span>
         </span>
       </Link>
 
@@ -126,7 +126,7 @@ export default function Navbar() {
           className="fixed inset-x-0 top-[65px] bottom-0 z-50 bg-black/95 backdrop-blur-2xl px-6 py-8 flex flex-col justify-between overflow-y-auto border-t border-white/10"
         >
           <div className="grid gap-2">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#9a9a9a] mb-2 px-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#A6B4C7] mb-2 px-2">
               Navigation
             </p>
             {navItems.map((item) => (
@@ -134,14 +134,14 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center justify-between rounded-md border border-white/10 bg-white/[0.03] px-4 py-3.5 text-sm font-medium text-white transition-colors hover:border-white/30 hover:bg-white/[0.08]"
+                className="flex items-center justify-between rounded-md border border-white/10 bg-white/[0.03] px-4 py-3.5 text-sm font-medium text-white transition-colors hover:border-white/30 hover:bg-white/[0.08] min-h-[44px]"
               >
                 <span>{item.label}</span>
-                <span className="text-xs text-[#9a9a9a]">→</span>
+                <span className="text-xs text-[#A6B4C7]">→</span>
               </Link>
             ))}
 
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#9a9a9a] mt-4 mb-2 px-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#A6B4C7] mt-4 mb-2 px-2">
               Explore More
             </p>
             {mobileExtraItems.map((item) => (
@@ -149,10 +149,10 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center justify-between rounded-md border border-white/5 bg-transparent px-4 py-3 text-sm text-[#9a9a9a] transition-colors hover:border-white/20 hover:text-white"
+                className="flex items-center justify-between rounded-md border border-white/5 bg-transparent px-4 py-3 text-sm text-[#A6B4C7] transition-colors hover:border-white/20 hover:text-white min-h-[44px]"
               >
                 <span>{item.label}</span>
-                <span className="text-xs text-white/40">→</span>
+                <span className="text-xs text-white/50">→</span>
               </Link>
             ))}
           </div>
@@ -163,11 +163,11 @@ export default function Navbar() {
                 setMenuOpen(false);
                 openSchedule();
               }}
-              className="btn btn-solid w-full h-[46px] text-sm"
+              className="btn btn-solid w-full h-[46px] text-sm font-semibold"
             >
               Book Discovery Call
             </button>
-            <p className="text-center text-xs text-[#9a9a9a]">
+            <p className="text-center text-xs text-[#A6B4C7]">
               24/7 Voice & Speed-to-Lead Infrastructure
             </p>
           </div>

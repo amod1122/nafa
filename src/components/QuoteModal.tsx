@@ -63,20 +63,20 @@ export default function QuoteModal({
         {/* Header */}
         <div className="p-5 sm:p-6 pb-4 border-b border-white/10 flex items-start justify-between">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[5px] border border-white/15 bg-white/[0.04] text-[#d8d8d8] text-[11px] font-medium tracking-wide mb-2">
-              <Sparkles className="w-3 h-3 text-white" />
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[5px] border border-white/15 bg-white/[0.04] text-[#d8d8d8] text-xs font-medium tracking-wide mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-white" />
               Tailored Proposal
             </div>
             <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-white">
               Get Your Custom Quote
             </h3>
-            <p className="text-xs text-[#9a9a9a] mt-1">
+            <p className="text-xs text-[#A6B4C7] mt-1">
               Zero fluff. We review your details and respond in &lt;5 minutes.
             </p>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-md border border-white/10 bg-white/[0.04] hover:bg-white/[0.1] text-white/70 hover:text-white transition-colors"
+            className="p-2 rounded-md border border-white/10 bg-white/[0.04] hover:bg-white/[0.1] text-white/80 hover:text-white transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-label="Close quote modal"
           >
             <X className="w-4 h-4" />
@@ -95,7 +95,7 @@ export default function QuoteModal({
               placeholder="e.g. Sarah Jenkins"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
+              className="w-full min-h-[44px] px-3.5 py-2.5 rounded-[6px] border border-white/20 bg-white/[0.04] text-base sm:text-sm text-white placeholder-white/65 focus:outline-none focus:border-white/60"
             />
           </div>
 
@@ -109,7 +109,7 @@ export default function QuoteModal({
               placeholder="e.g. Apex Family Dental"
               value={formData.businessName}
               onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
+              className="w-full min-h-[44px] px-3.5 py-2.5 rounded-[6px] border border-white/20 bg-white/[0.04] text-base sm:text-sm text-white placeholder-white/65 focus:outline-none focus:border-white/60"
             />
           </div>
 
@@ -124,7 +124,7 @@ export default function QuoteModal({
                 placeholder="sarah@apexdental.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
+                className="w-full min-h-[44px] px-3.5 py-2.5 rounded-[6px] border border-white/20 bg-white/[0.04] text-base sm:text-sm text-white placeholder-white/65 focus:outline-none focus:border-white/60"
               />
             </div>
             <div>
@@ -137,7 +137,7 @@ export default function QuoteModal({
                 placeholder="(555) 234-5678"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
+                className="w-full min-h-[44px] px-3.5 py-2.5 rounded-[6px] border border-white/20 bg-white/[0.04] text-base sm:text-sm text-white placeholder-white/65 focus:outline-none focus:border-white/60"
               />
             </div>
           </div>
@@ -150,7 +150,7 @@ export default function QuoteModal({
               <select
                 value={formData.industry}
                 onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-[#141414] text-xs sm:text-sm text-white focus:outline-none focus:border-white/50"
+                className="w-full min-h-[44px] px-3.5 py-2.5 rounded-[6px] border border-white/20 bg-[#141414] text-base sm:text-sm text-white focus:outline-none focus:border-white/60"
               >
                 <option value="Home Services (HVAC / Plumbing / Roofing)">Home Services</option>
                 <option value="Dental or Medical Clinic">Dental or Medical</option>
@@ -169,7 +169,7 @@ export default function QuoteModal({
               <select
                 value={formData.serviceNeeded}
                 onChange={(e) => setFormData({ ...formData, serviceNeeded: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-[#141414] text-xs sm:text-sm text-white focus:outline-none focus:border-white/50"
+                className="w-full min-h-[44px] px-3.5 py-2.5 rounded-[6px] border border-white/20 bg-[#141414] text-base sm:text-sm text-white focus:outline-none focus:border-white/60"
               >
                 <option value="Full Growth System (All-in-One)">Full Growth System</option>
                 <option value="AI Call Agent (Voice Receptionist)">AI Call Agent</option>
@@ -188,14 +188,14 @@ export default function QuoteModal({
               placeholder="e.g. ~50 calls/month"
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full px-3.5 py-2 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
+              className="w-full min-h-[44px] px-3.5 py-2.5 rounded-[6px] border border-white/20 bg-white/[0.04] text-base sm:text-sm text-white placeholder-white/65 focus:outline-none focus:border-white/60"
             />
           </div>
 
           <button
             type="submit"
             disabled={isSubmitting}
-            className="btn btn-solid w-full h-[44px] text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 mt-2"
+            className="btn btn-solid w-full h-[46px] text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 mt-2"
           >
             <Send className="w-4 h-4" />
             <span>{isSubmitting ? "Generating Lead Card..." : "Send Request (<5 Min Response)"}</span>

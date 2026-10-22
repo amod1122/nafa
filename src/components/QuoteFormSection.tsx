@@ -57,9 +57,9 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
             <span>Fast & Tailored Architecture</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white mb-4">
-            Get Your Free <em className="font-editorial not-italic text-[#9a9a9a]">Custom Quote</em>
+            Get Your Free Custom Quote
           </h2>
-          <p className="text-sm sm:text-base text-[#9a9a9a] max-w-xl mx-auto">
+          <p className="text-sm sm:text-base text-[#A6B4C7] max-w-xl mx-auto">
             Tell us about your business. We will prepare an exact proposal with zero fluff and target response within 5 minutes.
           </p>
         </div>

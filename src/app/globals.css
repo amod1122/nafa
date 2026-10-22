@@ -12,7 +12,7 @@ body {
 :root {
   --bg: #000000;
   --text: #ffffff;
-  --muted: #9a9a9a;
+  --muted: #A6B4C7;
   --stat: #d8d8d8;
   --border: rgba(255, 255, 255, 0.16);
   --border-soft: rgba(255, 255, 255, 0.12);
@@ -224,7 +224,7 @@ body {
   font-family: "Instrument Serif", "Times New Roman", Times, serif;
   font-style: italic;
   font-weight: 400;
-  color: var(--muted, #9a9a9a);
+  color: var(--muted, #A6B4C7);
 }
 
 /* Header 3-column layout */
@@ -346,10 +346,10 @@ body {
 }
 
 .stat-desc {
-  font-size: 12.5px;
-  line-height: 1.45;
-  color: var(--muted, #9a9a9a);
-  margin-top: 3px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--muted, #A6B4C7);
+  margin-top: 4px;
 }
 
 /* Appearance animations */
@@ -522,9 +522,8 @@ input[type="range"].liquid-slider::-moz-range-thumb {
   animation: radar-pulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
-/* Silver text gradient */
-.text-gradient-silver {
-  background: linear-gradient(180deg, #ffffff 0%, #b0b0b0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Focus visible ring for accessibility */
+*:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.85);
+  outline-offset: 2px;
 }

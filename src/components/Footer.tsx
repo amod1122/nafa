@@ -71,18 +71,18 @@ export default function Footer() {
                 </svg>
               </span>
               <span className="text-[15.5px] font-semibold tracking-[-0.03em] text-white">
-                Nafa<span className="font-normal text-[#9a9a9a]">.tech</span>
+                Nafa<span className="font-normal text-[#A6B4C7]">.tech</span>
               </span>
             </Link>
 
-            <p className="mt-4 max-w-sm text-sm leading-6 text-[#9a9a9a]">
+            <p className="mt-4 max-w-sm text-sm leading-6 text-[#A6B4C7]">
               Operational AI voice infrastructure, immediate speed-to-lead systems, and high-converting web architecture for businesses that never miss an opportunity.
             </p>
 
             <div className="mt-6 flex items-center gap-3">
               <button
                 onClick={openSchedule}
-                className="btn btn-solid h-[38px] px-4 text-xs font-medium"
+                className="btn btn-solid h-[40px] px-4 text-xs font-semibold"
               >
                 Book Discovery Call <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
               </button>
@@ -92,15 +92,15 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
             {groups.map((group) => (
               <div key={group.label}>
-                <h3 className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#9a9a9a]">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-[#A6B4C7]">
                   {group.label}
                 </h3>
                 <ul className="mt-4 space-y-2.5">
-                  {group.links.map(([label, href]) => (
+                  {groups.find((g) => g.label === group.label)?.links.map(([label, href]) => (
                     <li key={href}>
                       <Link
                         href={href}
-                        className="text-[13.5px] text-[#9a9a9a] transition-colors hover:text-white"
+                        className="text-sm text-[#A6B4C7] transition-colors hover:text-white"
                       >
                         {label}
                       </Link>
@@ -112,11 +112,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-[#9a9a9a] sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-[#A6B4C7] sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Nafa Technologies. All rights reserved.</p>
           <button
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 self-start text-[#9a9a9a] transition-colors hover:text-white sm:self-auto cursor-pointer"
+            className="inline-flex items-center gap-1.5 self-start text-[#A6B4C7] transition-colors hover:text-white sm:self-auto cursor-pointer min-h-[44px]"
           >
             Back to top <ArrowUp className="h-3.5 w-3.5" />
           </button>

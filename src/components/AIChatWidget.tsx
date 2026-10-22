@@ -113,7 +113,7 @@ export default function AIChatWidget({ onOpenSchedule, onOpenQuote }: AIChatWidg
           >
             <div className="relative">
               <Bot className="w-4 h-4 text-white" />
-              <span className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+              <span className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-400 rounded-full"></span>
             </div>
             <span className="text-xs font-medium tracking-tight text-white/95">
               Ask Nafa AI
@@ -210,7 +210,7 @@ export default function AIChatWidget({ onOpenSchedule, onOpenQuote }: AIChatWidg
               <button
                 key={i}
                 onClick={() => handleSend(qp)}
-                className="shrink-0 text-[11px] bg-white/[0.04] hover:bg-white/[0.08] text-[#9a9a9a] hover:text-white px-2.5 py-1 rounded-[5px] border border-white/10 transition-colors cursor-pointer"
+                className="shrink-0 text-xs bg-white/[0.04] hover:bg-white/[0.08] text-[#A6B4C7] hover:text-white px-2.5 py-1.5 rounded-[5px] border border-white/10 transition-colors cursor-pointer"
               >
                 {qp}
               </button>
@@ -225,7 +225,7 @@ export default function AIChatWidget({ onOpenSchedule, onOpenQuote }: AIChatWidg
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
-              className="flex-1 px-3 py-2 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs text-white placeholder-white/40 focus:outline-none focus:border-white/50"
+              className="flex-1 min-h-[40px] px-3.5 py-2 rounded-[6px] border border-white/20 bg-white/[0.04] text-base sm:text-xs text-white placeholder-white/65 focus:outline-none focus:border-white/60"
             />
             <button
               onClick={() => handleSend()}

@@ -54,20 +54,20 @@ export default function ScheduleModal({ isOpen, onClose }: ScheduleModalProps) {
         {/* Header */}
         <div className="p-5 sm:p-6 pb-4 border-b border-white/10 flex items-start justify-between">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[5px] border border-white/15 bg-white/[0.04] text-[#d8d8d8] text-[11px] font-medium tracking-wide mb-2">
-              <Calendar className="w-3 h-3 text-white" />
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[5px] border border-white/15 bg-white/[0.04] text-[#d8d8d8] text-xs font-medium tracking-wide mb-2">
+              <Calendar className="w-3.5 h-3.5 text-white" />
               15-Minute Discovery Call
             </div>
             <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-white">
               Book Your Architecture Session
             </h3>
-            <p className="text-xs text-[#9a9a9a] mt-1">
+            <p className="text-xs text-[#A6B4C7] mt-1">
               Speak directly with an AI systems architect to map your call & lead flow.
             </p>
           </div>
           <button
             onClick={handleReset}
-            className="p-1.5 rounded-md border border-white/10 bg-white/[0.04] hover:bg-white/[0.1] text-white/70 hover:text-white transition-colors"
+            className="p-2 rounded-md border border-white/10 bg-white/[0.04] hover:bg-white/[0.1] text-white/80 hover:text-white transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-label="Close scheduler"
           >
             <X className="w-4 h-4" />
@@ -87,10 +87,10 @@ export default function ScheduleModal({ isOpen, onClose }: ScheduleModalProps) {
                     type="button"
                     key={d}
                     onClick={() => setSelectedDay(d)}
-                    className={`py-2 px-1 text-center rounded-[6px] text-xs font-medium transition-all ${
+                    className={`py-2 px-1 text-center rounded-[6px] text-xs font-medium transition-all min-h-[44px] flex items-center justify-center ${
                       selectedDay === d
                         ? "bg-white text-black font-semibold shadow-sm"
-                        : "bg-white/[0.04] text-[#9a9a9a] border border-white/10 hover:border-white/30 hover:text-white"
+                        : "bg-white/[0.04] text-[#A6B4C7] border border-white/10 hover:border-white/30 hover:text-white"
                     }`}
                   >
                     {d}
@@ -110,13 +110,13 @@ export default function ScheduleModal({ isOpen, onClose }: ScheduleModalProps) {
                     type="button"
                     key={t}
                     onClick={() => setSelectedTime(t)}
-                    className={`py-2 px-3 text-center rounded-[6px] text-xs font-medium transition-all flex items-center justify-center gap-1.5 ${
+                    className={`py-2 px-3 text-center rounded-[6px] text-xs font-medium transition-all flex items-center justify-center gap-1.5 min-h-[44px] ${
                       selectedTime === t
                         ? "btn-solid text-black font-semibold"
                         : "bg-white/[0.04] text-white/80 border border-white/10 hover:border-white/30 hover:text-white"
                     }`}
                   >
-                    <Clock className="w-3 h-3 text-[#9a9a9a]" />
+                    <Clock className="w-3.5 h-3.5 text-[#A6B4C7]" />
                     <span>{t}</span>
                   </button>
                 ))}
@@ -136,7 +136,7 @@ export default function ScheduleModal({ isOpen, onClose }: ScheduleModalProps) {
                   placeholder="Your Full Name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
+                  className="w-full min-h-[44px] px-3.5 py-2.5 rounded-[6px] border border-white/20 bg-white/[0.04] text-base sm:text-sm text-white placeholder-white/65 focus:outline-none focus:border-white/60"
                 />
               </div>
 
@@ -147,7 +147,7 @@ export default function ScheduleModal({ isOpen, onClose }: ScheduleModalProps) {
                   placeholder="Work Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
+                  className="w-full min-h-[44px] px-3.5 py-2.5 rounded-[6px] border border-white/20 bg-white/[0.04] text-base sm:text-sm text-white placeholder-white/65 focus:outline-none focus:border-white/60"
                 />
               </div>
 
@@ -157,14 +157,14 @@ export default function ScheduleModal({ isOpen, onClose }: ScheduleModalProps) {
                   placeholder="Phone Number (for calendar & SMS confirm)"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-white/[0.04] text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-white/50"
+                  className="w-full min-h-[44px] px-3.5 py-2.5 rounded-[6px] border border-white/20 bg-white/[0.04] text-base sm:text-sm text-white placeholder-white/65 focus:outline-none focus:border-white/60"
                 />
               </div>
             </div>
 
             <button
               type="submit"
-              className="btn btn-solid w-full h-[44px] text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 mt-2"
+              className="btn btn-solid w-full h-[46px] text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 mt-2"
             >
               <CheckCircle2 className="w-4 h-4" />
               <span>Confirm 15-Minute Booking</span>
@@ -173,40 +173,40 @@ export default function ScheduleModal({ isOpen, onClose }: ScheduleModalProps) {
         ) : (
           <div className="p-6 sm:p-8 space-y-5 text-center">
             <div className="w-12 h-12 rounded-[8px] border border-white/20 bg-white/10 text-white mx-auto flex items-center justify-center">
-              <CheckCircle2 className="w-6 h-6 text-white" />
+              <CheckCircle2 className="w-6 h-6 text-emerald-400" />
             </div>
 
             <div>
               <h4 className="text-xl sm:text-2xl font-medium text-white mb-1">
                 Meeting Confirmed!
               </h4>
-              <p className="text-xs sm:text-sm text-[#9a9a9a]">
+              <p className="text-xs sm:text-sm text-[#A6B4C7]">
                 Your 15-minute discovery consultation has been secured.
               </p>
             </div>
 
             <div className="p-4 rounded-[6px] bg-white/[0.03] border border-white/10 text-left space-y-2 text-xs">
               <div className="flex justify-between">
-                <span className="text-[#9a9a9a]">Scheduled Day:</span>
+                <span className="text-[#A6B4C7]">Scheduled Day:</span>
                 <span className="font-medium text-white">{selectedDay}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#9a9a9a]">Time Slot:</span>
+                <span className="text-[#A6B4C7]">Time Slot:</span>
                 <span className="font-medium text-white font-mono">{selectedTime}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#9a9a9a]">Host:</span>
+                <span className="text-[#A6B4C7]">Host:</span>
                 <span className="font-medium text-white">Nafa Lead Architect</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#9a9a9a]">Attendee:</span>
+                <span className="text-[#A6B4C7]">Attendee:</span>
                 <span className="font-medium text-white">
                   {name} ({email})
                 </span>
               </div>
             </div>
 
-            <div className="p-3.5 rounded-[6px] bg-white/[0.02] border border-white/10 text-left text-xs text-[#9a9a9a] space-y-1">
+            <div className="p-3.5 rounded-[6px] bg-white/[0.02] border border-white/10 text-left text-xs text-[#A6B4C7] space-y-1">
               <div className="font-medium text-white">Next Steps:</div>
               <div>• Check your inbox for the Google Meet calendar invite.</div>
               <div>• We'll review your website and current phone flow ahead of the call.</div>
@@ -214,7 +214,7 @@ export default function ScheduleModal({ isOpen, onClose }: ScheduleModalProps) {
 
             <button
               onClick={handleReset}
-              className="btn btn-solid w-full h-[42px] text-xs sm:text-sm font-semibold"
+              className="btn btn-solid w-full h-[44px] text-xs sm:text-sm font-semibold"
             >
               Done & Return to Site
             </button>

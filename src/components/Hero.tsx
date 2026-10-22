@@ -78,7 +78,7 @@ export default function Hero({ onOpenSchedule, onOpenQuote }: HeroProps) {
             <div className="flex items-center justify-between pb-4 border-b border-nafa-border/60">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center font-bold">
-                  <Phone className="w-5 h-5 animate-bounce" />
+                  <Phone className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">

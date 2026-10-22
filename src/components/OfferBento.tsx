@@ -10,9 +10,6 @@ import {
   CheckCircle2,
   ArrowRight,
   ShieldCheck,
-  Bot,
-  CalendarCheck,
-  Sparkles,
 } from "lucide-react";
 import { useSiteModals } from "@/context/ModalContext";
 
@@ -77,19 +74,11 @@ export default function OfferBento() {
     <section id="services" className="relative py-24 sm:py-32 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <div className="badge-pill inline-flex items-center gap-2 mb-4">
-          <Bot className="w-3.5 h-3.5 text-white" />
-          <span className="text-[12.5px] text-white/90">Core Operational Systems</span>
-        </div>
-
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.035em] text-white leading-[1.1]">
-          Engineered to capture every dollar{" "}
-          <em className="font-editorial not-italic text-[#9a9a9a]">
-            your competitors miss.
-          </em>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.03em] text-white leading-[1.1]">
+          Engineered to capture every dollar your competitors miss.
         </h2>
 
-        <p className="mt-4 text-[15px] sm:text-[16px] text-[#9a9a9a] max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-4 text-[15px] sm:text-[16px] text-[#A6B4C7] max-w-[65ch] mx-auto leading-relaxed">
           We don't hand you generic software subscriptions to manage yourself. Nafa designs, programs, integrates, and operates your autonomous client acquisition systems end-to-end.
         </p>
       </div>
@@ -112,31 +101,31 @@ export default function OfferBento() {
               }`}
             >
               <div>
-                {/* Card Top Pill */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-10 h-10 rounded-md bg-white/[0.06] border border-white/12 flex items-center justify-center text-white group-hover:scale-105 transition-transform duration-300">
+                {/* Card Top Row (Side-by-side - no stacked tile) */}
+                <div className="flex items-center justify-between mb-5">
+                  <div className="flex items-center gap-2.5">
                     <Icon className="w-5 h-5 text-white" />
+                    <span className="text-xs font-mono uppercase tracking-wider text-[#A6B4C7]">
+                      {system.subtitle}
+                    </span>
                   </div>
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-white/70 px-2 py-0.5 rounded bg-white/5 border border-white/10">
+                  <span className="text-xs font-mono uppercase tracking-wider text-[#A6B4C7] px-2.5 py-1 rounded bg-white/5 border border-white/10">
                     {system.badge}
                   </span>
                 </div>
 
-                <div className="text-xs font-mono text-[#9a9a9a] uppercase tracking-wider mb-1">
-                  {system.subtitle}
-                </div>
                 <h3 className="text-xl sm:text-2xl font-medium text-white tracking-[-0.02em] mb-3">
                   {system.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#9a9a9a] leading-relaxed mb-6">
+                <p className="text-sm text-[#A6B4C7] leading-relaxed mb-6">
                   {system.description}
                 </p>
 
                 {/* Features List */}
-                <ul className="space-y-2.5 text-xs sm:text-sm text-white/80 mb-8 border-t border-white/8 pt-6">
+                <ul className="space-y-3 text-xs sm:text-sm text-white/90 mb-8 border-t border-white/8 pt-6">
                   {system.features.map((feat, fIdx) => (
                     <li key={fIdx} className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-white/90 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                       <span className="leading-snug">{feat}</span>
                     </li>
                   ))}
@@ -147,13 +136,13 @@ export default function OfferBento() {
               <div className="space-y-2 pt-4 border-t border-white/10">
                 <button
                   onClick={() => openQuoteModal(system.title)}
-                  className="btn btn-solid w-full h-[38px] text-xs font-medium"
+                  className="btn btn-solid w-full h-[40px] text-xs font-semibold"
                 >
                   <span>Configure {system.title}</span>
                 </button>
                 <Link
                   href={system.link}
-                  className="btn btn-ghost w-full h-[38px] text-xs font-medium gap-1 text-[#9a9a9a] hover:text-white"
+                  className="btn btn-ghost w-full h-[40px] text-xs font-medium gap-1 text-[#A6B4C7] hover:text-white"
                 >
                   <span>Architecture Details</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -173,14 +162,14 @@ export default function OfferBento() {
         className="mt-12 rounded-lg border border-white/12 bg-white/[0.02] p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left"
       >
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+          <div className="w-9 h-9 rounded bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+            <ShieldCheck className="w-5 h-5 text-emerald-400" />
           </div>
           <div>
             <div className="text-sm font-medium text-white">
               Zero Telephone Disruption • Keep Your Existing Phone Number
             </div>
-            <div className="text-xs text-[#9a9a9a]">
+            <div className="text-xs text-[#A6B4C7] mt-0.5">
               Configured via simple conditional forwarding. No phone line replacements, no hardware installations.
             </div>
           </div>
@@ -188,7 +177,7 @@ export default function OfferBento() {
 
         <button
           onClick={openSchedule}
-          className="btn btn-ghost h-[38px] px-4 text-xs font-medium shrink-0"
+          className="btn btn-ghost h-[40px] px-5 text-xs font-medium shrink-0"
         >
           <span>Schedule System Review</span>
         </button>
