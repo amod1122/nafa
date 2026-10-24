@@ -149,6 +149,7 @@ export default function InteractiveAudioDemo() {
   // Web Audio simulated gentle speech tone synthesis
   const playSimulatedBeep = (freq: number, duration: number) => {
     if (audioMuted) return;
+    if (typeof window === "undefined") return;
     try {
       const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
       if (!AudioCtx) return;
