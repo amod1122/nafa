@@ -22,13 +22,13 @@ export default function HomePage() {
   return (
     <div className="relative w-full overflow-hidden bg-black text-white selection:bg-white selection:text-black">
       {/* =========================================================================
-          HERO SECTION (MAIN COPY DOCKED ON THE RIGHT)
+          HERO SECTION (MAIN COPY DOCKED ON THE LEFT)
           ========================================================================= */}
       <section
         id="top"
         className="relative pt-12 sm:pt-20 pb-12 sm:pb-16 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto flex flex-col justify-center min-h-[calc(85vh-80px)]"
       >
-        <div className="w-full flex justify-end">
+        <div className="w-full flex justify-start">
           <div className="w-full max-w-2xl text-left flex flex-col items-start">
             {/* Live Operational Status Chip */}
             <div className="badge-pill inline-flex items-center gap-2 mb-6">
