@@ -312,7 +312,7 @@ export default function InteractiveAudioDemo() {
                 title={audioMuted ? "Unmute Sound" : "Mute Sound"}
                 aria-label="Toggle audio mute"
               >
-                {audioMuted ? <VolumeX className="w-4 h-4 text-red-400" /> : <Volume2 className="w-4 h-4" />}
+                {audioMuted ? <VolumeX className="w-4 h-4 text-white/60" /> : <Volume2 className="w-4 h-4" />}
               </button>
             </div>
           </div>
@@ -324,7 +324,7 @@ export default function InteractiveAudioDemo() {
               <span className="flex items-center gap-1.5 font-sans font-medium text-white">
                 {isPlaying ? (
                   <>
-                    <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span className="w-2 h-2 rounded-full bg-white"></span>
                     Call Active (0.3s latency)
                   </>
                 ) : (
@@ -428,7 +428,7 @@ export default function InteractiveAudioDemo() {
                 Test our outbound agent right now. Submit mock details to trigger a live simulation of the automated 60-second qualification workflow.
               </p>
               <div className="flex items-center gap-2 text-xs text-[#A6B4C7] pt-1">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <ShieldCheck className="w-4 h-4 text-white/80" />
                 <span>Simulated sandbox mode (safe test, no real spam calls)</span>
               </div>
             </div>
@@ -484,7 +484,7 @@ export default function InteractiveAudioDemo() {
 
                   <div className="space-y-3 text-xs">
                     <div className="flex items-center gap-2.5 text-white font-medium">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                      <CheckCircle2 className="w-4 h-4 text-white/80" />
                       <span>1. Web form lead received for {testLeadName}</span>
                     </div>
 
@@ -495,7 +495,7 @@ export default function InteractiveAudioDemo() {
                           : "text-[#A6B4C7] opacity-40"
                       }`}
                     >
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                      <CheckCircle2 className="w-4 h-4 text-white/80" />
                       <span>2. AI Speed Agent triggered (0.8s reaction)</span>
                     </div>
 
@@ -506,7 +506,7 @@ export default function InteractiveAudioDemo() {
                           : "text-[#A6B4C7] opacity-40"
                       }`}
                     >
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                      <CheckCircle2 className="w-4 h-4 text-white/80" />
                       <span>3. Outbound call dispatched to {testLeadPhone}</span>
                     </div>
 
@@ -517,7 +517,7 @@ export default function InteractiveAudioDemo() {
                           : "text-[#A6B4C7] opacity-40"
                       }`}
                     >
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                      <CheckCircle2 className="w-4 h-4 text-white/80" />
                       <span>
                         4. Connected! Caller qualified & booked on calendar!
                       </span>

@@ -93,11 +93,11 @@ export default function SocialProof() {
                 <div className="text-3xl font-mono font-bold text-white tracking-tight">
                   {study.metric}
                 </div>
-                <div className="text-xs font-semibold text-emerald-400 mt-0.5">
+                <div className="text-xs font-semibold text-white/90 mt-0.5">
                   {study.metricLabel}
                 </div>
                 <div className="text-xs text-[#A6B4C7] mt-1.5 font-mono flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-white/80" />
                   <span>{study.stat}</span>
                 </div>
               </div>

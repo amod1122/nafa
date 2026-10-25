@@ -113,7 +113,7 @@ export default function AIChatWidget({ onOpenSchedule, onOpenQuote }: AIChatWidg
           >
             <div className="relative">
               <Bot className="w-4 h-4 text-white" />
-              <span className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-400 rounded-full"></span>
+              <span className="absolute -top-1 -right-1 w-2 h-2 bg-white rounded-full"></span>
             </div>
             <span className="text-xs font-medium tracking-tight text-white/95">
               Ask Nafa AI
@@ -138,7 +138,7 @@ export default function AIChatWidget({ onOpenSchedule, onOpenQuote }: AIChatWidg
               <div>
                 <h4 className="text-xs font-semibold text-white flex items-center gap-1.5">
                   Nafa AI Agent
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
                 </h4>
                 <p className="text-[10px] text-[#9a9a9a]">24/7 Voice & Systems Assistant</p>
               </div>

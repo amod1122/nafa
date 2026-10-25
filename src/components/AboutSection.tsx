@@ -71,7 +71,7 @@ export default function AboutSection() {
           >
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#A6B4C7] mb-4">
-                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                <span className="w-2 h-2 rounded-full bg-white/80"></span>
                 <span>Our Founding Mission</span>
               </div>
 
@@ -124,7 +124,7 @@ export default function AboutSection() {
                 >
                   <div>
                     <div className="flex items-center gap-2.5 mb-2.5">
-                      <Icon className="w-5 h-5 text-emerald-400 shrink-0" />
+                      <Icon className="w-5 h-5 text-white shrink-0" />
                       <h4 className="text-sm font-semibold text-white tracking-[-0.01em]">
                         {std.title}
                       </h4>
@@ -135,7 +135,7 @@ export default function AboutSection() {
                   </div>
 
                   <div className="mt-4 pt-3 border-t border-white/8 flex items-center gap-1.5 text-xs text-[#A6B4C7] font-mono">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-white/80" />
                     <span>Nafa Standard</span>
                   </div>
                 </motion.div>

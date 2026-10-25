@@ -173,7 +173,7 @@ export default function ScheduleModal({ isOpen, onClose }: ScheduleModalProps) {
         ) : (
           <div className="p-6 sm:p-8 space-y-5 text-center">
             <div className="w-12 h-12 rounded-[8px] border border-white/20 bg-white/10 text-white mx-auto flex items-center justify-center">
-              <CheckCircle2 className="w-6 h-6 text-emerald-400" />
+              <CheckCircle2 className="w-6 h-6 text-white" />
             </div>
 
             <div>

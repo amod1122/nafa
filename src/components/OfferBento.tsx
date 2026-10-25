@@ -34,7 +34,7 @@ export default function OfferBento() {
     {
       id: "speed-to-lead",
       badge: "Outbound Response",
-      title: "Speed-to-Lead (P2L)",
+      title: "Speed-to-Lead Agent",
       subtitle: "<60s Lead Response",
       points: [
         "Automated phone call & SMS in <60 seconds",
@@ -115,7 +115,7 @@ export default function OfferBento() {
                 <ul className="space-y-2.5 text-xs sm:text-sm text-white/90 mb-6 border-t border-white/8 pt-4">
                   {system.points.map((pt, pIdx) => (
                     <li key={pIdx} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-white/80 shrink-0 mt-0.5" />
                       <span className="leading-snug text-white/90">{pt}</span>
                     </li>
                   ))}

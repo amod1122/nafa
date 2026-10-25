@@ -107,7 +107,7 @@ export default function HowItWorks() {
                 </div>
 
                 <div className="flex items-center gap-2.5 mb-3">
-                  <Icon className="w-5 h-5 text-emerald-400 shrink-0" />
+                  <Icon className="w-5 h-5 text-white shrink-0" />
                   <h3 className="text-base font-semibold text-white tracking-[-0.01em]">
                     {item.title}
                   </h3>
@@ -120,7 +120,7 @@ export default function HowItWorks() {
                 <ul className="space-y-2.5 text-xs text-white/90 border-t border-white/8 pt-4">
                   {item.points.map((pt, pIdx) => (
                     <li key={pIdx} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0 mt-0.5" />
                       <span>{pt}</span>
                     </li>
                   ))}

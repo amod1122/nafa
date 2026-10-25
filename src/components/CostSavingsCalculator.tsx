@@ -139,7 +139,7 @@ export default function CostSavingsCalculator() {
                 <div className="flex justify-between items-baseline mb-2">
                   <label htmlFor="slider-missed" className="text-sm font-medium text-white/90 flex items-center gap-2">
                     <span>Estimated Missed Call Rate</span>
-                    <span className="text-xs text-amber-300 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                    <span className="text-xs text-[#A6B4C7] bg-white/5 px-2 py-0.5 rounded border border-white/10">
                       Industry avg 27-62%
                     </span>
                   </label>
@@ -202,8 +202,8 @@ export default function CostSavingsCalculator() {
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
 
             <div>
-              <div className="flex items-center gap-2 text-rose-300 text-xs font-semibold tracking-wide uppercase font-mono">
-                <AlertTriangle className="w-4 h-4 text-rose-400" />
+              <div className="flex items-center gap-2 text-white/80 text-xs font-semibold tracking-wide uppercase font-mono">
+                <AlertTriangle className="w-4 h-4 text-white/70" />
                 <span>Revenue at Risk</span>
               </div>
 
@@ -235,7 +235,7 @@ export default function CostSavingsCalculator() {
               {/* Potential Net Value Recovered With Nafa */}
               <div className="mt-6 pt-5 border-t border-white/10">
                 <div className="flex items-center gap-2 text-white text-xs font-semibold uppercase tracking-wider font-mono">
-                  <TrendingUp className="w-4 h-4 text-emerald-400" />
+                  <TrendingUp className="w-4 h-4 text-white" />
                   <span>Total Value Recovered With Nafa</span>
                 </div>
                 <div className="text-3xl sm:text-4xl font-mono font-bold text-white tracking-tight mt-2">
@@ -246,15 +246,15 @@ export default function CostSavingsCalculator() {
                 </div>
                 <ul className="mt-4 space-y-2 text-xs text-white/90">
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
                     <span>24/7/365 coverage answers in &lt;1 second</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
                     <span>Direct live calendar booking into your CRM</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
                     <span>Zero sick days, zero missed holiday calls</span>
                   </li>
                 </ul>

@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import {
   ArrowRight,
   Clock,
@@ -23,97 +22,74 @@ export default function HomePage() {
   return (
     <div className="relative w-full overflow-hidden bg-black text-white selection:bg-white selection:text-black">
       {/* =========================================================================
-          HERO SECTION (CLEAN & CENTERED)
+          HERO SECTION (MAIN COPY DOCKED ON THE RIGHT)
           ========================================================================= */}
       <section
         id="top"
         className="relative pt-12 sm:pt-20 pb-12 sm:pb-16 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto flex flex-col justify-center min-h-[calc(85vh-80px)]"
       >
-        <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
-          {/* Live Operational Status Chip */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="badge-pill inline-flex items-center gap-2 mb-6"
-          >
-            <span className="w-2 h-2 rounded-full bg-emerald-400" aria-hidden="true" />
-            <span className="text-xs font-medium tracking-[-0.01em] text-white/90">
-              Operational AI Voice & Speed-to-Lead Infrastructure
-            </span>
-          </motion.div>
-
-          {/* Main Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-sans text-[38px] sm:text-[54px] lg:text-[62px] font-medium leading-[1.08] tracking-[-0.03em] text-white"
-          >
-            Deploy{" "}
-            <em className="font-editorial not-italic text-[#A6B4C7]">
-              AI call agents
-            </em>{" "}
-            that
-            <br />
-            answer every lead in seconds.
-          </motion.h1>
-
-          {/* Subhead Lede */}
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-6 max-w-[58ch] text-[15px] sm:text-[17px] leading-[1.6] text-[#A6B4C7] mx-auto"
-          >
-            Custom voice receptionists and immediate response pipelines that
-            answer inbound phone calls, qualify caller intent, and book revenue onto
-            your calendar 24/7/365. Zero hold times. Zero missed opportunities.
-          </motion.p>
-
-          {/* Clean 2-Button CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-8 flex flex-wrap items-center justify-center gap-3.5"
-          >
-            <button
-              onClick={openSchedule}
-              className="btn btn-solid h-[44px] px-6 text-sm font-semibold gap-2 shadow-lg"
-            >
-              <span>Book Discovery Call</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-
-            <button
-              onClick={() => openQuoteModal()}
-              className="btn btn-ghost h-[44px] px-6 text-sm font-medium text-white/90 hover:text-white"
-            >
-              <span>Get Custom Quote</span>
-            </button>
-          </motion.div>
-
-          {/* Trust Assurance Bar */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-10 pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-y-3 gap-x-6 text-xs text-[#A6B4C7]"
-          >
-            <div className="flex items-center gap-2 text-white/90">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>Keep your current phone number</span>
+        <div className="w-full flex justify-end">
+          <div className="w-full max-w-2xl text-left flex flex-col items-start">
+            {/* Live Operational Status Chip */}
+            <div className="badge-pill inline-flex items-center gap-2 mb-6">
+              <span className="w-2 h-2 rounded-full bg-white/90" aria-hidden="true" />
+              <span className="text-xs font-medium tracking-[-0.01em] text-white/90">
+                Operational AI Voice & Speed-to-Lead Infrastructure
+              </span>
             </div>
-            <div className="flex items-center gap-2 text-white/90">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>Live in 3 to 7 business days</span>
+
+            {/* Main Headline */}
+            <h1 className="font-sans text-[36px] sm:text-[48px] lg:text-[56px] font-medium leading-[1.06] tracking-[-0.03em] text-white">
+              Deploy{" "}
+              <em className="font-editorial not-italic text-[#A6B4C7]">
+                AI call agents
+              </em>{" "}
+              that
+              <br />
+              answer every lead in seconds.
+            </h1>
+
+            {/* Subhead Lede */}
+            <p className="mt-5 max-w-[56ch] text-[15px] sm:text-[16.5px] leading-[1.6] text-[#A6B4C7]">
+              Custom voice receptionists and immediate response pipelines that
+              answer inbound phone calls, qualify caller intent, and book revenue onto
+              your calendar 24/7/365. Zero hold times. Zero missed opportunities.
+            </p>
+
+            {/* Clean 2-Button CTAs */}
+            <div className="mt-8 flex flex-wrap items-center gap-3.5">
+              <button
+                onClick={openSchedule}
+                className="btn btn-solid h-[44px] px-6 text-sm font-semibold gap-2 shadow-lg"
+              >
+                <span>Book Discovery Call</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              <button
+                onClick={() => openQuoteModal()}
+                className="btn btn-ghost h-[44px] px-6 text-sm font-medium text-white/90 hover:text-white"
+              >
+                <span>Get Custom Quote</span>
+              </button>
             </div>
-            <div className="flex items-center gap-2 text-white/90">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>100% US direct engineering</span>
+
+            {/* Trust Assurance Bar */}
+            <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap items-center gap-y-3 gap-x-6 text-xs text-[#A6B4C7]">
+              <div className="flex items-center gap-2 text-white/90">
+                <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
+                <span>Keep your current phone number</span>
+              </div>
+              <div className="flex items-center gap-2 text-white/90">
+                <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
+                <span>Live in 3 to 7 business days</span>
+              </div>
+              <div className="flex items-center gap-2 text-white/90">
+                <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
+                <span>100% direct engineering</span>
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -142,7 +118,7 @@ export default function HomePage() {
           <div>
             <div className="stat-title">&lt;60-Second Speed-to-Lead</div>
             <p className="stat-desc">
-              Instantly contacts web form submissions and Facebook leads via autonomous call and SMS before competitors wake up.
+              Instantly contacts web form submissions and leads via autonomous call and SMS before competitors wake up.
             </p>
           </div>
         </div>
@@ -167,7 +143,7 @@ export default function HomePage() {
       <CostSavingsCalculator />
 
       {/* =========================================================================
-          THE 3 CORE SYSTEMS (AI RECEPTIONIST, SPEED-TO-LEAD P2L, WEB BUILD & REDESIGN)
+          THE 3 CORE SYSTEMS (AI RECEPTIONIST, SPEED-TO-LEAD AGENT, WEB BUILD & REDESIGN)
           ========================================================================= */}
       <OfferBento />
 
@@ -195,15 +171,9 @@ export default function HomePage() {
           FINAL HIGH-CONVERTING CLOSING CTA BANNER
           ========================================================================= */}
       <section className="relative py-14 sm:py-20 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="rounded-xl border border-white/20 bg-gradient-to-b from-white/[0.08] via-black/90 to-black p-8 sm:p-12 lg:p-14 text-center relative overflow-hidden shadow-2xl"
-        >
+        <div className="rounded-xl border border-white/20 bg-gradient-to-b from-white/[0.08] via-black/90 to-black p-8 sm:p-12 lg:p-14 text-center relative overflow-hidden shadow-2xl">
           {/* Subtle top edge glow */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.03em] text-white leading-[1.1] max-w-3xl mx-auto">
             Ready to deploy an AI voice receptionist that never sleeps?
@@ -232,19 +202,19 @@ export default function HomePage() {
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-[#A6B4C7]">
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <CheckCircle2 className="w-4 h-4 text-white/80" />
               No contracts or long-term lock-in
             </span>
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <CheckCircle2 className="w-4 h-4 text-white/80" />
               Keep your existing phone numbers
             </span>
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <CheckCircle2 className="w-4 h-4 text-white/80" />
               Live within 3 to 7 business days
             </span>
           </div>
-        </motion.div>
+        </div>
       </section>
     </div>
   );
