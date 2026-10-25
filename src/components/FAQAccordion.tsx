@@ -91,11 +91,7 @@ export default function FAQAccordion() {
                 aria-expanded={isOpen}
               >
                 <div className="flex items-center gap-3">
-                  <span className={`text-xs font-mono uppercase tracking-wider px-2.5 py-1 rounded-full border hidden sm:inline-block transition-colors ${
-                    isOpen
-                      ? "text-sky-300 bg-sky-500/10 border-sky-500/30"
-                      : "text-[#94a3b8] bg-white/5 border-white/10"
-                  }`}>
+                  <span className="text-xs font-mono uppercase tracking-wider text-[#A6B4C7] px-2.5 py-1 rounded bg-white/5 border border-white/10 hidden sm:inline-block">
                     {faq.category}
                   </span>
                   <span className="text-[15px] sm:text-[16px] font-medium text-white tracking-[-0.01em]">
@@ -103,11 +99,11 @@ export default function FAQAccordion() {
                   </span>
                 </div>
                 <div
-                  className={`w-8 h-8 rounded-full flex items-center justify-center border border-white/10 bg-white/5 text-white shrink-0 transition-all duration-300 ${
-                    isOpen ? "rotate-180 bg-sky-500/20 border-sky-500/40 text-sky-300" : ""
+                  className={`w-8 h-8 rounded flex items-center justify-center border border-white/10 bg-white/5 text-white shrink-0 transition-transform duration-300 ${
+                    isOpen ? "rotate-180 bg-white/10 border-white/30" : ""
                   }`}
                 >
-                  <ChevronDown className="w-4 h-4" />
+                  <ChevronDown className="w-4 h-4 text-white/80" />
                 </div>
               </button>
 
@@ -120,7 +116,7 @@ export default function FAQAccordion() {
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-6 pt-2 text-sm leading-relaxed text-[#94a3b8] border-t border-white/5 max-w-[65ch]">
+                    <div className="px-6 pb-6 pt-1 text-sm leading-relaxed text-[#A6B4C7] border-t border-white/5 max-w-[58ch]">
                       {faq.answer}
                     </div>
                   </motion.div>
