@@ -40,7 +40,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about-us" className="relative py-24 sm:py-32 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto">
+    <section id="about-us" className="relative py-14 sm:py-20 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto">
       {/* Background ambient lighting */}
       <div
         className="absolute top-1/3 left-1/4 w-[500px] h-[300px] bg-white/[0.02] blur-[100px] pointer-events-none rounded-full"
@@ -49,7 +49,7 @@ export default function AboutSection() {
 
       <div className="relative z-10">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.03em] text-white leading-[1.1]">
             We build the operational backbone for businesses that cannot afford to miss a call.
           </h2>

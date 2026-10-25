@@ -10,11 +10,10 @@ const navItems = [
   { href: "/how-it-works", label: "Process" },
   { href: "/case-studies", label: "Work" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/demo", label: "Live Demo" },
+  { href: "/about", label: "About" },
 ];
 
 const mobileExtraItems = [
-  { href: "/about", label: "About Nafa" },
   { href: "/industries", label: "Industries" },
   { href: "/blog", label: "Insights" },
   { href: "/contact", label: "Contact Us" },

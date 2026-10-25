@@ -59,7 +59,7 @@ export default function FAQAccordion() {
   };
 
   return (
-    <section id="faqs" className="relative py-24 sm:py-32 px-6 sm:px-10 lg:px-12 max-w-5xl mx-auto">
+    <section id="faqs" className="relative py-14 sm:py-20 px-6 sm:px-10 lg:px-12 max-w-5xl mx-auto">
       <div className="text-center max-w-3xl mx-auto mb-16">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.03em] text-white leading-[1.1]">
           Everything you need to know about Nafa deployment.
@@ -125,22 +125,6 @@ export default function FAQAccordion() {
             </motion.div>
           );
         })}
-      </div>
-
-      {/* Still have questions banner */}
-      <div className="mt-12 rounded-lg border border-white/12 bg-white/[0.02] p-6 text-center sm:flex sm:items-center sm:justify-between sm:text-left">
-        <div>
-          <div className="text-sm font-semibold text-white">Have a specific technical question?</div>
-          <div className="text-xs text-[#A6B4C7] mt-1">
-            Our founding engineering team answers all questions directly on our 15-minute discovery call.
-          </div>
-        </div>
-        <button
-          onClick={openSchedule}
-          className="btn btn-ghost h-[40px] px-5 text-xs font-medium mt-4 sm:mt-0 shrink-0"
-        >
-          <span>Ask An Engineer</span>
-        </button>
       </div>
     </section>
   );

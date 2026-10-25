@@ -11,7 +11,7 @@ const groups = [
     links: [
       ["AI Call Agent", "/services/ai-call-agent"],
       ["Speed-to-Lead", "/services/speed-to-lead"],
-      ["AI Website", "/services/ai-website"],
+      ["Website & Redesign", "/services/ai-website"],
       ["All Services", "/services"],
     ],
   },
@@ -20,7 +20,6 @@ const groups = [
     links: [
       ["How It Works", "/how-it-works"],
       ["Case Studies", "/case-studies"],
-      ["Live Demo", "/demo"],
       ["Industries", "/industries"],
       ["Pricing & Bundles", "/pricing"],
     ],
@@ -45,7 +44,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative z-10 border-t border-white/10 bg-black/90 backdrop-blur-xl mt-24">
+    <footer className="relative z-10 border-t border-white/10 bg-black/90 backdrop-blur-xl mt-12 sm:mt-16">
       <div className="mx-auto max-w-7xl px-6 py-14 sm:px-8 lg:px-12">
         <div className="grid gap-12 lg:grid-cols-[1.3fr_2fr]">
           <div>

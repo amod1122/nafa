@@ -32,7 +32,7 @@ export default function CostSavingsCalculator() {
   const totalAnnualImpact = estimatedAnnualLoss + annualOverheadSavings;
 
   return (
-    <section id="roi-calculator" className="relative py-24 sm:py-32 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto">
+    <section id="roi-calculator" className="relative py-14 sm:py-20 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto">
       {/* Background radial glow */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-white/[0.02] blur-[120px] pointer-events-none rounded-full"

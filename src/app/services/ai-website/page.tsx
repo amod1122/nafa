@@ -22,7 +22,7 @@ export default function AIWebsitePage() {
           <ChevronRight className="w-3 h-3" />
           <Link href="/services" className="hover:text-white">Services</Link>
           <ChevronRight className="w-3 h-3" />
-          <span className="font-medium text-white">High-Converting AI Website</span>
+          <span className="font-medium text-white">Custom Website Build & Redesign</span>
         </nav>
 
         {/* Hero */}
@@ -40,7 +40,7 @@ export default function AIWebsitePage() {
 
           <div className="flex flex-col sm:flex-row gap-3">
             <button
-              onClick={() => openQuoteModal("High-Converting AI Website")}
+              onClick={() => openQuoteModal("Custom Website Build & Redesign")}
               className="btn btn-solid h-[42px] px-6 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2"
             >
               <Globe className="w-4 h-4" />

@@ -49,18 +49,18 @@ export default function ServicesPage() {
     },
     {
       id: "ai-website",
-      name: "High-Converting AI Website",
+      name: "Custom Website Build & Redesign",
       icon: Globe,
-      tag: "Digital Foundation",
+      tag: "Web Design & Modern Redesign",
       href: "/services/ai-website",
-      desc: "A modern, ultra-fast website designed specifically for appointment-driven businesses. Pre-configured with call capture, instant quote triggers, and AI agent integrations.",
+      desc: "A clean, modern website built from scratch or a complete redesign of your existing site. Fast load times, mobile-first layouts, and integrated lead capture.",
       bullets: [
         "Engineered strictly for conversions: turns visitors into phone calls and booked appointments",
         "Lightning-fast mobile load times (under 2 seconds)",
         "High-performance hosting and custom domain included",
         "Pre-wired to feed leads directly into your Speed-to-Lead agent",
       ],
-      bestFor: "Local businesses with outdated sites that fail to convert traffic into calls.",
+      bestFor: "Businesses needing a modern new site or looking to redesign their old website.",
     },
   ];
 

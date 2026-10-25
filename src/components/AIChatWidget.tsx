@@ -104,7 +104,7 @@ export default function AIChatWidget({ onOpenSchedule, onOpenQuote }: AIChatWidg
   return (
     <>
       {/* Floating Toggle Button */}
-      <div className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-40">
+      <div className="fixed bottom-5 right-5 z-50">
         {!isOpen ? (
           <button
             onClick={() => setIsOpen(true)}
@@ -125,7 +125,7 @@ export default function AIChatWidget({ onOpenSchedule, onOpenQuote }: AIChatWidg
       {/* Floating Chat Sheet / Window */}
       {isOpen && (
         <div
-          className="fixed bottom-0 sm:bottom-6 right-0 sm:right-6 z-50 w-full sm:w-[380px] h-[85vh] sm:h-[520px] bg-[#0c0c0c] sm:rounded-lg rounded-t-lg border border-white/15 shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-6 duration-200 text-white"
+          className="fixed bottom-0 sm:bottom-5 right-0 sm:right-5 z-50 w-full sm:w-[380px] h-[85vh] sm:h-[520px] bg-[#0c0c0c] sm:rounded-lg rounded-t-lg border border-white/15 shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-6 duration-200 text-white"
           role="dialog"
           aria-label="Nafa AI Assistant Chat"
         >
