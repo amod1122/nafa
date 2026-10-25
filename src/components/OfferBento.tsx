@@ -102,7 +102,7 @@ export default function OfferBento() {
                       {system.subtitle}
                     </span>
                   </div>
-                  <span className="text-xs font-mono uppercase tracking-wider text-[#A6B4C7] px-2 py-0.5 rounded bg-white/5 border border-white/10">
+                  <span className="text-xs font-mono uppercase tracking-wider text-[#A6B4C7] px-2.5 py-1 rounded bg-white/5 border border-white/10">
                     {system.badge}
                   </span>
                 </div>

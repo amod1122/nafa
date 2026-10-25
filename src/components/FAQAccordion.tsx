@@ -91,7 +91,7 @@ export default function FAQAccordion() {
                 aria-expanded={isOpen}
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-xs font-mono uppercase tracking-wider text-[#A6B4C7] px-2 py-0.5 rounded bg-white/5 border border-white/10 hidden sm:inline-block">
+                  <span className="text-xs font-mono uppercase tracking-wider text-[#A6B4C7] px-2.5 py-1 rounded bg-white/5 border border-white/10 hidden sm:inline-block">
                     {faq.category}
                   </span>
                   <span className="text-[15px] sm:text-[16px] font-medium text-white tracking-[-0.01em]">

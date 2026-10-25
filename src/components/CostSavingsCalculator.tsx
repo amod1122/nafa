@@ -139,7 +139,7 @@ export default function CostSavingsCalculator() {
                 <div className="flex justify-between items-baseline mb-2">
                   <label htmlFor="slider-missed" className="text-sm font-medium text-white/90 flex items-center gap-2">
                     <span>Estimated Missed Call Rate</span>
-                    <span className="text-xs text-[#A6B4C7] bg-white/5 px-2 py-0.5 rounded border border-white/10">
+                    <span className="text-xs text-[#A6B4C7] bg-white/5 px-2.5 py-1 rounded border border-white/10">
                       Industry avg 27-62%
                     </span>
                   </label>

@@ -101,7 +101,7 @@ export default function HowItWorks() {
                   <span className="text-2xl font-mono font-bold text-white/60 group-hover:text-white transition-colors">
                     {item.step}
                   </span>
-                  <span className="text-xs font-mono uppercase tracking-wider text-[#A6B4C7] px-2 py-0.5 rounded bg-white/5 border border-white/10">
+                  <span className="text-xs font-mono uppercase tracking-wider text-[#A6B4C7] px-2.5 py-1 rounded bg-white/5 border border-white/10">
                     {item.badge}
                   </span>
                 </div>
