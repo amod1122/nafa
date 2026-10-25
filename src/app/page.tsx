@@ -11,7 +11,6 @@ import {
 import { useSiteModals } from "@/context/ModalContext";
 import CostSavingsCalculator from "@/components/CostSavingsCalculator";
 import OfferBento from "@/components/OfferBento";
-import HowItWorks from "@/components/HowItWorks";
 import AboutSection from "@/components/AboutSection";
 import SocialProof from "@/components/SocialProof";
 import FAQAccordion from "@/components/FAQAccordion";
@@ -146,11 +145,6 @@ export default function HomePage() {
           THE 3 CORE SYSTEMS (AI RECEPTIONIST, SPEED-TO-LEAD AGENT, WEB BUILD & REDESIGN)
           ========================================================================= */}
       <OfferBento />
-
-      {/* =========================================================================
-          DEPLOYMENT ARCHITECTURE (HOW IT WORKS)
-          ========================================================================= */}
-      <HowItWorks />
 
       {/* =========================================================================
           ABOUT US & THE NAFA STANDARD
