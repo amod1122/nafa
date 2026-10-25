@@ -74,12 +74,12 @@ export default function SocialProof() {
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-mono uppercase tracking-wider text-[#A6B4C7] px-2.5 py-1 rounded bg-white/5 border border-white/10">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-sky-300 px-2.5 py-1 rounded-full bg-sky-500/10 border border-sky-500/25">
                   {study.industry}
                 </span>
-                <div className="flex items-center gap-0.5 text-white/90">
+                <div className="flex items-center gap-0.5 text-amber-400">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                    <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
               </div>
@@ -88,21 +88,23 @@ export default function SocialProof() {
                 {study.title}
               </h3>
 
-              {/* Highlight Metric (Flattened - no nested box) */}
+              {/* Highlight Metric */}
               <div className="py-4 border-y border-white/10 my-5">
-                <div className="text-3xl font-mono font-bold text-white tracking-tight">
+                <div className={`text-3xl font-mono font-bold tracking-tight ${
+                  idx === 0 ? "text-emerald-400" : idx === 1 ? "text-sky-400" : "text-amber-400"
+                }`}>
                   {study.metric}
                 </div>
-                <div className="text-xs font-semibold text-white/90 mt-0.5">
+                <div className="text-xs font-semibold text-white mt-1">
                   {study.metricLabel}
                 </div>
-                <div className="text-xs text-[#A6B4C7] mt-1.5 font-mono flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-white/80" />
+                <div className="text-xs text-[#94a3b8] mt-1.5 font-mono flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                   <span>{study.stat}</span>
                 </div>
               </div>
 
-              <p className="text-sm text-[#A6B4C7] italic leading-relaxed mb-6">
+              <p className="text-sm text-[#94a3b8] italic leading-relaxed mb-6">
                 &ldquo;{study.quote}&rdquo;
               </p>
             </div>

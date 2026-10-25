@@ -70,8 +70,8 @@ export default function AboutSection() {
             className="lg:col-span-6 interactive-card p-8 sm:p-10 flex flex-col justify-between"
           >
             <div>
-              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#A6B4C7] mb-4">
-                <span className="w-2 h-2 rounded-full bg-white/80"></span>
+              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-sky-300 bg-sky-500/10 border border-sky-500/25 px-3 py-1 rounded-full mb-4">
+                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
                 <span>Our Founding Mission</span>
               </div>
 
@@ -79,7 +79,7 @@ export default function AboutSection() {
                 Bridging the critical gap between marketing spend and actual booked revenue.
               </h3>
 
-              <div className="space-y-4 text-sm text-[#A6B4C7] leading-relaxed max-w-[65ch]">
+              <div className="space-y-4 text-sm text-[#94a3b8] leading-relaxed max-w-[65ch]">
                 <p>
                   Most companies pour thousands of dollars into Google Ads, Local Services Ads, SEO, and social campaigns — only to let 25% to 50% of the resulting inbound calls roll to an empty voicemail box.
                 </p>
@@ -95,16 +95,16 @@ export default function AboutSection() {
             {/* Micro Stats Bar */}
             <div className="grid grid-cols-3 gap-4 pt-8 mt-8 border-t border-white/10">
               <div>
-                <div className="text-2xl font-mono font-bold text-white">&lt;0.4s</div>
-                <div className="text-xs text-[#A6B4C7] mt-0.5">Voice Latency</div>
+                <div className="text-2xl font-mono font-bold text-sky-400">&lt;0.4s</div>
+                <div className="text-xs text-[#94a3b8] mt-0.5">Voice Latency</div>
               </div>
               <div>
-                <div className="text-2xl font-mono font-bold text-white">100%</div>
-                <div className="text-xs text-[#A6B4C7] mt-0.5">Done-For-You</div>
+                <div className="text-2xl font-mono font-bold text-amber-400">100%</div>
+                <div className="text-xs text-[#94a3b8] mt-0.5">Done-For-You</div>
               </div>
               <div>
-                <div className="text-2xl font-mono font-bold text-white">24/7/365</div>
-                <div className="text-xs text-[#A6B4C7] mt-0.5">Live Coverage</div>
+                <div className="text-2xl font-mono font-bold text-emerald-400">24/7/365</div>
+                <div className="text-xs text-[#94a3b8] mt-0.5">Live Coverage</div>
               </div>
             </div>
           </motion.div>
@@ -120,22 +120,22 @@ export default function AboutSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="interactive-card p-6 flex flex-col justify-between group"
+                  className="interactive-card p-6 flex flex-col justify-between group hover:border-sky-500/30"
                 >
                   <div>
                     <div className="flex items-center gap-2.5 mb-2.5">
-                      <Icon className="w-5 h-5 text-white shrink-0" />
+                      <Icon className="w-5 h-5 text-sky-400 shrink-0" />
                       <h4 className="text-sm font-semibold text-white tracking-[-0.01em]">
                         {std.title}
                       </h4>
                     </div>
-                    <p className="text-xs text-[#A6B4C7] leading-relaxed">
+                    <p className="text-xs text-[#94a3b8] leading-relaxed">
                       {std.desc}
                     </p>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-white/8 flex items-center gap-1.5 text-xs text-[#A6B4C7] font-mono">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-white/80" />
+                  <div className="mt-4 pt-3 border-t border-white/8 flex items-center gap-1.5 text-xs text-[#94a3b8] font-mono">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                     <span>Nafa Standard</span>
                   </div>
                 </motion.div>
