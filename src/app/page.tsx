@@ -16,6 +16,7 @@ import SocialProof from "@/components/SocialProof";
 import FAQAccordion from "@/components/FAQAccordion";
 import { AnimatedShinyButton } from "@/components/eldoraui/animated-shiny-button";
 import SpecularButton from "@/components/ui/SpecularButton";
+import TechText from "@/components/ui/TechText";
 
 export default function HomePage() {
   const { openSchedule, openQuoteModal } = useSiteModals();
@@ -39,16 +40,46 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* Main Headline (Clean Typography without Blur or Scale Effects) */}
-            <h1 className="font-sans text-[36px] sm:text-[48px] lg:text-[56px] font-medium leading-[1.06] tracking-[-0.03em] text-white">
-              Deploy{" "}
-              <em className="font-editorial not-italic text-[#A6B4C7]">
-                AI call agents
-              </em>{" "}
-              that
-              <br />
-              answer every lead in seconds.
+            {/* Main Headline with TechText interactive CAD reveal effect */}
+            <h1 className="sr-only">
+              Deploy AI call agents that answer every lead in seconds.
             </h1>
+            <div className="w-full flex flex-col font-sans select-none my-1" aria-hidden="true">
+              <div className="w-full h-[44px] sm:h-[58px] lg:h-[68px]">
+                <TechText
+                  text="Deploy AI call agents that"
+                  fontWeight={500}
+                  fontSize={56}
+                  letterSpacing={-0.03}
+                  align="left"
+                  color="#ffffff"
+                  accentColor="#A6B4C7"
+                  reveal="letter"
+                  dashLength={4}
+                  dashGap={2}
+                  specks={15}
+                  clickKick={true}
+                  guides={false}
+                />
+              </div>
+              <div className="w-full h-[44px] sm:h-[58px] lg:h-[68px]">
+                <TechText
+                  text="answer every lead in seconds."
+                  fontWeight={500}
+                  fontSize={56}
+                  letterSpacing={-0.03}
+                  align="left"
+                  color="#ffffff"
+                  accentColor="#A6B4C7"
+                  reveal="letter"
+                  dashLength={4}
+                  dashGap={2}
+                  specks={15}
+                  clickKick={true}
+                  guides={false}
+                />
+              </div>
+            </div>
 
             {/* Subhead Lede */}
             <p className="mt-5 max-w-[56ch] text-[15px] sm:text-[16.5px] leading-[1.6] text-[#A6B4C7]">
