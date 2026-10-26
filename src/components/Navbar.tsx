@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useSiteModals } from "@/context/ModalContext";
 import PillNav from "@/components/ui/PillNav";
 import SpecularButton from "@/components/ui/SpecularButton";
+import { AnimatedShinyButton } from "@/components/eldoraui/animated-shiny-button";
 
 const navItems = [
   { href: "/services", label: "Services" },
@@ -90,28 +91,13 @@ export default function Navbar() {
 
       {/* Right: SpecularButton CTA & Mobile Burger */}
       <div className="flex items-center gap-3 justify-self-end">
-        <SpecularButton
+        <AnimatedShinyButton
           onClick={openSchedule}
-          size="sm"
-          radius={7}
-          tint="#ffffff"
-          tintOpacity={0.08}
-          blur={10}
-          textColor="#ffffff"
-          lineColor="#ffffff"
-          baseColor="#525252"
-          intensity={1.1}
-          idleIntensity={0.35}
-          shineSize={10}
-          shineFade={30}
-          thickness={1.2}
-          glow={1}
-          followMouse
-          proximity={220}
+          colorScheme="white"
           className="hidden sm:inline-flex h-[38px] px-4 text-xs font-semibold"
         >
           Book Discovery Call
-        </SpecularButton>
+        </AnimatedShinyButton>
 
         <button
           onClick={() => setMenuOpen((prev) => !prev)}
@@ -165,25 +151,16 @@ export default function Navbar() {
           </div>
 
           <div className="pt-6 border-t border-white/10 grid gap-3 mt-6">
-            <SpecularButton
+            <AnimatedShinyButton
               onClick={() => {
                 setMenuOpen(false);
                 openSchedule();
               }}
-              size="md"
-              radius={8}
-              tint="#ffffff"
-              tintOpacity={0.08}
-              blur={12}
-              textColor="#ffffff"
-              lineColor="#ffffff"
-              baseColor="#525252"
-              intensity={1.1}
-              idleIntensity={0.35}
+              colorScheme="white"
               className="w-full h-[46px] text-sm font-semibold"
             >
               Book Discovery Call
-            </SpecularButton>
+            </AnimatedShinyButton>
             <p className="text-center text-xs text-[#A6B4C7]">
               24/7 Voice & Speed-to-Lead Infrastructure
             </p>

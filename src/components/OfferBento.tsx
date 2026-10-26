@@ -19,7 +19,7 @@ export default function OfferBento() {
     {
       id: "ai-call-agent",
       badge: "Inbound Voice",
-      title: "AI Voice Receptionist",
+      title: "Voice Call AI Agent",
       subtitle: "24/7 Phone Answering",
       points: [
         "Answers calls within 1 second, 24/7/365",
@@ -107,7 +107,11 @@ export default function OfferBento() {
                   </span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-medium text-white tracking-[-0.02em] mb-4">
+                <h3 className={`text-xl sm:text-2xl font-medium tracking-[-0.02em] mb-4 ${
+                  system.id === "ai-call-agent"
+                    ? "font-voice-agent font-normal text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#A6B4C7]"
+                    : "text-white"
+                }`}>
                   {system.title}
                 </h3>
 

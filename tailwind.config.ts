@@ -33,6 +33,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
+          '"Plus Jakarta Sans"',
           '"Inter"',
           "system-ui",
           "-apple-system",
@@ -41,6 +42,8 @@ const config: Config = {
           "sans-serif",
         ],
         serif: ['"Instrument Serif"', '"Times New Roman"', "Times", "serif"],
+        editorial: ['"Instrument Serif"', "Georgia", "serif"],
+        "voice-agent": ['"Instrument Serif"', "Georgia", "serif"],
       },
       letterSpacing: {
         tightest: "-0.045em",

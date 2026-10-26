@@ -40,46 +40,16 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* Main Headline with TechText interactive CAD reveal effect */}
-            <h1 className="sr-only">
-              Deploy AI call agents that answer every lead in seconds.
+            {/* Main Headline: Modern Bold Sans with distinct Voice Call AI Agent Editorial Serif */}
+            <h1 className="font-sans text-[36px] sm:text-[48px] lg:text-[58px] font-medium leading-[1.08] tracking-[-0.035em] text-white">
+              Deploy{" "}
+              <span className="font-voice-agent font-normal text-[1.12em] tracking-normal text-transparent bg-clip-text bg-gradient-to-r from-white via-[#E2E8F0] to-[#A6B4C7] pr-1">
+                AI call agents
+              </span>{" "}
+              that
+              <br />
+              answer every lead in seconds.
             </h1>
-            <div className="w-full flex flex-col font-sans select-none my-1" aria-hidden="true">
-              <div className="w-full h-[44px] sm:h-[58px] lg:h-[68px]">
-                <TechText
-                  text="Deploy AI call agents that"
-                  fontWeight={500}
-                  fontSize={56}
-                  letterSpacing={-0.03}
-                  align="left"
-                  color="#ffffff"
-                  accentColor="#A6B4C7"
-                  reveal="letter"
-                  dashLength={4}
-                  dashGap={2}
-                  specks={15}
-                  clickKick={true}
-                  guides={false}
-                />
-              </div>
-              <div className="w-full h-[44px] sm:h-[58px] lg:h-[68px]">
-                <TechText
-                  text="answer every lead in seconds."
-                  fontWeight={500}
-                  fontSize={56}
-                  letterSpacing={-0.03}
-                  align="left"
-                  color="#ffffff"
-                  accentColor="#A6B4C7"
-                  reveal="letter"
-                  dashLength={4}
-                  dashGap={2}
-                  specks={15}
-                  clickKick={true}
-                  guides={false}
-                />
-              </div>
-            </div>
 
             {/* Subhead Lede */}
             <p className="mt-5 max-w-[56ch] text-[15px] sm:text-[16.5px] leading-[1.6] text-[#A6B4C7]">
@@ -90,28 +60,13 @@ export default function HomePage() {
 
             {/* Clean 2-Button CTAs: Specular Button with dynamic rim light */}
             <div className="mt-8 flex flex-wrap items-center gap-3.5">
-              <SpecularButton
+              <AnimatedShinyButton
                 onClick={openSchedule}
-                size="md"
-                radius={8}
-                tint="#ffffff"
-                tintOpacity={0.06}
-                blur={12}
-                textColor="#ffffff"
-                lineColor="#ffffff"
-                baseColor="#525252"
-                intensity={1.2}
-                idleIntensity={0.35}
-                shineSize={12}
-                shineFade={36}
-                thickness={1.4}
-                glow={1.1}
-                followMouse
-                proximity={260}
+                colorScheme="white"
                 className="h-[44px] px-6 text-sm font-semibold shadow-lg"
               >
                 Book Discovery Call
-              </SpecularButton>
+              </AnimatedShinyButton>
 
               <button
                 onClick={() => openQuoteModal()}
@@ -226,28 +181,13 @@ export default function HomePage() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <SpecularButton
+            <AnimatedShinyButton
               onClick={openSchedule}
-              size="md"
-              radius={8}
-              tint="#ffffff"
-              tintOpacity={0.06}
-              blur={12}
-              textColor="#ffffff"
-              lineColor="#ffffff"
-              baseColor="#525252"
-              intensity={1.2}
-              idleIntensity={0.35}
-              shineSize={12}
-              shineFade={36}
-              thickness={1.4}
-              glow={1.1}
-              followMouse
-              proximity={260}
+              colorScheme="white"
               className="h-[44px] px-8 text-sm font-semibold shadow-xl"
             >
               Book Discovery Call
-            </SpecularButton>
+            </AnimatedShinyButton>
 
             <button
               onClick={() => openQuoteModal()}

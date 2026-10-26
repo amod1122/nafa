@@ -11,7 +11,7 @@ import {
   Globe,
 } from "lucide-react";
 import { useSiteModals } from "@/context/ModalContext";
-import SpecularButton from "@/components/ui/SpecularButton";
+import { AnimatedShinyButton } from "@/components/eldoraui/animated-shiny-button";
 
 export default function PricingPage() {
   const { openSchedule, openQuoteModal } = useSiteModals();
@@ -189,29 +189,14 @@ export default function PricingPage() {
             Ready to find out the exact quote for your business?
           </h3>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <SpecularButton
+            <AnimatedShinyButton
               onClick={openSchedule}
-              size="sm"
-              radius={8}
-              tint="#ffffff"
-              tintOpacity={0.08}
-              blur={12}
-              textColor="#ffffff"
-              lineColor="#ffffff"
-              baseColor="#525252"
-              intensity={1.1}
-              idleIntensity={0.35}
-              shineSize={10}
-              shineFade={32}
-              thickness={1.3}
-              glow={1}
-              followMouse
-              proximity={240}
+              colorScheme="white"
               className="h-[42px] px-6 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2"
             >
               <Calendar className="w-4 h-4" />
               <span>Book Discovery Call</span>
-            </SpecularButton>
+            </AnimatedShinyButton>
             <button
               onClick={() => openQuoteModal()}
               className="btn btn-ghost h-[42px] px-6 text-xs sm:text-sm"
