@@ -14,6 +14,7 @@ import OfferBento from "@/components/OfferBento";
 import AboutSection from "@/components/AboutSection";
 import SocialProof from "@/components/SocialProof";
 import FAQAccordion from "@/components/FAQAccordion";
+import { AnimatedShinyButton } from "@/components/eldoraui/animated-shiny-button";
 
 export default function HomePage() {
   const { openSchedule, openQuoteModal } = useSiteModals();
@@ -55,15 +56,15 @@ export default function HomePage() {
               your calendar 24/7/365. Zero hold times. Zero missed opportunities.
             </p>
 
-            {/* Clean 2-Button CTAs: Liquid Glass for Book Discovery Call */}
+            {/* Clean 2-Button CTAs: Animated Shiny Button (White/Gray Glow) */}
             <div className="mt-8 flex flex-wrap items-center gap-3.5">
-              <button
+              <AnimatedShinyButton
                 onClick={openSchedule}
-                className="btn-liquid-glass h-[44px] px-6 text-sm font-semibold gap-2"
+                colorScheme="white"
+                className="h-[44px] px-6 text-sm font-semibold shadow-lg"
               >
-                <span>Book Discovery Call</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+                Book Discovery Call
+              </AnimatedShinyButton>
 
               <button
                 onClick={() => openQuoteModal()}
@@ -178,13 +179,13 @@ export default function HomePage() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <button
+            <AnimatedShinyButton
               onClick={openSchedule}
-              className="btn-liquid-glass h-[44px] px-8 text-sm font-semibold gap-2"
+              colorScheme="white"
+              className="h-[44px] px-8 text-sm font-semibold shadow-xl"
             >
-              <span>Book Discovery Call</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+              Book Discovery Call
+            </AnimatedShinyButton>
 
             <button
               onClick={() => openQuoteModal()}

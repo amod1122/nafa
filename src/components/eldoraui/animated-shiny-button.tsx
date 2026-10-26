@@ -9,6 +9,7 @@ interface AnimatedShinyButtonProps {
   url?: string
   onClick?: (e?: React.MouseEvent) => void
   hideChevron?: boolean
+  colorScheme?: "white" | "gray" | "blue"
 }
 
 export function AnimatedShinyButton({
@@ -17,7 +18,26 @@ export function AnimatedShinyButton({
   url,
   onClick,
   hideChevron = false,
+  colorScheme = "white",
 }: AnimatedShinyButtonProps) {
+  const highlight =
+    colorScheme === "white"
+      ? "#ffffff"
+      : colorScheme === "gray"
+      ? "#e4e4e7"
+      : "#67e8f9"
+
+  const highlightSubtle =
+    colorScheme === "white"
+      ? "#d4d4d8"
+      : colorScheme === "gray"
+      ? "#a1a1aa"
+      : "#06b6d4"
+
+  const customStyle = {
+    "--shiny-cta-highlight": highlight,
+    "--shiny-cta-highlight-subtle": highlightSubtle,
+  } as React.CSSProperties
   return (
     <>
       <style jsx>{`
@@ -245,7 +265,7 @@ export function AnimatedShinyButton({
       `}</style>
 
       {url ? (
-        <a href={url} onClick={onClick} className={`shiny-cta-link group ${className}`}>
+        <a href={url} onClick={onClick} style={customStyle} className={`shiny-cta-link group ${className}`}>
           <span className="flex items-center">
             {children}
             {!hideChevron && (
@@ -254,7 +274,7 @@ export function AnimatedShinyButton({
           </span>
         </a>
       ) : (
-        <button type="button" onClick={onClick} className={`shiny-cta group ${className}`}>
+        <button type="button" onClick={onClick} style={customStyle} className={`shiny-cta group ${className}`}>
           <span className="flex items-center">
             {children}
             {!hideChevron && (

@@ -8,6 +8,7 @@ import ScheduleModal from "@/components/ScheduleModal";
 import QuoteModal from "@/components/QuoteModal";
 import LeadCardModal from "@/components/LeadCardModal";
 import Particles from "@/components/ui/particles";
+import SideRays from "@/components/ui/SideRays";
 import { ModalProvider, useSiteModals } from "@/context/ModalContext";
 
 function ShellInner({ children }: { children: React.ReactNode }) {
@@ -28,13 +29,44 @@ function ShellInner({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="relative min-h-screen flex flex-col bg-black text-white selection:bg-white selection:text-black">
-      {/* Magic UI Animated Star Background: Floating white dots across the whole website */}
-      <Particles
-        className="fixed inset-0 pointer-events-none z-0"
-        quantity={80}
-        ease={80}
-        color="#ffffff"
-      />
+      {/* SideRays background: active on landing page with smooth fade transition */}
+      <div
+        className={`fixed inset-0 pointer-events-none z-0 transition-opacity duration-700 ease-in-out ${
+          isLandingPage ? "opacity-100" : "opacity-0"
+        }`}
+        aria-hidden="true"
+      >
+        <SideRays
+          rayColor1="#ffffff"
+          rayColor2="#96c8ff"
+          blend={0.5}
+          origin="top-right"
+          speed={2.2}
+          intensity={1.8}
+          spread={2.2}
+          density={6}
+          sharpness={0.4}
+          glow={1.2}
+          saturation={0.8}
+          followMouse={true}
+          opacity={0.85}
+        />
+      </div>
+
+      {/* Magic UI Animated Star Background: active on all non-landing pages with smooth fade transition */}
+      <div
+        className={`fixed inset-0 pointer-events-none z-0 transition-opacity duration-700 ease-in-out ${
+          !isLandingPage ? "opacity-100" : "opacity-0"
+        }`}
+        aria-hidden="true"
+      >
+        <Particles
+          className="w-full h-full"
+          quantity={80}
+          ease={80}
+          color="#ffffff"
+        />
+      </div>
 
       {/* Film grain overlay */}
       <div className="grain" aria-hidden="true" />
