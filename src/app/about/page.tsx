@@ -114,26 +114,79 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Direct Access & Socials */}
-        <div className="apple-glass rounded-lg p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 mb-14">
-          <div className="space-y-1 text-center sm:text-left">
-            <h3 className="text-lg font-medium text-white">
-              Connect With Us on LinkedIn
-            </h3>
-            <p className="text-xs text-[#9a9a9a]">
-              Follow Nafa Technologies for automation case studies and insights.
-            </p>
+        {/* Direct Access, Leadership & Social Channels */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-14">
+          {/* CEO LinkedIn Card */}
+          <div className="apple-glass rounded-lg p-6 sm:p-7 flex flex-col justify-between group">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-[#9a9a9a]">
+                  Executive Leadership
+                </span>
+                <span className="text-[11px] font-mono px-2 py-0.5 rounded-[4px] border border-white/10 bg-white/[0.04] text-[#A6B4C7]">
+                  CEO
+                </span>
+              </div>
+              <h3 className="text-xl font-medium text-white mb-1.5">
+                Ahmad Ali
+              </h3>
+              <p className="text-xs text-[#9a9a9a] leading-relaxed mb-6">
+                Leading systems engineering and product vision for autonomous AI voice receptionists and speed-to-lead pipelines.
+              </p>
+            </div>
+
+            <a
+              href="https://www.linkedin.com/in/ahmad-ali-8527a93ba?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-ghost h-[42px] px-4 text-xs font-medium flex items-center justify-between group-hover:border-white/30 text-white transition-all"
+            >
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 fill-current text-white shrink-0" viewBox="0 0 24 24">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.53 1.53 0 0 0 1.53-1.53A1.53 1.53 0 0 0 6.46 5.7a1.53 1.53 0 0 0-1.53 1.53c0 .85.68 1.53 1.53 1.53m1.39 9.74v-8.37H5.07v8.37z" />
+                </svg>
+                <span>Connect with Ahmad Ali</span>
+              </div>
+              <span className="text-[#A6B4C7] font-mono text-[11px]">LinkedIn ↗</span>
+            </a>
           </div>
 
-          <a
-            href="https://linkedin.com/company/nafa-technologies"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-ghost h-[40px] px-5 text-xs font-medium flex items-center gap-2"
-          >
-            <svg className="w-4 h-4 fill-current text-white" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.53 1.53 0 0 0 1.53-1.53A1.53 1.53 0 0 0 6.46 5.7a1.53 1.53 0 0 0-1.53 1.53c0 .85.68 1.53 1.53 1.53m1.39 9.74v-8.37H5.07v8.37z"/></svg>
-            <span>Visit LinkedIn Page</span>
-          </a>
+          {/* Official Instagram Card */}
+          <div className="apple-glass rounded-lg p-6 sm:p-7 flex flex-col justify-between group">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-[#9a9a9a]">
+                  Official Channel
+                </span>
+                <span className="text-[11px] font-mono px-2 py-0.5 rounded-[4px] border border-white/10 bg-white/[0.04] text-[#A6B4C7]">
+                  @nafatechnologies
+                </span>
+              </div>
+              <h3 className="text-xl font-medium text-white mb-1.5">
+                Nafa Technologies Instagram
+              </h3>
+              <p className="text-xs text-[#9a9a9a] leading-relaxed mb-6">
+                Watch raw voice model audio tests, real speed-to-lead benchmarks, and behind-the-scenes engineering builds.
+              </p>
+            </div>
+
+            <a
+              href="https://www.instagram.com/nafatechnologies?rpxt=YWZ0dmdiNDM2djMz&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-ghost h-[42px] px-4 text-xs font-medium flex items-center justify-between group-hover:border-white/30 text-white transition-all"
+            >
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 fill-none stroke-current stroke-2 shrink-0" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <span>Follow @nafatechnologies</span>
+              </div>
+              <span className="text-[#A6B4C7] font-mono text-[11px]">Instagram ↗</span>
+            </a>
+          </div>
         </div>
 
         {/* CTA */}

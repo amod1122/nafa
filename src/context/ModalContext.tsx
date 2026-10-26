@@ -24,7 +24,16 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
   const [initialServiceForQuote, setInitialServiceForQuote] = useState("Full Growth System (All-in-One)");
   const [activeLead, setActiveLead] = useState<LeadData | null>(null);
 
-  const openSchedule = () => setIsScheduleOpen(true);
+  const CALENDLY_URL = "https://calendly.com/ahmadalimalik224/30min";
+
+  const openSchedule = () => {
+    if (typeof window !== "undefined") {
+      const win = window.open(CALENDLY_URL, "_blank", "noopener,noreferrer");
+      if (!win) {
+        window.location.href = CALENDLY_URL;
+      }
+    }
+  };
   const closeSchedule = () => setIsScheduleOpen(false);
 
   const openQuoteModal = (initialService?: string) => {

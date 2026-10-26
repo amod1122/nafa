@@ -162,13 +162,15 @@ export default function ScheduleModal({ isOpen, onClose }: ScheduleModalProps) {
               </div>
             </div>
 
-            <button
-              type="submit"
+            <a
+              href="https://calendly.com/ahmadalimalik224/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-solid w-full h-[46px] text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 mt-2"
             >
               <CheckCircle2 className="w-4 h-4" />
-              <span>Confirm 15-Minute Booking</span>
-            </button>
+              <span>Continue to Calendly (30-Min Discovery)</span>
+            </a>
           </form>
         ) : (
           <div className="p-6 sm:p-8 space-y-5 text-center">

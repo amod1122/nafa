@@ -144,6 +144,85 @@ export default function AboutSection() {
           </div>
         </div>
 
+        {/* Leadership & Official Channels (Pure Liquid Glass Cards) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+          {/* CEO & Founder Card */}
+          <div className="interactive-card p-6 sm:p-7 flex flex-col justify-between group">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#A6B4C7]">
+                  <span className="w-2 h-2 rounded-full bg-white/80"></span>
+                  <span>Leadership</span>
+                </div>
+                <span className="text-[11px] font-mono px-2 py-0.5 rounded-[4px] border border-white/10 bg-white/[0.04] text-[#A6B4C7]">
+                  CEO
+                </span>
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-medium text-white tracking-[-0.02em] mb-2">
+                Ahmad Ali
+              </h3>
+              <p className="text-xs sm:text-sm text-[#A6B4C7] leading-relaxed mb-6">
+                Leading systems engineering, autonomous voice agent architecture, and speed-to-lead pipelines at Nafa Technologies.
+              </p>
+            </div>
+
+            <a
+              href="https://www.linkedin.com/in/ahmad-ali-8527a93ba?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-ghost h-[42px] px-4 text-xs font-medium flex items-center justify-between group-hover:border-white/30 text-white transition-all"
+            >
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 fill-current text-white shrink-0" viewBox="0 0 24 24">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.53 1.53 0 0 0 1.53-1.53A1.53 1.53 0 0 0 6.46 5.7a1.53 1.53 0 0 0-1.53 1.53c0 .85.68 1.53 1.53 1.53m1.39 9.74v-8.37H5.07v8.37z" />
+                </svg>
+                <span>Connect on LinkedIn</span>
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-[#A6B4C7] group-hover:translate-x-0.5 transition-transform" />
+            </a>
+          </div>
+
+          {/* Official Instagram Card */}
+          <div className="interactive-card p-6 sm:p-7 flex flex-col justify-between group">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#A6B4C7]">
+                  <span className="w-2 h-2 rounded-full bg-white/80"></span>
+                  <span>Official Channel</span>
+                </div>
+                <span className="text-[11px] font-mono px-2 py-0.5 rounded-[4px] border border-white/10 bg-white/[0.04] text-[#A6B4C7]">
+                  @nafatechnologies
+                </span>
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-medium text-white tracking-[-0.02em] mb-2">
+                Nafa on Instagram
+              </h3>
+              <p className="text-xs sm:text-sm text-[#A6B4C7] leading-relaxed mb-6">
+                Follow our official channel for real-time voice demo recordings, speed-to-lead case studies, and engineering updates.
+              </p>
+            </div>
+
+            <a
+              href="https://www.instagram.com/nafatechnologies?rpxt=YWZ0dmdiNDM2djMz&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-ghost h-[42px] px-4 text-xs font-medium flex items-center justify-between group-hover:border-white/30 text-white transition-all"
+            >
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 fill-none stroke-current stroke-2 shrink-0" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <span>Follow @nafatechnologies</span>
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-[#A6B4C7] group-hover:translate-x-0.5 transition-transform" />
+            </a>
+          </div>
+        </div>
+
         {/* Action Link to Full About Page */}
         <div className="rounded-lg border border-white/12 bg-white/[0.02] p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div className="max-w-[65ch]">
