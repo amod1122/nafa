@@ -69,7 +69,7 @@ export default function TermsOfServicePage() {
             <section className="space-y-2">
               <h2 className="text-base font-medium text-white">6. Contact</h2>
               <p className="text-[#9a9a9a]">
-                Questions regarding these terms should be directed to <a href="mailto:legal@nafatechnologies.com" className="text-white underline font-medium">legal@nafatechnologies.com</a>.
+                Questions regarding these terms should be directed to <a href="mailto:contact@nafatech.xyz" className="text-white underline font-medium">contact@nafatech.xyz</a>.
               </p>
             </section>
           </div>

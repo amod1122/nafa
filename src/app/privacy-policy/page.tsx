@@ -78,7 +78,7 @@ export default function PrivacyPolicyPage() {
             <section className="space-y-2">
               <h2 className="text-base font-medium text-white">6. Contact Us</h2>
               <p className="text-[#9a9a9a]">
-                If you have questions regarding this Privacy Policy or wish to exercise data access or deletion rights, please contact our legal team at <a href="mailto:privacy@nafatechnologies.com" className="text-white underline font-medium">privacy@nafatechnologies.com</a>.
+                If you have questions regarding this Privacy Policy or wish to exercise data access or deletion rights, please contact our legal team at <a href="mailto:contact@nafatech.xyz" className="text-white underline font-medium">contact@nafatech.xyz</a>.
               </p>
             </section>
           </div>
