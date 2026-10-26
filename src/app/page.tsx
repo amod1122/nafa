@@ -15,6 +15,7 @@ import AboutSection from "@/components/AboutSection";
 import FAQAccordion from "@/components/FAQAccordion";
 import { AnimatedShinyButton } from "@/components/eldoraui/animated-shiny-button";
 import SpecularButton from "@/components/ui/SpecularButton";
+import { KineticText } from "@/components/magicui/kinetic-text";
 
 export default function HomePage() {
   const { openSchedule, openQuoteModal } = useSiteModals();
@@ -38,15 +39,21 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* Main Headline (Clean, Razor-Sharp High-Contrast Typography) */}
+            {/* Main Headline with Magic UI Kinetic Text kinetic letter-weight effect */}
             <h1 className="font-sans text-[36px] sm:text-[48px] lg:text-[58px] font-medium leading-[1.08] tracking-[-0.035em] text-white">
-              Deploy{" "}
-              <span className="font-voice-agent font-normal text-[1.12em] tracking-normal text-transparent bg-clip-text bg-gradient-to-r from-white via-[#E2E8F0] to-[#A6B4C7] pr-1">
-                AI call agents
-              </span>{" "}
-              that
+              <KineticText as="span" text="Deploy " className="font-sans font-medium" />
+              <KineticText
+                as="span"
+                text="AI call agents "
+                className="font-voice-agent font-normal text-[1.12em] tracking-normal text-transparent bg-clip-text bg-gradient-to-r from-white via-[#E2E8F0] to-[#A6B4C7] pr-1"
+              />
+              <KineticText as="span" text="that" className="font-sans font-medium" />
               <br />
-              answer every lead in seconds.
+              <KineticText
+                as="span"
+                text="answer every lead in seconds."
+                className="font-sans font-medium"
+              />
             </h1>
 
             {/* Subhead Lede */}
