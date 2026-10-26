@@ -265,7 +265,7 @@ export default function CostSavingsCalculator() {
             <div className="mt-8 pt-6 border-t border-white/12">
               <button
                 onClick={openSchedule}
-                className="btn btn-solid w-full h-[46px] text-sm font-semibold gap-2 shadow-lg"
+                className="btn-liquid-glass w-full h-[46px] text-sm font-semibold gap-2"
               >
                 <span>Plug The Leak: Book Free System Audit</span>
                 <ArrowRight className="w-4 h-4" />

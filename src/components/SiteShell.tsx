@@ -28,15 +28,13 @@ function ShellInner({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="relative min-h-screen flex flex-col bg-black text-white selection:bg-white selection:text-black">
-      {/* Magic UI Animated Star Background (available on all other pages of the website) */}
-      {!isLandingPage && (
-        <Particles
-          className="fixed inset-0 pointer-events-none z-0"
-          quantity={80}
-          ease={80}
-          color="#ffffff"
-        />
-      )}
+      {/* Magic UI Animated Star Background: Floating white dots across the whole website */}
+      <Particles
+        className="fixed inset-0 pointer-events-none z-0"
+        quantity={80}
+        ease={80}
+        color="#ffffff"
+      />
 
       {/* Film grain overlay */}
       <div className="grain" aria-hidden="true" />
