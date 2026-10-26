@@ -17,15 +17,9 @@ import FAQAccordion from "@/components/FAQAccordion";
 import { AnimatedShinyButton } from "@/components/eldoraui/animated-shiny-button";
 import { InteractiveHeroHeadline } from "@/components/eldoraui/InteractiveHeroHeadline";
 
-const CobeGlobe = dynamic(
-  () => import("@/components/eldoraui/cobe-globe").then((m) => m.Cobe),
-  { ssr: false }
-);
-
-const PhotonBeam = dynamic(
-  () => import("@/components/eldoraui/photon-beam"),
-  { ssr: false }
-);
+const ShapeWaves = dynamic(() => import("@/components/ShapeWaves"), {
+  ssr: false,
+});
 
 export default function HomePage() {
   const { openSchedule, openQuoteModal } = useSiteModals();
@@ -33,94 +27,95 @@ export default function HomePage() {
   return (
     <div className="relative w-full overflow-hidden bg-transparent text-white selection:bg-white selection:text-black">
       {/* =========================================================================
-          ELDORAUI PHOTON-BEAM ANIMATED BACKGROUND (LANDING PAGE ONLY)
+          REACT BITS SHAPEWAVES ANIMATED BACKGROUND (LANDING PAGE ONLY)
           ========================================================================= */}
-      <div className="absolute -top-16 sm:-top-28 left-0 right-0 pointer-events-none overflow-hidden -z-10 opacity-35 h-[980px]">
-        <PhotonBeam
-          colorBg="#000000"
-          colorLine="#1e293b"
-          colorSignal="#ffffff"
-          lineCount={70}
-          speedGlobal={0.32}
-          positionY={10}
+      <div style={{ width: "100%", height: "660px", position: "absolute", top: 0, left: 0, right: 0, overflow: "hidden", zIndex: 0, pointerEvents: "auto" }}>
+        <ShapeWaves
+          text="</>"
+          fontFamily='Geist, "Geist Sans", system-ui, sans-serif'
+          fontWeight={500}
+          textSize={0.6}
+          shapes="mixed"
+          cellSize={10}
+          dotSize={0.75}
+          color="#929292"
+          hoverColor="#ffffff"
+          backgroundColor="#000000"
+          speed={1}
+          scale={1}
+          contrast={1}
+          brightness={0.4}
+          flow={0}
+          direction={0}
+          fade={0.25}
+          interactive={true}
+          splashRadius={40}
+          splashStrength={0.4}
+          glow={0.35}
+          intro={true}
+          introDuration={1.6}
+          paused={false}
         />
+        {/* Subtle bottom fade to blend into the telemetry & calculator sections */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none" />
       </div>
 
       {/* =========================================================================
-          HERO SECTION (LEFT-DOCKED COPY & DESKTOP COBE 3D GLOBE IN OPEN RIGHT SPACE)
+          HERO SECTION (CENTERED COPY, SHINY CALL CTA, SHAPEWAVES BACKGROUND)
           ========================================================================= */}
       <section
         id="top"
-        className="relative pt-10 sm:pt-16 pb-12 sm:pb-16 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto flex flex-col justify-center min-h-[calc(88vh-80px)]"
+        className="relative pt-14 sm:pt-20 pb-14 sm:pb-20 px-6 sm:px-10 lg:px-12 max-w-5xl mx-auto flex flex-col items-center justify-center min-h-[calc(86vh-80px)] text-center z-10"
       >
-        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Column: Hero Copy */}
-          <div className="lg:col-span-7 w-full max-w-2xl text-left flex flex-col items-start z-10">
-            {/* Live Operational Status Chip */}
-            <div className="badge-pill inline-flex items-center gap-2 mb-6">
-              <span className="w-2 h-2 rounded-full bg-white/90" aria-hidden="true" />
-              <span className="text-xs font-medium tracking-[-0.01em] text-white/90">
-                Operational AI Voice & Speed-to-Lead Infrastructure
-              </span>
-            </div>
-
-            {/* Main Headline (EldoraUI Blur-In + Interactive Scale-Letter Hover) */}
-            <InteractiveHeroHeadline className="mb-2" />
-
-            {/* Subhead Lede */}
-            <p className="mt-5 max-w-[56ch] text-[15px] sm:text-[16.5px] leading-[1.6] text-[#A6B4C7]">
-              Custom voice receptionists and immediate response pipelines that
-              answer inbound phone calls, qualify caller intent, and book revenue onto
-              your calendar 24/7/365. Zero hold times. Zero missed opportunities.
-            </p>
-
-            {/* Clean 2-Button CTAs: EldoraUI Animated Shiny Button for Booking Call */}
-            <div className="mt-8 flex flex-wrap items-center gap-3.5">
-              <AnimatedShinyButton
-                onClick={openSchedule}
-                className="h-[44px] px-6 text-sm font-semibold shadow-lg"
-              >
-                Book Discovery Call
-              </AnimatedShinyButton>
-
-              <button
-                onClick={() => openQuoteModal()}
-                className="btn btn-ghost h-[44px] px-6 text-sm font-medium text-white/90 hover:text-white"
-              >
-                <span>Get Custom Quote</span>
-              </button>
-            </div>
-
-            {/* Trust Assurance Bar */}
-            <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap items-center gap-y-3 gap-x-6 text-xs text-[#A6B4C7]">
-              <div className="flex items-center gap-2 text-white/90">
-                <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
-                <span>Keep your current phone number</span>
-              </div>
-              <div className="flex items-center gap-2 text-white/90">
-                <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
-                <span>Live in 3 to 7 business days</span>
-              </div>
-              <div className="flex items-center gap-2 text-white/90">
-                <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
-                <span>100% direct engineering</span>
-              </div>
-            </div>
+        <div className="w-full flex flex-col items-center text-center max-w-3xl mx-auto">
+          {/* Live Operational Status Chip */}
+          <div className="badge-pill inline-flex items-center gap-2 mb-6">
+            <span className="w-2 h-2 rounded-full bg-white/90" aria-hidden="true" />
+            <span className="text-xs font-medium tracking-[-0.01em] text-white/90">
+              Operational AI Voice & Speed-to-Lead Infrastructure
+            </span>
           </div>
 
-          {/* Right Column (Desktop): EldoraUI Interactive Cobe 3D Globe */}
-          <div className="lg:col-span-5 hidden lg:flex justify-center items-center relative min-h-[460px] pointer-events-auto">
-            <div className="w-full max-w-[440px] aspect-square flex items-center justify-center relative">
-              <CobeGlobe
-                variant="auto-draggable"
-                className="w-full h-full"
-                dark={1}
-                mapBrightness={2.2}
-                baseColor="#ffffff"
-                markerColor="#ffffff"
-                glowColor="#ffffff"
-                opacity={0.85}
-              />
+          {/* Main Headline (EldoraUI Blur-In + Interactive Scale-Letter Hover, Centered) */}
+          <InteractiveHeroHeadline className="mb-2 text-center" />
+
+          {/* Subhead Lede */}
+          <p className="mt-5 max-w-[56ch] text-[15px] sm:text-[16.5px] leading-[1.6] text-[#A6B4C7] mx-auto">
+            Custom voice receptionists and immediate response pipelines that
+            answer inbound phone calls, qualify caller intent, and book revenue onto
+            your calendar 24/7/365. Zero hold times. Zero missed opportunities.
+          </p>
+
+          {/* Clean 2-Button CTAs: EldoraUI Animated Shiny Button for Booking Call */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3.5">
+            <AnimatedShinyButton
+              onClick={openSchedule}
+              className="h-[44px] px-7 text-sm font-semibold shadow-lg"
+            >
+              Book Discovery Call
+            </AnimatedShinyButton>
+
+            <button
+              onClick={() => openQuoteModal()}
+              className="btn btn-ghost h-[44px] px-6 text-sm font-medium text-white/90 hover:text-white"
+            >
+              <span>Get Custom Quote</span>
+            </button>
+          </div>
+
+          {/* Trust Assurance Bar */}
+          <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-y-3 gap-x-6 text-xs text-[#A6B4C7]">
+            <div className="flex items-center gap-2 text-white/90">
+              <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
+              <span>Keep your current phone number</span>
+            </div>
+            <div className="flex items-center gap-2 text-white/90">
+              <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
+              <span>Live in 3 to 7 business days</span>
+            </div>
+            <div className="flex items-center gap-2 text-white/90">
+              <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
+              <span>100% direct engineering</span>
             </div>
           </div>
         </div>
