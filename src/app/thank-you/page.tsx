@@ -2,83 +2,68 @@
 
 import React from "react";
 import Link from "next/link";
-import { CheckCircle2, Calendar, Clock } from "lucide-react";
-import { useSiteModals } from "@/context/ModalContext";
+import { CheckCircle2, ArrowRight, Calendar, Sparkles } from "lucide-react";
 
 export default function ThankYouPage() {
-  const { openSchedule } = useSiteModals();
+  const CALENDLY_URL = "https://calendly.com/ahmadalimalik224/30min";
 
   return (
-    <div className="pt-28 pb-20 sm:pt-36 sm:pb-28 text-white">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-        <div className="w-12 h-12 rounded-[8px] border border-white/20 bg-white/10 text-white mx-auto flex items-center justify-center">
-          <CheckCircle2 className="w-6 h-6 text-white" />
-        </div>
+    <div className="relative min-h-[82vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 text-white">
+      {/* Background ambient lighting */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[350px] bg-white/[0.03] blur-[120px] pointer-events-none rounded-full"
+        aria-hidden="true"
+      />
 
-        <div>
-          <span className="badge-pill text-xs">
-            Request Confirmed
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-white tracking-tight mt-3 mb-2">
-            Thank You for Connecting With <em className="font-editorial not-italic text-[#9a9a9a]">Nafa</em>!
-          </h1>
-          <p className="text-sm sm:text-base text-[#9a9a9a] max-w-lg mx-auto">
-            We practice the speed-to-lead standard we preach. Our team is already reviewing your details.
-          </p>
-        </div>
-
-        {/* What Happens Next Card */}
-        <div className="apple-glass rounded-lg p-6 sm:p-8 text-left space-y-4">
-          <h2 className="text-base font-medium text-white flex items-center gap-2">
-            <Clock className="w-4 h-4 text-white" />
-            <span>What to Expect Next:</span>
-          </h2>
-
-          <div className="space-y-3 text-xs sm:text-sm text-white/90">
-            <div className="p-3.5 rounded-[6px] bg-white/[0.03] border border-white/10 flex items-start gap-3">
-              <span className="w-5 h-5 rounded-[4px] bg-white text-black font-semibold text-xs flex items-center justify-center shrink-0">
-                1
-              </span>
-              <div>
-                <strong className="text-white">Under 5-Minute Initial Confirmation:</strong> You will receive a direct notification verifying that your inquiry entered our engineering queue.
-              </div>
-            </div>
-
-            <div className="p-3.5 rounded-[6px] bg-white/[0.03] border border-white/10 flex items-start gap-3">
-              <span className="w-5 h-5 rounded-[4px] bg-white text-black font-semibold text-xs flex items-center justify-center shrink-0">
-                2
-              </span>
-              <div>
-                <strong className="text-white">Custom Strategy Assessment:</strong> We will review your website and current phone flow before contacting you with tailored recommendations.
-              </div>
-            </div>
-
-            <div className="p-3.5 rounded-[6px] bg-white/[0.03] border border-white/10 flex items-start gap-3">
-              <span className="w-5 h-5 rounded-[4px] bg-white text-black font-semibold text-xs flex items-center justify-center shrink-0">
-                3
-              </span>
-              <div>
-                <strong className="text-white">Optional Calendar Booking:</strong> If you haven't scheduled your 15-minute consultation yet, you can lock in a specific time slot below.
-              </div>
-            </div>
+      <div className="relative z-10 max-w-xl w-full text-center">
+        {/* Big Decor: Luminous Liquid Glass Orb */}
+        <div className="relative inline-flex items-center justify-center mb-8">
+          <div className="absolute inset-0 rounded-full bg-emerald-500/20 blur-2xl scale-125 animate-pulse" />
+          <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full border border-white/20 bg-gradient-to-b from-white/10 to-black/80 backdrop-blur-xl flex items-center justify-center shadow-2xl">
+            <CheckCircle2 className="w-10 h-10 sm:w-12 sm:h-12 text-white stroke-[1.75]" />
           </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-          <button
-            onClick={openSchedule}
-            className="btn btn-solid w-full sm:w-auto h-[42px] px-6 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2"
-          >
-            <Calendar className="w-4 h-4" />
-            <span>Lock In Discovery Call Slot</span>
-          </button>
+        {/* Status Pill */}
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/15 bg-white/[0.04] text-[#A6B4C7] text-xs font-mono uppercase tracking-wider mb-5">
+          <Sparkles className="w-3.5 h-3.5 text-white" />
+          <span>Submission Confirmed</span>
+        </div>
+
+        {/* Main Headline */}
+        <h1 className="font-sans text-3xl sm:text-5xl font-medium tracking-tight text-white mb-3">
+          Thank You!
+        </h1>
+
+        {/* Primary User Statement */}
+        <p className="text-lg sm:text-xl text-white/95 font-medium mb-3">
+          We will reach out to you soon.
+        </p>
+
+        {/* Description Lede */}
+        <p className="text-xs sm:text-sm text-[#A6B4C7] max-w-md mx-auto leading-relaxed mb-8">
+          Your project specifications have been sent directly to our team. We are reviewing your requirements and will follow up with you promptly.
+        </p>
+
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link
             href="/"
-            className="btn btn-ghost w-full sm:w-auto h-[42px] px-6 text-xs sm:text-sm flex items-center justify-center"
+            className="btn btn-solid w-full sm:w-auto h-[44px] px-6 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2"
           >
-            Return to Homepage
+            <span>Return to Home</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
+
+          <a
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-ghost w-full sm:w-auto h-[44px] px-6 text-xs sm:text-sm font-medium flex items-center justify-center gap-2 text-white/90 hover:text-white"
+          >
+            <Calendar className="w-4 h-4" />
+            <span>Schedule Directly (Optional)</span>
+          </a>
         </div>
       </div>
     </div>

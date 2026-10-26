@@ -1,13 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { X, Send, Sparkles, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { LeadData } from "./QuoteFormSection";
 
 interface QuoteModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onLeadSubmitted: (lead: LeadData) => void;
+  onLeadSubmitted?: (lead: LeadData) => void;
   defaultService?: string;
 }
 
@@ -17,6 +18,7 @@ export default function QuoteModal({
   onLeadSubmitted,
   defaultService = "Full Growth System (All-in-One)",
 }: QuoteModalProps) {
+  const router = useRouter();
   const initialFormState = {
     name: "",
     businessName: "",
@@ -52,16 +54,9 @@ export default function QuoteModal({
 
       if (response.ok) {
         setStatus("success");
-        const submittedLead: LeadData = {
-          ...formData,
-          submittedAt: new Date().toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-          }),
-        };
         setFormData(initialFormState);
-        onLeadSubmitted(submittedLead);
+        onClose();
+        router.push("/thank-you");
       } else {
         const data = await response.json().catch(() => ({}));
         setStatus("error");

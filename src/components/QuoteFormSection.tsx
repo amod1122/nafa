@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Send, Sparkles, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 
 export interface LeadData {
@@ -29,6 +30,7 @@ const initialFormState = {
 };
 
 export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionProps) {
+  const router = useRouter();
   const [formData, setFormData] = useState(initialFormState);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -52,16 +54,8 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
 
       if (response.ok) {
         setStatus("success");
-        const submittedLead: LeadData = {
-          ...formData,
-          submittedAt: new Date().toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-          }),
-        };
         setFormData(initialFormState);
-        onLeadSubmitted?.(submittedLead);
+        router.push("/thank-you");
       } else {
         const data = await response.json().catch(() => ({}));
         setStatus("error");

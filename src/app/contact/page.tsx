@@ -140,7 +140,7 @@ export default function ContactPage() {
         </div>
 
         {/* Free Quote Form Section */}
-        <QuoteFormSection onLeadSubmitted={submitLead} />
+        <QuoteFormSection />
       </div>
     </div>
   );

@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScheduleModal from "@/components/ScheduleModal";
 import QuoteModal from "@/components/QuoteModal";
-import LeadCardModal from "@/components/LeadCardModal";
 import Threads from "@/components/ui/Threads";
 import { ModalProvider, useSiteModals } from "@/context/ModalContext";
 
@@ -74,13 +73,7 @@ function ShellInner({ children }: { children: React.ReactNode }) {
       <QuoteModal
         isOpen={isQuoteModalOpen}
         onClose={closeQuoteModal}
-        onLeadSubmitted={submitLead}
         defaultService={initialServiceForQuote}
-      />
-      <LeadCardModal
-        lead={activeLead}
-        onClose={closeLeadCard}
-        onOpenSchedule={openSchedule}
       />
     </div>
   );
