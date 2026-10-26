@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AIChatWidget from "@/components/AIChatWidget";
@@ -11,6 +12,8 @@ import Particles from "@/components/ui/particles";
 import { ModalProvider, useSiteModals } from "@/context/ModalContext";
 
 function ShellInner({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const isLandingPage = pathname === "/";
   const {
     isScheduleOpen,
     closeSchedule,
@@ -26,13 +29,15 @@ function ShellInner({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="relative min-h-screen flex flex-col bg-black text-white selection:bg-white selection:text-black">
-      {/* Magic UI Animated Background: Subtle Monochrome Floating Particles */}
-      <Particles
-        className="fixed inset-0 pointer-events-none z-0"
-        quantity={80}
-        ease={80}
-        color="#ffffff"
-      />
+      {/* Magic UI Animated Star Background (available on all other pages of the website) */}
+      {!isLandingPage && (
+        <Particles
+          className="fixed inset-0 pointer-events-none z-0"
+          quantity={80}
+          ease={80}
+          color="#ffffff"
+        />
+      )}
 
       {/* Film grain overlay */}
       <div className="grain" aria-hidden="true" />

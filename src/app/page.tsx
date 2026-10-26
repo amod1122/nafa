@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
+import dynamic from "next/dynamic";
 import {
-  ArrowRight,
   Clock,
   ShieldCheck,
   Zap,
@@ -14,6 +14,18 @@ import OfferBento from "@/components/OfferBento";
 import AboutSection from "@/components/AboutSection";
 import SocialProof from "@/components/SocialProof";
 import FAQAccordion from "@/components/FAQAccordion";
+import { AnimatedShinyButton } from "@/components/eldoraui/animated-shiny-button";
+import { InteractiveHeroHeadline } from "@/components/eldoraui/InteractiveHeroHeadline";
+
+const CobeGlobe = dynamic(
+  () => import("@/components/eldoraui/cobe-globe").then((m) => m.Cobe),
+  { ssr: false }
+);
+
+const PhotonBeam = dynamic(
+  () => import("@/components/eldoraui/photon-beam"),
+  { ssr: false }
+);
 
 export default function HomePage() {
   const { openSchedule, openQuoteModal } = useSiteModals();
@@ -21,14 +33,28 @@ export default function HomePage() {
   return (
     <div className="relative w-full overflow-hidden bg-transparent text-white selection:bg-white selection:text-black">
       {/* =========================================================================
-          HERO SECTION (MAIN COPY DOCKED ON THE LEFT)
+          ELDORAUI PHOTON-BEAM ANIMATED BACKGROUND (LANDING PAGE ONLY)
+          ========================================================================= */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10 opacity-30 h-[920px]">
+        <PhotonBeam
+          colorBg="#000000"
+          colorLine="#1e293b"
+          colorSignal="#ffffff"
+          lineCount={70}
+          speedGlobal={0.32}
+        />
+      </div>
+
+      {/* =========================================================================
+          HERO SECTION (LEFT-DOCKED COPY & DESKTOP COBE 3D GLOBE IN OPEN RIGHT SPACE)
           ========================================================================= */}
       <section
         id="top"
-        className="relative pt-12 sm:pt-20 pb-12 sm:pb-16 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto flex flex-col justify-center min-h-[calc(85vh-80px)]"
+        className="relative pt-10 sm:pt-16 pb-12 sm:pb-16 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto flex flex-col justify-center min-h-[calc(88vh-80px)]"
       >
-        <div className="w-full flex justify-start">
-          <div className="w-full max-w-2xl text-left flex flex-col items-start">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left Column: Hero Copy */}
+          <div className="lg:col-span-7 w-full max-w-2xl text-left flex flex-col items-start z-10">
             {/* Live Operational Status Chip */}
             <div className="badge-pill inline-flex items-center gap-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-white/90" aria-hidden="true" />
@@ -37,16 +63,8 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="font-sans text-[36px] sm:text-[48px] lg:text-[56px] font-medium leading-[1.06] tracking-[-0.03em] text-white">
-              Deploy{" "}
-              <em className="font-editorial not-italic text-[#A6B4C7]">
-                AI call agents
-              </em>{" "}
-              that
-              <br />
-              answer every lead in seconds.
-            </h1>
+            {/* Main Headline (EldoraUI Blur-In + Interactive Scale-Letter Hover) */}
+            <InteractiveHeroHeadline className="mb-2" />
 
             {/* Subhead Lede */}
             <p className="mt-5 max-w-[56ch] text-[15px] sm:text-[16.5px] leading-[1.6] text-[#A6B4C7]">
@@ -55,15 +73,14 @@ export default function HomePage() {
               your calendar 24/7/365. Zero hold times. Zero missed opportunities.
             </p>
 
-            {/* Clean 2-Button CTAs */}
+            {/* Clean 2-Button CTAs: EldoraUI Animated Shiny Button for Booking Call */}
             <div className="mt-8 flex flex-wrap items-center gap-3.5">
-              <button
+              <AnimatedShinyButton
                 onClick={openSchedule}
-                className="btn btn-solid h-[44px] px-6 text-sm font-semibold gap-2 shadow-lg"
+                className="h-[44px] px-6 text-sm font-semibold shadow-lg"
               >
-                <span>Book Discovery Call</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+                Book Discovery Call
+              </AnimatedShinyButton>
 
               <button
                 onClick={() => openQuoteModal()}
@@ -87,6 +104,22 @@ export default function HomePage() {
                 <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
                 <span>100% direct engineering</span>
               </div>
+            </div>
+          </div>
+
+          {/* Right Column (Desktop): EldoraUI Interactive Cobe 3D Globe */}
+          <div className="lg:col-span-5 hidden lg:flex justify-center items-center relative min-h-[460px] pointer-events-auto">
+            <div className="w-full max-w-[440px] aspect-square flex items-center justify-center relative">
+              <CobeGlobe
+                variant="auto-draggable"
+                className="w-full h-full"
+                dark={1}
+                mapBrightness={2.2}
+                baseColor="#ffffff"
+                markerColor="#ffffff"
+                glowColor="#ffffff"
+                opacity={0.85}
+              />
             </div>
           </div>
         </div>
@@ -178,13 +211,12 @@ export default function HomePage() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <button
+            <AnimatedShinyButton
               onClick={openSchedule}
-              className="btn btn-solid h-[44px] px-8 text-sm font-semibold gap-2 shadow-xl"
+              className="h-[44px] px-8 text-sm font-semibold shadow-xl"
             >
-              <span>Book Discovery Call</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+              Book Discovery Call
+            </AnimatedShinyButton>
 
             <button
               onClick={() => openQuoteModal()}
