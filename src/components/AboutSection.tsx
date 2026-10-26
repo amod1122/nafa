@@ -200,7 +200,7 @@ export default function AboutSection() {
                 Nafa on Instagram
               </h3>
               <p className="text-xs sm:text-sm text-[#A6B4C7] leading-relaxed mb-6">
-                Follow our official channel for real-time voice demo recordings, speed-to-lead case studies, and engineering updates.
+                Follow our official channel for real-time voice demo recordings, speed-to-lead breakdowns, and engineering updates.
               </p>
             </div>
 

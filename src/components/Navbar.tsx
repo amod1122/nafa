@@ -12,7 +12,6 @@ import { AnimatedShinyButton } from "@/components/eldoraui/animated-shiny-button
 const navItems = [
   { href: "/services", label: "Services" },
   { href: "/how-it-works", label: "Process" },
-  { href: "/case-studies", label: "Work" },
   { href: "/pricing", label: "Pricing" },
   { href: "/about", label: "About" },
 ];

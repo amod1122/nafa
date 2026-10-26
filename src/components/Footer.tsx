@@ -20,7 +20,6 @@ const groups = [
     label: "Platform",
     links: [
       ["How It Works", "/how-it-works"],
-      ["Case Studies", "/case-studies"],
       ["Industries", "/industries"],
       ["Pricing & Bundles", "/pricing"],
     ],
