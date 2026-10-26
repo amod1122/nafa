@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Star, CheckCircle2, ArrowRight } from "lucide-react";
 import { useSiteModals } from "@/context/ModalContext";
+import DecayCard from "@/components/ui/DecayCard";
 
 export default function SocialProof() {
   const { openSchedule } = useSiteModals();
@@ -70,55 +71,73 @@ export default function SocialProof() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
-            className="interactive-card p-6 sm:p-8 flex flex-col justify-between group"
+            className="h-full"
           >
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-mono uppercase tracking-wider text-[#A6B4C7] px-2.5 py-1 rounded bg-white/5 border border-white/10">
-                  {study.industry}
-                </span>
-                <div className="flex items-center gap-0.5 text-white/90">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                  ))}
+            <DecayCard
+              scope="card"
+              radius={16}
+              intensity={0.4}
+              sensitivity={0.5}
+              hoverDecay={0.06}
+              recovery={0.6}
+              idle={0.2}
+              grain={0.25}
+              detail={5}
+              pattern={idx + 3}
+              travel={20}
+              tilt={5}
+              className="h-full"
+            >
+              <div className="p-6 sm:p-8 flex flex-col justify-between h-full group">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-mono uppercase tracking-wider text-[#A6B4C7] px-2.5 py-1 rounded bg-white/5 border border-white/10">
+                      {study.industry}
+                    </span>
+                    <div className="flex items-center gap-0.5 text-white/90">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                      ))}
+                    </div>
+                  </div>
+
+                  <h3 className="text-lg font-semibold text-white tracking-[-0.01em] mb-4">
+                    {study.title}
+                  </h3>
+
+                  {/* Highlight Metric (Flattened - no nested box) */}
+                  <div className="py-4 border-y border-white/10 my-5">
+                    <div className="text-3xl font-mono font-bold text-white tracking-tight">
+                      {study.metric}
+                    </div>
+                    <div className="text-xs font-semibold text-white/90 mt-0.5">
+                      {study.metricLabel}
+                    </div>
+                    <div className="text-xs text-[#A6B4C7] mt-1.5 font-mono flex items-center gap-1.5">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-white/80" />
+                      <span>{study.stat}</span>
+                    </div>
+                  </div>
+
+                  <p className="text-sm text-[#A6B4C7] italic leading-relaxed mb-6">
+                    &ldquo;{study.quote}&rdquo;
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-white/8 flex items-center justify-between">
+                  <span className="text-xs font-medium text-white/90">
+                    {study.author}
+                  </span>
+                  <Link
+                    href="/case-studies"
+                    className="text-xs text-[#A6B4C7] hover:text-white flex items-center gap-1 transition-colors"
+                  >
+                    <span>Read Study</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
               </div>
-
-              <h3 className="text-lg font-semibold text-white tracking-[-0.01em] mb-4">
-                {study.title}
-              </h3>
-
-              {/* Highlight Metric (Flattened - no nested box) */}
-              <div className="py-4 border-y border-white/10 my-5">
-                <div className="text-3xl font-mono font-bold text-white tracking-tight">
-                  {study.metric}
-                </div>
-                <div className="text-xs font-semibold text-white/90 mt-0.5">
-                  {study.metricLabel}
-                </div>
-                <div className="text-xs text-[#A6B4C7] mt-1.5 font-mono flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-white/80" />
-                  <span>{study.stat}</span>
-                </div>
-              </div>
-
-              <p className="text-sm text-[#A6B4C7] italic leading-relaxed mb-6">
-                &ldquo;{study.quote}&rdquo;
-              </p>
-            </div>
-
-            <div className="pt-4 border-t border-white/8 flex items-center justify-between">
-              <span className="text-xs font-medium text-white/90">
-                {study.author}
-              </span>
-              <Link
-                href="/case-studies"
-                className="text-xs text-[#A6B4C7] hover:text-white flex items-center gap-1 transition-colors"
-              >
-                <span>Read Study</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
+            </DecayCard>
           </motion.div>
         ))}
       </div>
