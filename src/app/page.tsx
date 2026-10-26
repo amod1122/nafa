@@ -26,18 +26,10 @@ export default function HomePage() {
           ========================================================================= */}
       <section
         id="top"
-        className="relative pt-12 sm:pt-20 pb-12 sm:pb-16 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto flex flex-col justify-center min-h-[calc(85vh-80px)]"
+        className="relative pt-6 sm:pt-10 pb-12 sm:pb-16 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto flex flex-col justify-center min-h-[calc(80vh-80px)]"
       >
         <div className="w-full flex justify-start">
           <div className="w-full max-w-2xl text-left flex flex-col items-start z-10">
-            {/* Live Operational Status Chip */}
-            <div className="badge-pill inline-flex items-center gap-2 mb-6">
-              <span className="w-2 h-2 rounded-full bg-white/90" aria-hidden="true" />
-              <span className="text-xs font-medium tracking-[-0.01em] text-white/90">
-                Operational AI Voice & Speed-to-Lead Infrastructure
-              </span>
-            </div>
-
             {/* Main Headline (Clean, Razor-Sharp High-Contrast Typography) */}
             <h1 className="font-sans text-[36px] sm:text-[48px] lg:text-[58px] font-medium leading-[1.08] tracking-[-0.035em] text-white">
               Deploy{" "}
