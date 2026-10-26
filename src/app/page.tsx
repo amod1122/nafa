@@ -15,8 +15,6 @@ import AboutSection from "@/components/AboutSection";
 import FAQAccordion from "@/components/FAQAccordion";
 import { AnimatedShinyButton } from "@/components/eldoraui/animated-shiny-button";
 import SpecularButton from "@/components/ui/SpecularButton";
-import SubLetterSpotlightText from "@/components/ui/SubLetterSpotlightText";
-import TechText from "@/components/ui/TechText";
 
 export default function HomePage() {
   const { openSchedule, openQuoteModal } = useSiteModals();
@@ -40,8 +38,16 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* Main Headline: Sub-letter cursor spotlight color change */}
-            <SubLetterSpotlightText radius={95} />
+            {/* Main Headline (Clean, Razor-Sharp High-Contrast Typography) */}
+            <h1 className="font-sans text-[36px] sm:text-[48px] lg:text-[58px] font-medium leading-[1.08] tracking-[-0.035em] text-white">
+              Deploy{" "}
+              <span className="font-voice-agent font-normal text-[1.12em] tracking-normal text-transparent bg-clip-text bg-gradient-to-r from-white via-[#E2E8F0] to-[#A6B4C7] pr-1">
+                AI call agents
+              </span>{" "}
+              that
+              <br />
+              answer every lead in seconds.
+            </h1>
 
             {/* Subhead Lede */}
             <p className="mt-5 max-w-[56ch] text-[15px] sm:text-[16.5px] leading-[1.6] text-[#A6B4C7]">
