@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUp, ArrowUpRight } from "lucide-react";
 import { useSiteModals } from "@/context/ModalContext";
 
@@ -50,28 +51,26 @@ export default function Footer() {
           <div>
             <Link
               href="/"
-              className="inline-flex items-center gap-2.5 text-white no-underline group"
+              className="inline-flex items-center gap-3 text-white no-underline group"
               aria-label="Nafa Technologies home"
             >
-              <span className="grid h-[22px] w-[22px] place-items-center text-white transition-transform duration-300 group-hover:scale-110">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g transform="rotate(-30 12 12)">
-                    <circle cx="7.3" cy="3.2" r="1.45" />
-                    <rect x="5.5" y="4.7" width="3.6" height="14.6" rx="1.8" />
-                    <rect x="14.9" y="4.7" width="3.6" height="14.6" rx="1.8" />
-                    <circle cx="16.7" cy="20.8" r="1.45" />
-                  </g>
-                </svg>
-              </span>
-              <span className="text-[15.5px] font-semibold tracking-[-0.03em] text-white">
-                Nafa<span className="font-normal text-[#A6B4C7]">.tech</span>
-              </span>
+              <div className="relative w-8 h-8 rounded-[6px] overflow-hidden border border-white/20 bg-white/[0.04] backdrop-blur-md flex items-center justify-center p-0.5 shrink-0 transition-transform duration-300 group-hover:scale-105">
+                <Image
+                  src="/nafa-logo-white.png"
+                  alt="Nafa Technologies Logo"
+                  width={30}
+                  height={30}
+                  className="object-contain"
+                />
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="text-[15px] font-semibold tracking-[-0.03em] text-white leading-tight">
+                  Nafa
+                </span>
+                <span className="text-[10px] font-mono tracking-wider uppercase text-[#A6B4C7] leading-none">
+                  Technologies
+                </span>
+              </div>
             </Link>
 
             <p className="mt-4 max-w-sm text-sm leading-6 text-[#A6B4C7]">

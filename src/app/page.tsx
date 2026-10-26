@@ -12,7 +12,6 @@ import { useSiteModals } from "@/context/ModalContext";
 import CostSavingsCalculator from "@/components/CostSavingsCalculator";
 import OfferBento from "@/components/OfferBento";
 import AboutSection from "@/components/AboutSection";
-import SocialProof from "@/components/SocialProof";
 import FAQAccordion from "@/components/FAQAccordion";
 import { AnimatedShinyButton } from "@/components/eldoraui/animated-shiny-button";
 import SpecularButton from "@/components/ui/SpecularButton";
@@ -163,11 +162,6 @@ export default function HomePage() {
           ABOUT US & THE NAFA STANDARD
           ========================================================================= */}
       <AboutSection />
-
-      {/* =========================================================================
-          VALIDATED CASE STUDIES & ROI RESULTS
-          ========================================================================= */}
-      <SocialProof />
 
       {/* =========================================================================
           INTERACTIVE FAQ ACCORDION

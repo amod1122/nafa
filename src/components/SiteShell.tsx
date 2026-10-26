@@ -29,24 +29,33 @@ function ShellInner({ children }: { children: React.ReactNode }) {
       <div className="fixed inset-0 pointer-events-none z-0" aria-hidden="true">
         <Threads
           color="#ffffff"
-          lineCount={95}
-          thickness={0.65}
+          lineCount={90}
+          thickness={0.55}
           softness={1.3}
-          amplitude={1.9}
-          distance={0.42}
-          waves={1.1}
-          speed={1.8}
+          amplitude={1.7}
+          distance={0.4}
+          waves={1.05}
+          speed={1.4}
           split={0.04}
           fray={0.5}
           angle={25}
           taper={0.85}
-          brightness={1.5}
-          parting={0.2}
+          brightness={0.85}
+          parting={0.15}
           enableMouseInteraction={true}
           fade={0}
-          opacity={0.9}
+          opacity={0.42}
         />
       </div>
+
+      {/* Subtle depth vignette to protect text legibility and keep background subtle */}
+      <div
+        className="fixed inset-0 pointer-events-none z-0"
+        style={{
+          background: "radial-gradient(circle at 35% 40%, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.6) 100%)",
+        }}
+        aria-hidden="true"
+      />
 
       {/* Film grain overlay */}
       <div className="grain" aria-hidden="true" />
