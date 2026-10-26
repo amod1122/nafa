@@ -11,6 +11,8 @@ import {
   Globe,
 } from "lucide-react";
 import { useSiteModals } from "@/context/ModalContext";
+import PixelCard from "@/components/ui/PixelCard";
+import SpecularButton from "@/components/ui/SpecularButton";
 
 export default function PricingPage() {
   const { openSchedule, openQuoteModal } = useSiteModals();
@@ -84,50 +86,64 @@ export default function PricingPage() {
           </div>
         </div>
 
-        {/* Individual Offer Cards */}
+        {/* Individual Offer Cards with PixelCard */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {offers.map((offer, idx) => {
             const Icon = offer.icon;
             return (
-              <div
+              <PixelCard
                 key={idx}
-                className="apple-glass rounded-lg p-6 sm:p-8 flex flex-col justify-between"
+                variant="default"
+                shape="square"
+                gap={6}
+                speed={28}
+                spotlight={0.5}
+                glow={0.4}
+                opacity={0.65}
+                radius={16}
+                trigger="hover"
+                clickPulse
+                intro
+                introDelay={idx * 120}
+                className="h-full"
               >
-                <div>
-                  <div className="w-10 h-10 rounded-[6px] border border-white/15 bg-white/[0.05] text-white flex items-center justify-center mb-5">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-[#9a9a9a]">
-                    {offer.subtitle}
-                  </span>
-                  <h3 className="text-xl font-medium text-white tracking-tight mt-1 mb-2">
-                    {offer.name}
-                  </h3>
-                  <p className="text-xs text-[#9a9a9a] mb-5 leading-relaxed">
-                    <strong className="text-white">Who it fits:</strong> {offer.whoItFits}
-                  </p>
+                <div className="p-6 sm:p-8 flex flex-col justify-between h-full w-full">
+                  <div>
+                    <div className="w-10 h-10 rounded-[6px] border border-white/15 bg-white/[0.05] text-white flex items-center justify-center mb-5">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#9a9a9a]">
+                      {offer.subtitle}
+                    </span>
+                    <h3 className="text-xl font-medium text-white tracking-tight mt-1 mb-2">
+                      {offer.name}
+                    </h3>
+                    <p className="text-xs text-[#9a9a9a] mb-5 leading-relaxed">
+                      <strong className="text-white">Who it fits:</strong> {offer.whoItFits}
+                    </p>
 
-                  <div className="space-y-2 mb-6">
-                    <span className="text-xs font-medium text-white/80 block">What is included:</span>
-                    <ul className="space-y-2 text-xs text-white/90">
-                      {offer.features.map((f, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-white shrink-0 mt-0.5" />
-                          <span>{f}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="space-y-2 mb-6">
+                      <span className="text-xs font-medium text-white/80 block">What is included:</span>
+                      <ul className="space-y-2 text-xs text-white/90">
+                        {offer.features.map((f, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-white shrink-0 mt-0.5" />
+                            <span>{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
+
+                  <button
+                    onClick={() => openQuoteModal(offer.name)}
+                    className="btn btn-ghost w-full h-[40px] text-xs sm:text-sm font-medium flex items-center justify-center gap-1.5 mt-2"
+                  >
+                    <span>{offer.ctaText}</span>
+                    <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                  </button>
                 </div>
-
-                <button
-                  onClick={() => openQuoteModal(offer.name)}
-                  className="btn btn-ghost w-full h-[40px] text-xs sm:text-sm font-medium flex items-center justify-center gap-1.5 mt-2"
-                >
-                  <span>{offer.ctaText}</span>
-                  <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                </button>
-              </div>
+              </PixelCard>
             );
           })}
         </div>
@@ -146,38 +162,70 @@ export default function PricingPage() {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left pt-4">
-              <div className="p-5 rounded-[6px] bg-white/[0.03] border border-white/10">
-                <h4 className="font-medium text-base text-white mb-1">
-                  Website + Speed-to-Lead Bundle
-                </h4>
-                <p className="text-xs text-[#9a9a9a] mb-4">
-                  A high-converting website built specifically to feed leads straight into your automated 60-second callback agent.
-                </p>
-                <button
-                  onClick={() => openQuoteModal("Website + Speed-to-Lead Bundle")}
-                  className="btn btn-ghost w-full h-[38px] text-xs font-medium"
-                >
-                  Request Bundle Quote
-                </button>
-              </div>
+              <PixelCard
+                variant="default"
+                shape="square"
+                gap={6}
+                speed={25}
+                spotlight={0.45}
+                glow={0.35}
+                opacity={0.6}
+                radius={12}
+                trigger="hover"
+                clickPulse
+                className="h-full"
+              >
+                <div className="p-5 flex flex-col justify-between h-full w-full">
+                  <div>
+                    <h4 className="font-medium text-base text-white mb-1">
+                      Website + Speed-to-Lead Bundle
+                    </h4>
+                    <p className="text-xs text-[#9a9a9a] mb-4">
+                      A high-converting website built specifically to feed leads straight into your automated 60-second callback agent.
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => openQuoteModal("Website + Speed-to-Lead Bundle")}
+                    className="btn btn-ghost w-full h-[38px] text-xs font-medium"
+                  >
+                    Request Bundle Quote
+                  </button>
+                </div>
+              </PixelCard>
 
-              <div className="p-5 rounded-[6px] bg-white/[0.06] border border-white/25 relative">
-                <span className="absolute -top-2.5 right-4 bg-white text-black text-[10px] font-bold uppercase px-2 py-0.5 rounded-[4px]">
-                  Best Value
-                </span>
-                <h4 className="font-medium text-base text-white mb-1">
-                  The Full Growth System
-                </h4>
-                <p className="text-xs text-[#9a9a9a] mb-4">
-                  Website + Speed-to-Lead + AI Call Agent. Complete 360° coverage so no phone call and no web inquiry is ever lost.
-                </p>
-                <button
-                  onClick={() => openQuoteModal("The Full Growth System")}
-                  className="btn btn-solid w-full h-[38px] text-xs font-semibold"
-                >
-                  Request Full System Quote
-                </button>
-              </div>
+              <PixelCard
+                variant="default"
+                shape="square"
+                gap={6}
+                speed={30}
+                spotlight={0.55}
+                glow={0.45}
+                opacity={0.7}
+                radius={12}
+                trigger="hover"
+                clickPulse
+                className="h-full relative"
+              >
+                <div className="p-5 flex flex-col justify-between h-full w-full relative">
+                  <span className="absolute -top-2.5 right-4 bg-white text-black text-[10px] font-bold uppercase px-2 py-0.5 rounded-[4px] z-10">
+                    Best Value
+                  </span>
+                  <div>
+                    <h4 className="font-medium text-base text-white mb-1">
+                      The Full Growth System
+                    </h4>
+                    <p className="text-xs text-[#9a9a9a] mb-4">
+                      Website + Speed-to-Lead + AI Call Agent. Complete 360° coverage so no phone call and no web inquiry is ever lost.
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => openQuoteModal("The Full Growth System")}
+                    className="btn btn-solid w-full h-[38px] text-xs font-semibold"
+                  >
+                    Request Full System Quote
+                  </button>
+                </div>
+              </PixelCard>
             </div>
           </div>
         </div>
@@ -188,13 +236,29 @@ export default function PricingPage() {
             Ready to find out the exact quote for your business?
           </h3>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <button
+            <SpecularButton
               onClick={openSchedule}
-              className="btn btn-solid h-[42px] px-6 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2"
+              size="sm"
+              radius={8}
+              tint="#ffffff"
+              tintOpacity={0.08}
+              blur={12}
+              textColor="#ffffff"
+              lineColor="#ffffff"
+              baseColor="#525252"
+              intensity={1.1}
+              idleIntensity={0.35}
+              shineSize={10}
+              shineFade={32}
+              thickness={1.3}
+              glow={1}
+              followMouse
+              proximity={240}
+              className="h-[42px] px-6 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2"
             >
               <Calendar className="w-4 h-4" />
               <span>Book Discovery Call</span>
-            </button>
+            </SpecularButton>
             <button
               onClick={() => openQuoteModal()}
               className="btn btn-ghost h-[42px] px-6 text-xs sm:text-sm"

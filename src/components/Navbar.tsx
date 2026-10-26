@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSiteModals } from "@/context/ModalContext";
+import PillNav from "@/components/ui/PillNav";
+import SpecularButton from "@/components/ui/SpecularButton";
 
 const navItems = [
   { href: "/services", label: "Services" },
@@ -70,40 +72,46 @@ export default function Navbar() {
         </span>
       </Link>
 
-      {/* Center: Liquid-metal Navigation Pills */}
-      <nav
-        id="site-nav"
-        aria-label="Primary navigation"
-        className="hidden lg:flex items-center gap-2 justify-self-center"
-      >
-        {navItems.map((item, idx) => {
-          const isActive =
-            pathname === item.href ||
-            (item.href === "/services" && pathname.startsWith("/services/"));
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`nav-pill appear ${
-                idx % 2 === 0 ? "appear--scale" : "appear--soft"
-              } ${isActive ? "border-white/80 bg-white/10 text-white" : ""}`}
-              style={{ animationDelay: `${0.06 * (idx + 1)}s` }}
-            >
-              {item.label}
-            </Link>
-          );
-        })}
-      </nav>
+      {/* Center: React Bits PillNav with liquid glass styling */}
+      <div className="hidden lg:flex items-center justify-self-center">
+        <PillNav
+          items={navItems}
+          activeHref={pathname.startsWith("/services") ? "/services" : pathname}
+          linkComponent={Link}
+          itemStyle="pill"
+          hoverEffect="fill"
+          indicator="dot"
+          surface="glass"
+          theme="dark"
+          size="md"
+          collapse="never"
+        />
+      </div>
 
-      {/* Right: CTA & Mobile Burger */}
+      {/* Right: SpecularButton CTA & Mobile Burger */}
       <div className="flex items-center gap-3 justify-self-end">
-        <button
+        <SpecularButton
           onClick={openSchedule}
-          className="btn btn-solid appear appear--scale hidden sm:inline-flex"
-          style={{ animationDelay: "0.2s" }}
+          size="sm"
+          radius={7}
+          tint="#ffffff"
+          tintOpacity={0.08}
+          blur={10}
+          textColor="#ffffff"
+          lineColor="#ffffff"
+          baseColor="#525252"
+          intensity={1.1}
+          idleIntensity={0.35}
+          shineSize={10}
+          shineFade={30}
+          thickness={1.2}
+          glow={1}
+          followMouse
+          proximity={220}
+          className="hidden sm:inline-flex h-[38px] px-4 text-xs font-semibold"
         >
           Book Discovery Call
-        </button>
+        </SpecularButton>
 
         <button
           onClick={() => setMenuOpen((prev) => !prev)}
@@ -157,15 +165,25 @@ export default function Navbar() {
           </div>
 
           <div className="pt-6 border-t border-white/10 grid gap-3 mt-6">
-            <button
+            <SpecularButton
               onClick={() => {
                 setMenuOpen(false);
                 openSchedule();
               }}
-              className="btn btn-solid w-full h-[46px] text-sm font-semibold"
+              size="md"
+              radius={8}
+              tint="#ffffff"
+              tintOpacity={0.08}
+              blur={12}
+              textColor="#ffffff"
+              lineColor="#ffffff"
+              baseColor="#525252"
+              intensity={1.1}
+              idleIntensity={0.35}
+              className="w-full h-[46px] text-sm font-semibold"
             >
               Book Discovery Call
-            </button>
+            </SpecularButton>
             <p className="text-center text-xs text-[#A6B4C7]">
               24/7 Voice & Speed-to-Lead Infrastructure
             </p>

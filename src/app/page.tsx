@@ -15,6 +15,7 @@ import AboutSection from "@/components/AboutSection";
 import SocialProof from "@/components/SocialProof";
 import FAQAccordion from "@/components/FAQAccordion";
 import { AnimatedShinyButton } from "@/components/eldoraui/animated-shiny-button";
+import SpecularButton from "@/components/ui/SpecularButton";
 
 export default function HomePage() {
   const { openSchedule, openQuoteModal } = useSiteModals();
@@ -56,15 +57,30 @@ export default function HomePage() {
               your calendar 24/7/365. Zero hold times. Zero missed opportunities.
             </p>
 
-            {/* Clean 2-Button CTAs: Animated Shiny Button (White/Gray Glow) */}
+            {/* Clean 2-Button CTAs: Specular Button with dynamic rim light */}
             <div className="mt-8 flex flex-wrap items-center gap-3.5">
-              <AnimatedShinyButton
+              <SpecularButton
                 onClick={openSchedule}
-                colorScheme="white"
+                size="md"
+                radius={8}
+                tint="#ffffff"
+                tintOpacity={0.06}
+                blur={12}
+                textColor="#ffffff"
+                lineColor="#ffffff"
+                baseColor="#525252"
+                intensity={1.2}
+                idleIntensity={0.35}
+                shineSize={12}
+                shineFade={36}
+                thickness={1.4}
+                glow={1.1}
+                followMouse
+                proximity={260}
                 className="h-[44px] px-6 text-sm font-semibold shadow-lg"
               >
                 Book Discovery Call
-              </AnimatedShinyButton>
+              </SpecularButton>
 
               <button
                 onClick={() => openQuoteModal()}
@@ -179,13 +195,28 @@ export default function HomePage() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <AnimatedShinyButton
+            <SpecularButton
               onClick={openSchedule}
-              colorScheme="white"
+              size="md"
+              radius={8}
+              tint="#ffffff"
+              tintOpacity={0.06}
+              blur={12}
+              textColor="#ffffff"
+              lineColor="#ffffff"
+              baseColor="#525252"
+              intensity={1.2}
+              idleIntensity={0.35}
+              shineSize={12}
+              shineFade={36}
+              thickness={1.4}
+              glow={1.1}
+              followMouse
+              proximity={260}
               className="h-[44px] px-8 text-sm font-semibold shadow-xl"
             >
               Book Discovery Call
-            </AnimatedShinyButton>
+            </SpecularButton>
 
             <button
               onClick={() => openQuoteModal()}
