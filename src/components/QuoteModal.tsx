@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, Send, Sparkles } from "lucide-react";
+import { X, Send, Sparkles, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { LeadData } from "./QuoteFormSection";
 
 interface QuoteModalProps {
@@ -17,7 +17,7 @@ export default function QuoteModal({
   onLeadSubmitted,
   defaultService = "Full Growth System (All-in-One)",
 }: QuoteModalProps) {
-  const [formData, setFormData] = useState({
+  const initialFormState = {
     name: "",
     businessName: "",
     email: "",
@@ -25,27 +25,59 @@ export default function QuoteModal({
     industry: "Home Services (HVAC / Plumbing / Roofing)",
     serviceNeeded: defaultService,
     message: "",
-  });
+  };
+
+  const [formData, setFormData] = useState(initialFormState);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setStatus("idle");
+    setErrorMessage("");
 
-    setTimeout(() => {
-      const newLead: LeadData = {
-        ...formData,
-        submittedAt: new Date().toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-        }),
-      };
+    try {
+      const response = await fetch("https://formspree.io/f/xeaaajkw", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        const submittedLead: LeadData = {
+          ...formData,
+          submittedAt: new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          }),
+        };
+        setFormData(initialFormState);
+        onLeadSubmitted(submittedLead);
+      } else {
+        const data = await response.json().catch(() => ({}));
+        setStatus("error");
+        setErrorMessage(
+          data?.errors?.[0]?.message ||
+            "Unable to submit quote request. Please try again or email us directly at contact@nafatech.site."
+        );
+      }
+    } catch {
+      setStatus("error");
+      setErrorMessage(
+        "Network connection error. Please try again or email us directly at contact@nafatech.site."
+      );
+    } finally {
       setIsSubmitting(false);
-      onLeadSubmitted(newLead);
-    }, 400);
+    }
   };
 
   return (
@@ -85,12 +117,35 @@ export default function QuoteModal({
 
         {/* Form Body */}
         <form onSubmit={handleSubmit} className="p-5 sm:p-6 space-y-3.5 overflow-y-auto">
+          {/* Status Messages */}
+          {status === "success" && (
+            <div className="p-3.5 rounded-[6px] border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 flex items-start gap-2.5 text-xs sm:text-sm animate-in fade-in duration-300">
+              <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+              <div className="space-y-0.5">
+                <div className="font-semibold text-white">
+                  Quote request received! We'll get back to you shortly.
+                </div>
+                <div className="text-emerald-200/80 text-xs">
+                  Our engineering team reviews inquiries within 5 minutes during business hours.
+                </div>
+              </div>
+            </div>
+          )}
+
+          {status === "error" && (
+            <div className="p-3.5 rounded-[6px] border border-red-500/30 bg-red-500/10 text-red-300 flex items-start gap-2.5 text-xs sm:text-sm animate-in fade-in duration-300">
+              <AlertCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+              <span>{errorMessage || "Unable to submit quote request. Please try again."}</span>
+            </div>
+          )}
+
           <div>
             <label className="block text-xs font-medium text-white/90 mb-1.5">
               Your Full Name *
             </label>
             <input
               type="text"
+              name="name"
               required
               placeholder="e.g. Sarah Jenkins"
               value={formData.name}
@@ -105,6 +160,7 @@ export default function QuoteModal({
             </label>
             <input
               type="text"
+              name="businessName"
               required
               placeholder="e.g. Apex Family Dental"
               value={formData.businessName}
@@ -120,6 +176,7 @@ export default function QuoteModal({
               </label>
               <input
                 type="email"
+                name="email"
                 required
                 placeholder="sarah@apexdental.com"
                 value={formData.email}
@@ -133,6 +190,7 @@ export default function QuoteModal({
               </label>
               <input
                 type="tel"
+                name="phone"
                 required
                 placeholder="(555) 234-5678"
                 value={formData.phone}
@@ -148,6 +206,7 @@ export default function QuoteModal({
                 Industry
               </label>
               <select
+                name="industry"
                 value={formData.industry}
                 onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
                 className="w-full min-h-[44px] px-3.5 py-2.5 rounded-[6px] border border-white/20 bg-[#141414] text-base sm:text-sm text-white focus:outline-none focus:border-white/60"
@@ -167,6 +226,7 @@ export default function QuoteModal({
                 System Needed
               </label>
               <select
+                name="serviceNeeded"
                 value={formData.serviceNeeded}
                 onChange={(e) => setFormData({ ...formData, serviceNeeded: e.target.value })}
                 className="w-full min-h-[44px] px-3.5 py-2.5 rounded-[6px] border border-white/20 bg-[#141414] text-base sm:text-sm text-white focus:outline-none focus:border-white/60"
@@ -185,6 +245,7 @@ export default function QuoteModal({
             </label>
             <input
               type="text"
+              name="message"
               placeholder="e.g. ~50 calls/month"
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -195,10 +256,19 @@ export default function QuoteModal({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="btn btn-solid w-full h-[46px] text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 mt-2"
+            className="btn btn-solid w-full h-[46px] text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 mt-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
-            <Send className="w-4 h-4" />
-            <span>{isSubmitting ? "Generating Lead Card..." : "Send Request (<5 Min Response)"}</span>
+            {isSubmitting ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin text-black" />
+                <span>Sending...</span>
+              </>
+            ) : (
+              <>
+                <Send className="w-4 h-4" />
+                <span>Send Request (&lt;5 Min Response)</span>
+              </>
+            )}
           </button>
         </form>
       </div>

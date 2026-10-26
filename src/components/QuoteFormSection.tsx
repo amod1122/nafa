@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Send, Sparkles } from "lucide-react";
+import { Send, Sparkles, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 
 export interface LeadData {
   name: string;
@@ -15,37 +15,69 @@ export interface LeadData {
 }
 
 interface QuoteFormSectionProps {
-  onLeadSubmitted: (lead: LeadData) => void;
+  onLeadSubmitted?: (lead: LeadData) => void;
 }
 
-export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionProps) {
-  const [formData, setFormData] = useState({
-    name: "",
-    businessName: "",
-    email: "",
-    phone: "",
-    industry: "Home Services (HVAC / Plumbing / Roofing)",
-    serviceNeeded: "Full Growth System (All-in-One)",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+const initialFormState = {
+  name: "",
+  businessName: "",
+  email: "",
+  phone: "",
+  industry: "Home Services (HVAC / Plumbing / Roofing)",
+  serviceNeeded: "Full Growth System (All-in-One)",
+  message: "",
+};
 
-  const handleSubmit = (e: React.FormEvent) => {
+export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionProps) {
+  const [formData, setFormData] = useState(initialFormState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setStatus("idle");
+    setErrorMessage("");
 
-    setTimeout(() => {
-      const newLead: LeadData = {
-        ...formData,
-        submittedAt: new Date().toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-        }),
-      };
+    try {
+      const response = await fetch("https://formspree.io/f/xeaaajkw", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        const submittedLead: LeadData = {
+          ...formData,
+          submittedAt: new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          }),
+        };
+        setFormData(initialFormState);
+        onLeadSubmitted?.(submittedLead);
+      } else {
+        const data = await response.json().catch(() => ({}));
+        setStatus("error");
+        setErrorMessage(
+          data?.errors?.[0]?.message ||
+            "Unable to submit quote request. Please try again or email us directly at contact@nafatech.site."
+        );
+      }
+    } catch {
+      setStatus("error");
+      setErrorMessage(
+        "Network connection error. Please try again or email us directly at contact@nafatech.site."
+      );
+    } finally {
       setIsSubmitting(false);
-      onLeadSubmitted(newLead);
-    }, 450);
+    }
   };
 
   return (
@@ -67,6 +99,28 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
         {/* The Quote Form Card */}
         <div className="apple-glass rounded-lg p-6 sm:p-10 border border-white/15">
           <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+            {/* Status Messages */}
+            {status === "success" && (
+              <div className="p-4 rounded-[6px] border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 flex items-start gap-3 text-xs sm:text-sm animate-in fade-in duration-300">
+                <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                <div className="space-y-0.5">
+                  <div className="font-semibold text-white">
+                    Quote request received! We'll get back to you shortly.
+                  </div>
+                  <div className="text-emerald-200/80 text-xs">
+                    Our engineering team reviews inquiries within 5 minutes during business hours.
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {status === "error" && (
+              <div className="p-3.5 rounded-[6px] border border-red-500/30 bg-red-500/10 text-red-300 flex items-start gap-2.5 text-xs sm:text-sm animate-in fade-in duration-300">
+                <AlertCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+                <span>{errorMessage || "Unable to submit quote request. Please try again."}</span>
+              </div>
+            )}
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-medium text-white/90 mb-1.5">
@@ -74,6 +128,7 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
                 </label>
                 <input
                   type="text"
+                  name="name"
                   required
                   placeholder="e.g. John Miller"
                   value={formData.name}
@@ -88,6 +143,7 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
                 </label>
                 <input
                   type="text"
+                  name="businessName"
                   required
                   placeholder="e.g. Miller Roofing & Siding"
                   value={formData.businessName}
@@ -104,6 +160,7 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
                 </label>
                 <input
                   type="email"
+                  name="email"
                   required
                   placeholder="john@millerroofing.com"
                   value={formData.email}
@@ -118,6 +175,7 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
                 </label>
                 <input
                   type="tel"
+                  name="phone"
                   required
                   placeholder="(555) 342-8901"
                   value={formData.phone}
@@ -133,6 +191,7 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
                   Your Industry <span className="text-white/60">*</span>
                 </label>
                 <select
+                  name="industry"
                   value={formData.industry}
                   onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
                   className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-[#141414] text-xs sm:text-sm text-white focus:outline-none focus:border-white/50"
@@ -156,6 +215,7 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
                   System Needed <span className="text-white/60">*</span>
                 </label>
                 <select
+                  name="serviceNeeded"
                   value={formData.serviceNeeded}
                   onChange={(e) => setFormData({ ...formData, serviceNeeded: e.target.value })}
                   className="w-full px-3.5 py-2.5 rounded-[6px] border border-white/15 bg-[#141414] text-xs sm:text-sm text-white focus:outline-none focus:border-white/50"
@@ -179,6 +239,7 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
                 Current Estimated Monthly Call / Lead Volume (Optional):
               </label>
               <textarea
+                name="message"
                 rows={2}
                 placeholder="e.g. We get roughly 50-80 calls a month and miss around 10-15 during after-hours."
                 value={formData.message}
@@ -195,10 +256,13 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
             <button
               type="submit"
               disabled={isSubmitting}
-              className="btn btn-solid w-full h-[44px] text-xs sm:text-sm font-semibold flex items-center justify-center gap-2"
+              className="btn btn-solid w-full h-[44px] text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
             >
               {isSubmitting ? (
-                <span>Generating Lead Card...</span>
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin text-black" />
+                  <span>Sending...</span>
+                </>
               ) : (
                 <>
                   <Send className="w-4 h-4" />
