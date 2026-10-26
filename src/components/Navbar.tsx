@@ -91,13 +91,30 @@ export default function Navbar() {
 
       {/* Right: SpecularButton CTA & Mobile Burger */}
       <div className="flex items-center gap-3 justify-self-end">
-        <AnimatedShinyButton
+        <SpecularButton
           onClick={openSchedule}
-          colorScheme="white"
+          size="sm"
+          radius={8}
+          tint="#ffffff"
+          tintOpacity={0.06}
+          blur={10}
+          textColor="#ffffff"
+          lineColor="#ffffff"
+          baseColor="#525252"
+          intensity={1.1}
+          idleIntensity={0.35}
+          shineSize={12}
+          shineFade={32}
+          thickness={1.3}
+          glow={1}
+          followMouse={true}
+          autoAnimate={true}
+          speed={0.35}
+          proximity={220}
           className="hidden sm:inline-flex h-[38px] px-4 text-xs font-semibold"
         >
           Book Discovery Call
-        </AnimatedShinyButton>
+        </SpecularButton>
 
         <button
           onClick={() => setMenuOpen((prev) => !prev)}
@@ -151,16 +168,28 @@ export default function Navbar() {
           </div>
 
           <div className="pt-6 border-t border-white/10 grid gap-3 mt-6">
-            <AnimatedShinyButton
+            <SpecularButton
               onClick={() => {
                 setMenuOpen(false);
                 openSchedule();
               }}
-              colorScheme="white"
+              size="md"
+              radius={8}
+              tint="#ffffff"
+              tintOpacity={0.06}
+              blur={12}
+              textColor="#ffffff"
+              lineColor="#ffffff"
+              baseColor="#525252"
+              intensity={1.1}
+              idleIntensity={0.35}
+              followMouse={true}
+              autoAnimate={true}
+              speed={0.35}
               className="w-full h-[46px] text-sm font-semibold"
             >
               Book Discovery Call
-            </AnimatedShinyButton>
+            </SpecularButton>
             <p className="text-center text-xs text-[#A6B4C7]">
               24/7 Voice & Speed-to-Lead Infrastructure
             </p>

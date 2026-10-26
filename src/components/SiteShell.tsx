@@ -29,22 +29,22 @@ function ShellInner({ children }: { children: React.ReactNode }) {
       <div className="fixed inset-0 pointer-events-none z-0" aria-hidden="true">
         <Threads
           color="#ffffff"
-          lineCount={90}
-          thickness={0.6}
+          lineCount={95}
+          thickness={0.65}
           softness={1.3}
-          amplitude={1.7}
-          distance={0.4}
-          waves={1.05}
-          speed={0.6}
+          amplitude={1.9}
+          distance={0.42}
+          waves={1.1}
+          speed={1.8}
           split={0.04}
           fray={0.5}
           angle={25}
           taper={0.85}
-          brightness={1.4}
-          parting={0}
-          enableMouseInteraction={false}
+          brightness={1.5}
+          parting={0.2}
+          enableMouseInteraction={true}
           fade={0}
-          opacity={0.85}
+          opacity={0.9}
         />
       </div>
 

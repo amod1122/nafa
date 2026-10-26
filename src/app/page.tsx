@@ -16,6 +16,7 @@ import SocialProof from "@/components/SocialProof";
 import FAQAccordion from "@/components/FAQAccordion";
 import { AnimatedShinyButton } from "@/components/eldoraui/animated-shiny-button";
 import SpecularButton from "@/components/ui/SpecularButton";
+import SubLetterSpotlightText from "@/components/ui/SubLetterSpotlightText";
 import TechText from "@/components/ui/TechText";
 
 export default function HomePage() {
@@ -40,16 +41,8 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* Main Headline: Modern Bold Sans with distinct Voice Call AI Agent Editorial Serif */}
-            <h1 className="font-sans text-[36px] sm:text-[48px] lg:text-[58px] font-medium leading-[1.08] tracking-[-0.035em] text-white">
-              Deploy{" "}
-              <span className="font-voice-agent font-normal text-[1.12em] tracking-normal text-transparent bg-clip-text bg-gradient-to-r from-white via-[#E2E8F0] to-[#A6B4C7] pr-1">
-                AI call agents
-              </span>{" "}
-              that
-              <br />
-              answer every lead in seconds.
-            </h1>
+            {/* Main Headline: Sub-letter cursor spotlight color change */}
+            <SubLetterSpotlightText radius={95} />
 
             {/* Subhead Lede */}
             <p className="mt-5 max-w-[56ch] text-[15px] sm:text-[16.5px] leading-[1.6] text-[#A6B4C7]">
@@ -60,13 +53,30 @@ export default function HomePage() {
 
             {/* Clean 2-Button CTAs: Specular Button with dynamic rim light */}
             <div className="mt-8 flex flex-wrap items-center gap-3.5">
-              <AnimatedShinyButton
+              <SpecularButton
                 onClick={openSchedule}
-                colorScheme="white"
-                className="h-[44px] px-6 text-sm font-semibold shadow-lg"
+                size="md"
+                radius={10}
+                tint="#ffffff"
+                tintOpacity={0.06}
+                blur={12}
+                textColor="#ffffff"
+                lineColor="#ffffff"
+                baseColor="#525252"
+                intensity={1.2}
+                idleIntensity={0.4}
+                shineSize={14}
+                shineFade={36}
+                thickness={1.4}
+                glow={1.2}
+                followMouse={true}
+                autoAnimate={true}
+                speed={0.4}
+                proximity={260}
+                className="h-[46px] px-7 text-sm font-semibold shadow-xl"
               >
                 Book Discovery Call
-              </AnimatedShinyButton>
+              </SpecularButton>
 
               <button
                 onClick={() => openQuoteModal()}
@@ -181,13 +191,30 @@ export default function HomePage() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <AnimatedShinyButton
+            <SpecularButton
               onClick={openSchedule}
-              colorScheme="white"
-              className="h-[44px] px-8 text-sm font-semibold shadow-xl"
+              size="md"
+              radius={10}
+              tint="#ffffff"
+              tintOpacity={0.06}
+              blur={12}
+              textColor="#ffffff"
+              lineColor="#ffffff"
+              baseColor="#525252"
+              intensity={1.2}
+              idleIntensity={0.4}
+              shineSize={14}
+              shineFade={36}
+              thickness={1.4}
+              glow={1.2}
+              followMouse={true}
+              autoAnimate={true}
+              speed={0.4}
+              proximity={260}
+              className="h-[46px] px-8 text-sm font-semibold shadow-xl"
             >
               Book Discovery Call
-            </AnimatedShinyButton>
+            </SpecularButton>
 
             <button
               onClick={() => openQuoteModal()}
