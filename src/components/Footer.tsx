@@ -114,12 +114,12 @@ export default function Footer() {
                 <span>CEO LinkedIn</span>
               </a>
               <a
-                href="mailto:contact@nafatech.xyz"
+                href="mailto:contact@nafatech.site"
                 className="h-8 px-2.5 rounded-[5px] border border-white/10 bg-white/[0.03] hover:bg-white/10 text-[#A6B4C7] hover:text-white flex items-center gap-1.5 text-xs transition-colors"
                 aria-label="Direct Email"
               >
                 <Mail className="w-3.5 h-3.5" />
-                <span>contact@nafatech.xyz</span>
+                <span>contact@nafatech.site</span>
               </a>
             </div>
           </div>

@@ -88,8 +88,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <span className="text-[#9a9a9a] block text-[11px] font-medium">Email:</span>
-                    <a href="mailto:contact@nafatech.xyz" className="font-medium text-white hover:underline">
-                      contact@nafatech.xyz
+                    <a href="mailto:contact@nafatech.site" className="font-medium text-white hover:underline">
+                      contact@nafatech.site
                     </a>
                   </div>
                 </div>

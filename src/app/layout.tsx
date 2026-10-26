@@ -70,6 +70,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
               name: "Nafa Technologies",
+              email: "contact@nafatech.site",
               url: "https://nafatechnologies.com",
               logo: "https://nafatechnologies.com/logo.jpg",
               description:
