@@ -64,6 +64,10 @@ interface PhotonBeamProps {
   trailLength?: number
   bloomStrength?: number
   bloomRadius?: number
+  positionX?: number
+  positionY?: number
+  className?: string
+  style?: React.CSSProperties
 }
 
 const CONSTANTS = {
@@ -106,8 +110,8 @@ export default function PhotonBeam(props: PhotonBeamProps = {}) {
         colorSignal3: props.colorSignal3 ?? "#00b8d4",
         lineCount: props.lineCount ?? 80,
         globalRotation: 0,
-        positionX: 0,
-        positionY: 0,
+        positionX: props.positionX ?? 0,
+        positionY: props.positionY ?? 0,
         spreadHeight: props.spreadHeight ?? 30.33,
         spreadDepth: props.spreadDepth ?? 0,
         curveLength: props.curveLength ?? 50,
@@ -123,7 +127,9 @@ export default function PhotonBeam(props: PhotonBeamProps = {}) {
         bloomRadius: props.bloomRadius ?? 0.5,
       }
 
-      params.positionX = (params.curveLength - params.straightLength) / 2
+      if (props.positionX === undefined) {
+        params.positionX = (params.curveLength - params.straightLength) / 2
+      }
 
       // --- SCENE SETUP ---
       const scene = new THREE.Scene()
@@ -404,6 +410,10 @@ export default function PhotonBeam(props: PhotonBeamProps = {}) {
   }, [])
 
   return (
-    <div ref={containerRef} className="h-full min-h-[200px] w-full bg-black" />
+    <div
+      ref={containerRef}
+      className={props.className || "h-full min-h-[200px] w-full bg-black"}
+      style={props.style}
+    />
   )
 }

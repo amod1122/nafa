@@ -4,7 +4,6 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import AIChatWidget from "@/components/AIChatWidget";
 import ScheduleModal from "@/components/ScheduleModal";
 import QuoteModal from "@/components/QuoteModal";
 import LeadCardModal from "@/components/LeadCardModal";
@@ -50,9 +49,6 @@ function ShellInner({ children }: { children: React.ReactNode }) {
 
       {/* Global Footer */}
       <Footer />
-
-      {/* Global Persistent Elements */}
-      <AIChatWidget onOpenSchedule={openSchedule} onOpenQuote={openQuoteModal} />
 
       {/* Global Modals */}
       <ScheduleModal isOpen={isScheduleOpen} onClose={closeSchedule} />

@@ -35,13 +35,14 @@ export default function HomePage() {
       {/* =========================================================================
           ELDORAUI PHOTON-BEAM ANIMATED BACKGROUND (LANDING PAGE ONLY)
           ========================================================================= */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10 opacity-30 h-[920px]">
+      <div className="absolute -top-16 sm:-top-28 left-0 right-0 pointer-events-none overflow-hidden -z-10 opacity-35 h-[980px]">
         <PhotonBeam
           colorBg="#000000"
           colorLine="#1e293b"
           colorSignal="#ffffff"
           lineCount={70}
           speedGlobal={0.32}
+          positionY={10}
         />
       </div>
 
