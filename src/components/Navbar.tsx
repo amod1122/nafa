@@ -26,7 +26,7 @@ const mobileExtraItems = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
-  const { openSchedule } = useSiteModals();
+  const { openSchedule, openQuoteModal } = useSiteModals();
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -94,30 +94,38 @@ export default function Navbar() {
         <span className="hidden xl:inline-block text-[11px] font-mono tracking-wider uppercase text-[#A6B4C7] px-2.5 py-1 rounded-full border border-white/10 bg-white/[0.03]">
           Nafa Technologies
         </span>
-        <SpecularButton
-          onClick={openSchedule}
-          size="sm"
-          radius={8}
-          tint="#ffffff"
-          tintOpacity={0.06}
-          blur={10}
-          textColor="#ffffff"
-          lineColor="#ffffff"
-          baseColor="#525252"
-          intensity={1.1}
-          idleIntensity={0.35}
-          shineSize={12}
-          shineFade={32}
-          thickness={1.3}
-          glow={1}
-          followMouse={true}
-          autoAnimate={true}
-          speed={0.35}
-          proximity={220}
-          className="hidden sm:inline-flex h-[38px] px-4 text-xs font-semibold"
-        >
-          Book Discovery Call
-        </SpecularButton>
+        <div className="hidden sm:flex items-center gap-2.5">
+          <button
+            onClick={openSchedule}
+            className="btn btn-ghost h-[38px] px-3 text-xs font-medium text-white/80 hover:text-white"
+          >
+            Book a Call
+          </button>
+          <SpecularButton
+            onClick={() => openQuoteModal()}
+            size="sm"
+            radius={8}
+            tint="#ffffff"
+            tintOpacity={0.06}
+            blur={10}
+            textColor="#ffffff"
+            lineColor="#ffffff"
+            baseColor="#525252"
+            intensity={1.1}
+            idleIntensity={0.35}
+            shineSize={12}
+            shineFade={32}
+            thickness={1.3}
+            glow={1}
+            followMouse={true}
+            autoAnimate={true}
+            speed={0.35}
+            proximity={220}
+            className="h-[38px] px-4 text-xs font-semibold"
+          >
+            Get a Quote
+          </SpecularButton>
+        </div>
 
         <button
           onClick={() => setMenuOpen((prev) => !prev)}
@@ -174,7 +182,7 @@ export default function Navbar() {
             <SpecularButton
               onClick={() => {
                 setMenuOpen(false);
-                openSchedule();
+                openQuoteModal();
               }}
               size="md"
               radius={8}
@@ -191,8 +199,17 @@ export default function Navbar() {
               speed={0.35}
               className="w-full h-[46px] text-sm font-semibold"
             >
-              Book Discovery Call
+              Get a Quote
             </SpecularButton>
+            <button
+              onClick={() => {
+                setMenuOpen(false);
+                openSchedule();
+              }}
+              className="btn btn-ghost w-full h-[42px] text-xs font-medium text-white/90"
+            >
+              Book a Call
+            </button>
             <p className="text-center text-xs text-[#A6B4C7]">
               24/7 Voice & Speed-to-Lead Infrastructure
             </p>

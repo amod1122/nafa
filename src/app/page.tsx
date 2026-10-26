@@ -59,7 +59,7 @@ export default function HomePage() {
             {/* Clean 2-Button CTAs: Specular Button with dynamic rim light */}
             <div className="mt-8 flex flex-wrap items-center gap-3.5">
               <SpecularButton
-                onClick={openSchedule}
+                onClick={() => openQuoteModal()}
                 size="md"
                 radius={10}
                 tint="#ffffff"
@@ -80,14 +80,14 @@ export default function HomePage() {
                 proximity={260}
                 className="h-[46px] px-7 text-sm font-semibold shadow-xl"
               >
-                Book Discovery Call
+                Get a Quote
               </SpecularButton>
 
               <button
-                onClick={() => openQuoteModal()}
+                onClick={openSchedule}
                 className="btn btn-ghost h-[44px] px-6 text-sm font-medium text-white/90 hover:text-white"
               >
-                <span>Get Custom Quote</span>
+                <span>Book a Call</span>
               </button>
             </div>
 
@@ -192,7 +192,7 @@ export default function HomePage() {
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <SpecularButton
-              onClick={openSchedule}
+              onClick={() => openQuoteModal()}
               size="md"
               radius={10}
               tint="#ffffff"
@@ -213,14 +213,14 @@ export default function HomePage() {
               proximity={260}
               className="h-[46px] px-8 text-sm font-semibold shadow-xl"
             >
-              Book Discovery Call
+              Get a Quote
             </SpecularButton>
 
             <button
-              onClick={() => openQuoteModal()}
+              onClick={openSchedule}
               className="btn btn-ghost h-[44px] px-7 text-sm font-medium text-white"
             >
-              <span>Get Custom Quote</span>
+              <span>Book a Call</span>
             </button>
           </div>
 

@@ -38,7 +38,7 @@ const groups = [
 ];
 
 export default function Footer() {
-  const { openSchedule } = useSiteModals();
+  const { openSchedule, openQuoteModal } = useSiteModals();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -77,12 +77,18 @@ export default function Footer() {
               Operational AI voice infrastructure, immediate speed-to-lead systems, and high-converting web architecture for businesses that never miss an opportunity.
             </p>
 
-            <div className="mt-6 flex items-center gap-3">
+            <div className="mt-6 flex flex-wrap items-center gap-2.5">
               <button
-                onClick={openSchedule}
+                onClick={() => openQuoteModal()}
                 className="btn btn-solid h-[40px] px-4 text-xs font-semibold"
               >
-                Book Discovery Call <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
+                Get a Quote <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
+              </button>
+              <button
+                onClick={openSchedule}
+                className="btn btn-ghost h-[40px] px-3.5 text-xs font-medium text-white/80 hover:text-white"
+              >
+                Book a Call
               </button>
             </div>
 

@@ -182,17 +182,17 @@ export default function CaseStudiesPage() {
           </p>
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <button
-              onClick={openSchedule}
+              onClick={() => openQuoteModal()}
               className="btn btn-solid h-[42px] px-6 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2"
             >
-              <Calendar className="w-4 h-4" />
-              <span>Book Discovery Call</span>
+              <span>Get a Custom Quote</span>
             </button>
             <button
-              onClick={() => openQuoteModal()}
-              className="btn btn-ghost h-[42px] px-6 text-xs sm:text-sm"
+              onClick={openSchedule}
+              className="btn btn-ghost h-[42px] px-6 text-xs sm:text-sm flex items-center justify-center gap-2 text-white/90"
             >
-              Request Custom Quote
+              <Calendar className="w-4 h-4" />
+              <span>Book a Call</span>
             </button>
           </div>
         </div>

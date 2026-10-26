@@ -14,7 +14,7 @@ import {
 import { useSiteModals } from "@/context/ModalContext";
 
 export default function AboutSection() {
-  const { openSchedule } = useSiteModals();
+  const { openSchedule, openQuoteModal } = useSiteModals();
 
   const standards = [
     {
@@ -233,20 +233,26 @@ export default function AboutSection() {
               Read our full story, leadership principles, and technical architecture specifications.
             </div>
           </div>
-          <div className="flex items-center gap-3 shrink-0">
-            <Link
-              href="/about"
-              className="btn btn-ghost h-[40px] px-4 text-xs font-medium gap-1 text-white"
-            >
-              <span>Read Full About Us</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+          <div className="flex flex-wrap items-center gap-2.5 shrink-0">
             <button
-              onClick={openSchedule}
+              onClick={() => openQuoteModal()}
               className="btn btn-solid h-[40px] px-4 text-xs font-semibold"
             >
-              <span>Book Discovery</span>
+              <span>Get a Quote</span>
             </button>
+            <button
+              onClick={openSchedule}
+              className="btn btn-ghost h-[40px] px-3 text-xs font-medium text-white/80 hover:text-white"
+            >
+              <span>Book a Call</span>
+            </button>
+            <Link
+              href="/about"
+              className="btn btn-ghost h-[40px] px-3 text-xs font-medium gap-1 text-[#A6B4C7] hover:text-white"
+            >
+              <span>About Us</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
         </div>
       </div>
