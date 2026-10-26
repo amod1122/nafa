@@ -1,20 +1,16 @@
 "use client";
 
 import React from "react";
-import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScheduleModal from "@/components/ScheduleModal";
 import QuoteModal from "@/components/QuoteModal";
 import LeadCardModal from "@/components/LeadCardModal";
-import Particles from "@/components/ui/particles";
-import SideRays from "@/components/ui/SideRays";
+import Threads from "@/components/ui/Threads";
 import AsciiFlowTrail from "@/components/ui/AsciiFlowTrail";
 import { ModalProvider, useSiteModals } from "@/context/ModalContext";
 
 function ShellInner({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
-  const isLandingPage = pathname === "/";
   const {
     isScheduleOpen,
     closeSchedule,
@@ -30,42 +26,26 @@ function ShellInner({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="relative min-h-screen flex flex-col bg-black text-white selection:bg-white selection:text-black">
-      {/* SideRays background: active on landing page with smooth fade transition */}
-      <div
-        className={`fixed inset-0 pointer-events-none z-0 transition-opacity duration-700 ease-in-out ${
-          isLandingPage ? "opacity-100" : "opacity-0"
-        }`}
-        aria-hidden="true"
-      >
-        <SideRays
-          rayColor1="#ffffff"
-          rayColor2="#96c8ff"
-          blend={0.5}
-          origin="top-right"
-          speed={2.2}
-          intensity={1.8}
-          spread={2.2}
-          density={6}
-          sharpness={0.4}
-          glow={1.2}
-          saturation={0.8}
-          followMouse={true}
-          opacity={0.85}
-        />
-      </div>
-
-      {/* Magic UI Animated Star Background: active on all non-landing pages with smooth fade transition */}
-      <div
-        className={`fixed inset-0 pointer-events-none z-0 transition-opacity duration-700 ease-in-out ${
-          !isLandingPage ? "opacity-100" : "opacity-0"
-        }`}
-        aria-hidden="true"
-      >
-        <Particles
-          className="w-full h-full"
-          quantity={80}
-          ease={80}
+      {/* React Bits Threads: dynamic waving silk thread filaments background */}
+      <div className="fixed inset-0 pointer-events-none z-0" aria-hidden="true">
+        <Threads
           color="#ffffff"
+          lineCount={90}
+          thickness={0.6}
+          softness={1.3}
+          amplitude={1.7}
+          distance={0.4}
+          waves={1.05}
+          speed={0.6}
+          split={0.04}
+          fray={0.5}
+          angle={25}
+          taper={0.85}
+          brightness={1.4}
+          parting={0}
+          enableMouseInteraction={true}
+          fade={0}
+          opacity={0.85}
         />
       </div>
 
