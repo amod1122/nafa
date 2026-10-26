@@ -9,6 +9,7 @@ import QuoteModal from "@/components/QuoteModal";
 import LeadCardModal from "@/components/LeadCardModal";
 import Particles from "@/components/ui/particles";
 import SideRays from "@/components/ui/SideRays";
+import AsciiFlowTrail from "@/components/ui/AsciiFlowTrail";
 import { ModalProvider, useSiteModals } from "@/context/ModalContext";
 
 function ShellInner({ children }: { children: React.ReactNode }) {
@@ -65,6 +66,24 @@ function ShellInner({ children }: { children: React.ReactNode }) {
           quantity={80}
           ease={80}
           color="#ffffff"
+        />
+      </div>
+
+      {/* Ascii FlowTrail: Interactive ASCII dither trail following the cursor */}
+      <div
+        className="fixed inset-0 pointer-events-none z-[1]"
+        aria-hidden="true"
+      >
+        <AsciiFlowTrail
+          glyphSet={3}
+          scale={24}
+          radius={26}
+          strength={82}
+          turbulence={90}
+          tint="#FFFFFF"
+          mix={75}
+          tailLength={90}
+          momentum={42}
         />
       </div>
 
