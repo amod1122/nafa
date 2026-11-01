@@ -42,12 +42,12 @@ export default function CostSavingsCalculator() {
       <div className="relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.03em] text-white leading-[1.1]">
-            How much revenue is slipping away from unanswered calls?
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.03em] text-white leading-[1.1] [text-wrap:balance]">
+            How much revenue is slipping away from missed calls?
           </h2>
 
-          <p className="mt-4 text-[15px] sm:text-[16px] text-[#A6B4C7] leading-relaxed max-w-[65ch] mx-auto">
-            When potential clients call with an immediate need, 85% hang up rather than leave a voicemail. They call your closest competitor. Calculate the true bottom-line cost below:
+          <p className="mt-3 text-[15px] sm:text-[16px] text-muted leading-relaxed max-w-[48ch] mx-auto">
+            85% of callers who reach voicemail hang up and call a competitor. Calculate what you lose every month:
           </p>
         </div>
 
@@ -67,7 +67,7 @@ export default function CostSavingsCalculator() {
                   <h3 className="text-lg font-semibold text-white tracking-[-0.02em]">
                     Your Operating Parameters
                   </h3>
-                  <p className="text-xs text-[#A6B4C7] mt-0.5">
+                  <p className="text-xs text-muted mt-0.5">
                     Adjust the sliders to match your current inbound metrics
                   </p>
                 </div>
@@ -84,7 +84,7 @@ export default function CostSavingsCalculator() {
                   </label>
                   <span className="text-xl font-mono font-semibold text-white">
                     {inboundCallsPerMonth.toLocaleString()}{" "}
-                    <span className="text-xs text-[#A6B4C7] font-normal font-sans">calls/mo</span>
+                    <span className="text-xs text-muted font-normal font-sans">calls/mo</span>
                   </span>
                 </div>
                 <input
@@ -98,7 +98,7 @@ export default function CostSavingsCalculator() {
                   className="liquid-slider my-3"
                   aria-label="Monthly Inbound Calls"
                 />
-                <div className="flex justify-between text-xs text-[#A6B4C7] font-mono">
+                <div className="flex justify-between text-xs text-muted font-mono">
                   <span>30 calls</span>
                   <span>600 calls</span>
                   <span>1,200+ calls</span>
@@ -113,7 +113,7 @@ export default function CostSavingsCalculator() {
                   </label>
                   <span className="text-xl font-mono font-semibold text-white">
                     ${avgTicketValue.toLocaleString()}{" "}
-                    <span className="text-xs text-[#A6B4C7] font-normal font-sans">USD</span>
+                    <span className="text-xs text-muted font-normal font-sans">USD</span>
                   </span>
                 </div>
                 <input
@@ -127,7 +127,7 @@ export default function CostSavingsCalculator() {
                   className="liquid-slider my-3"
                   aria-label="Average Value Per Customer"
                 />
-                <div className="flex justify-between text-xs text-[#A6B4C7] font-mono">
+                <div className="flex justify-between text-xs text-muted font-mono">
                   <span>$100 (Routine)</span>
                   <span>$2,000 (Install/Procedure)</span>
                   <span>$4,000+ (High-ticket)</span>
@@ -139,13 +139,13 @@ export default function CostSavingsCalculator() {
                 <div className="flex justify-between items-baseline mb-2">
                   <label htmlFor="slider-missed" className="text-sm font-medium text-white/90 flex items-center gap-2">
                     <span>Estimated Missed Call Rate</span>
-                    <span className="text-xs text-[#A6B4C7] bg-white/5 px-2.5 py-1 rounded border border-white/10">
+                    <span className="text-xs text-muted bg-white/5 px-2.5 py-1 rounded border border-white/10">
                       Industry avg 27-62%
                     </span>
                   </label>
                   <span className="text-xl font-mono font-semibold text-white">
                     {missedRatePercent}%{" "}
-                    <span className="text-xs text-[#A6B4C7] font-normal font-sans">
+                    <span className="text-xs text-muted font-normal font-sans">
                       ({missedCallsPerMonth} calls missed)
                     </span>
                   </span>
@@ -161,7 +161,7 @@ export default function CostSavingsCalculator() {
                   className="liquid-slider my-3"
                   aria-label="Estimated Missed Call Rate"
                 />
-                <div className="flex justify-between text-xs text-[#A6B4C7] font-mono">
+                <div className="flex justify-between text-xs text-muted font-mono">
                   <span>10% (Low)</span>
                   <span>28% (Typical SMB)</span>
                   <span>65% (Busy / High Miss)</span>
@@ -172,7 +172,7 @@ export default function CostSavingsCalculator() {
             {/* Quick Stat Bar (Flattened - no nested box) */}
             <div className="grid grid-cols-2 gap-4 pt-6 border-t border-white/10 mt-auto">
               <div>
-                <div className="text-xs text-[#A6B4C7] uppercase tracking-wider font-mono">
+                <div className="text-xs text-muted uppercase tracking-wider font-mono">
                   Missed Inbounds
                 </div>
                 <div className="text-xl font-semibold text-white mt-1">
@@ -180,7 +180,7 @@ export default function CostSavingsCalculator() {
                 </div>
               </div>
               <div>
-                <div className="text-xs text-[#A6B4C7] uppercase tracking-wider font-mono">
+                <div className="text-xs text-muted uppercase tracking-wider font-mono">
                   Lost Booked Jobs
                 </div>
                 <div className="text-xl font-semibold text-white mt-1">
@@ -209,22 +209,22 @@ export default function CostSavingsCalculator() {
 
               {/* Monthly Loss Display */}
               <div className="mt-4">
-                <div className="text-xs text-[#A6B4C7]">Estimated Monthly Revenue Lost:</div>
+                <div className="text-xs text-muted">Estimated Monthly Revenue Lost:</div>
                 <div className="text-4xl sm:text-5xl font-mono font-bold text-white tracking-tight mt-1">
                   ${estimatedMonthlyLoss.toLocaleString()}
-                  <span className="text-base text-[#A6B4C7] font-normal font-sans">/mo</span>
+                  <span className="text-base text-muted font-normal font-sans">/mo</span>
                 </div>
               </div>
 
               {/* Annual Loss Breakdown */}
               <div className="mt-6 pt-5 border-t border-white/10 space-y-3">
-                <div className="flex items-center justify-between text-xs text-[#A6B4C7]">
+                <div className="flex items-center justify-between text-xs text-muted">
                   <span>Annual Lost Top-Line Revenue</span>
                   <span className="font-mono text-white text-sm font-semibold">
                     ${estimatedAnnualLoss.toLocaleString()}/yr
                   </span>
                 </div>
-                <div className="flex items-center justify-between text-xs text-[#A6B4C7]">
+                <div className="flex items-center justify-between text-xs text-muted">
                   <span>Avg Human Receptionist Cost</span>
                   <span className="font-mono text-white/90 text-sm">
                     ${humanReceptionistAnnualCost.toLocaleString()}/yr
@@ -240,7 +240,7 @@ export default function CostSavingsCalculator() {
                 </div>
                 <div className="text-3xl sm:text-4xl font-mono font-bold text-white tracking-tight mt-2">
                   +${totalAnnualImpact.toLocaleString()}
-                  <span className="text-xs text-[#A6B4C7] font-normal font-sans block mt-0.5">
+                  <span className="text-xs text-muted font-normal font-sans block mt-0.5">
                     combined revenue capture + labor efficiency per year
                   </span>
                 </div>
@@ -267,11 +267,11 @@ export default function CostSavingsCalculator() {
                 onClick={openSchedule}
                 className="btn-liquid-glass w-full h-[46px] text-sm font-semibold gap-2"
               >
-                <span>Plug The Leak: Book Free System Audit</span>
+                <span>Book Free System Audit</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
-              <p className="text-center text-xs text-[#A6B4C7] mt-3">
-                No contract. We map your exact numbers on a 15-minute screen share.
+              <p className="text-center text-xs text-muted mt-3">
+                No contracts. Direct 15-minute technical walkthrough.
               </p>
             </div>
           </motion.div>

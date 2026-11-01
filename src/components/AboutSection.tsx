@@ -20,22 +20,22 @@ export default function AboutSection() {
     {
       icon: Terminal,
       title: "100% Direct Systems Engineering",
-      desc: "We do not resell white-labeled templates or generic wrappers. Every voice receptionist and automated pipeline is custom-coded, prompt-engineered, and tuned by our core engineering team.",
+      desc: "Custom-coded voice models built and tuned by our core engineering team. No generic wrappers.",
     },
     {
       icon: Zap,
       title: "Sub-Second Latency Benchmark",
-      desc: "Real conversation demands sub-500ms voice response times. Our voice pipeline utilizes streaming inference so the caller experiences immediate, natural conversation without awkward pauses.",
+      desc: "Sub-500ms streaming voice inference for immediate, natural human conversation.",
     },
     {
       icon: Lock,
       title: "Zero Vendor Lock-In & Full Security",
-      desc: "Your phone numbers remain 100% yours. All call logs, transcripts, and customer records are encrypted end-to-end and stored in compliance with TCPA and HIPAA data protection guidelines.",
+      desc: "You own your phone numbers, transcripts, and call data with end-to-end encryption.",
     },
     {
       icon: Users,
       title: "Direct Engineer Support",
-      desc: "No tier-1 call center script readers. When you need a script modification, service menu update, or new calendar rule, you communicate directly with the engineer who built your system.",
+      desc: "Direct communication with the automation engineers who configure and maintain your system.",
     },
   ];
 
@@ -50,12 +50,12 @@ export default function AboutSection() {
       <div className="relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.03em] text-white leading-[1.1]">
-            We build the operational backbone for businesses that cannot afford to miss a call.
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.03em] text-white leading-[1.1] [text-wrap:balance]">
+            Built for businesses that cannot afford to miss a call.
           </h2>
 
-          <p className="mt-4 text-[15px] sm:text-[16px] text-[#A6B4C7] max-w-[65ch] mx-auto leading-relaxed">
-            Founded on a single uncompromising principle: local service businesses lose millions every year simply because human phones are busy, closed, or slow. We solve that permanently with operational AI infrastructure.
+          <p className="mt-3 text-[15px] sm:text-[16px] text-muted max-w-[50ch] mx-auto leading-relaxed">
+            Local service businesses lose millions every year to voicemail. We solve that permanently with 24/7 AI voice infrastructure.
           </p>
         </div>
 
@@ -70,7 +70,7 @@ export default function AboutSection() {
             className="lg:col-span-6 interactive-card p-8 sm:p-10 flex flex-col justify-between"
           >
             <div>
-              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#A6B4C7] mb-4">
+              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-muted mb-4">
                 <span className="w-2 h-2 rounded-full bg-white/80"></span>
                 <span>Our Founding Mission</span>
               </div>
@@ -79,15 +79,12 @@ export default function AboutSection() {
                 Bridging the critical gap between marketing spend and actual booked revenue.
               </h3>
 
-              <div className="space-y-4 text-sm text-[#A6B4C7] leading-relaxed max-w-[65ch]">
+              <div className="space-y-3.5 text-sm text-muted leading-relaxed max-w-[52ch]">
                 <p>
-                  Most companies pour thousands of dollars into Google Ads, Local Services Ads, SEO, and social campaigns — only to let 25% to 50% of the resulting inbound calls roll to an empty voicemail box.
+                  Companies spend thousands driving inbound leads, only to lose 25% to 50% to voicemail. When nobody answers within three rings, high-intent callers click the next competitor on Google.
                 </p>
                 <p>
-                  In high-intent local markets (emergency plumbing, dental, injury law, high-ticket home remodeling), customers do not wait. When nobody answers within three rings, they click the next business on Google Maps.
-                </p>
-                <p>
-                  Nafa was engineered to close that leak forever. We deploy autonomous voice receptionists and speed-to-lead pipelines that answer instantly, screen qualifications, handle price inquiries, and schedule jobs right onto your calendar — 24 hours a day, 365 days a year.
+                  Nafa closes that leak permanently with autonomous voice receptionists that answer instantly, qualify caller intent, and book revenue onto your calendar 24/7/365.
                 </p>
               </div>
             </div>
@@ -96,15 +93,15 @@ export default function AboutSection() {
             <div className="grid grid-cols-3 gap-4 pt-8 mt-8 border-t border-white/10">
               <div>
                 <div className="text-2xl font-mono font-bold text-white">&lt;0.4s</div>
-                <div className="text-xs text-[#A6B4C7] mt-0.5">Voice Latency</div>
+                <div className="text-xs text-muted mt-0.5">Voice Latency</div>
               </div>
               <div>
                 <div className="text-2xl font-mono font-bold text-white">100%</div>
-                <div className="text-xs text-[#A6B4C7] mt-0.5">Done-For-You</div>
+                <div className="text-xs text-muted mt-0.5">Done-For-You</div>
               </div>
               <div>
                 <div className="text-2xl font-mono font-bold text-white">24/7/365</div>
-                <div className="text-xs text-[#A6B4C7] mt-0.5">Live Coverage</div>
+                <div className="text-xs text-muted mt-0.5">Live Coverage</div>
               </div>
             </div>
           </motion.div>
@@ -129,12 +126,12 @@ export default function AboutSection() {
                         {std.title}
                       </h4>
                     </div>
-                    <p className="text-xs text-[#A6B4C7] leading-relaxed">
+                    <p className="text-xs text-muted leading-relaxed">
                       {std.desc}
                     </p>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-white/8 flex items-center gap-1.5 text-xs text-[#A6B4C7] font-mono">
+                  <div className="mt-4 pt-3 border-t border-white/8 flex items-center gap-1.5 text-xs text-muted font-mono">
                     <CheckCircle2 className="w-3.5 h-3.5 text-white/80" />
                     <span>Nafa Standard</span>
                   </div>
@@ -150,11 +147,11 @@ export default function AboutSection() {
           <div className="interactive-card p-6 sm:p-7 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#A6B4C7]">
+                <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-muted">
                   <span className="w-2 h-2 rounded-full bg-white/80"></span>
                   <span>Leadership</span>
                 </div>
-                <span className="text-[11px] font-mono px-2 py-0.5 rounded-[4px] border border-white/10 bg-white/[0.04] text-[#A6B4C7]">
+                <span className="text-[11px] font-mono px-2 py-0.5 rounded-[4px] border border-white/10 bg-white/[0.04] text-muted">
                   CEO
                 </span>
               </div>
@@ -162,7 +159,7 @@ export default function AboutSection() {
               <h3 className="text-xl sm:text-2xl font-medium text-white tracking-[-0.02em] mb-2">
                 Ahmad Ali
               </h3>
-              <p className="text-xs sm:text-sm text-[#A6B4C7] leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm text-muted leading-relaxed mb-6">
                 Leading systems engineering, autonomous voice agent architecture, and speed-to-lead pipelines at Nafa Technologies.
               </p>
             </div>
@@ -179,7 +176,7 @@ export default function AboutSection() {
                 </svg>
                 <span>Connect on LinkedIn</span>
               </div>
-              <ArrowRight className="w-3.5 h-3.5 text-[#A6B4C7] group-hover:translate-x-0.5 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5 text-muted group-hover:translate-x-0.5 transition-transform" />
             </a>
           </div>
 
@@ -187,11 +184,11 @@ export default function AboutSection() {
           <div className="interactive-card p-6 sm:p-7 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#A6B4C7]">
+                <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-muted">
                   <span className="w-2 h-2 rounded-full bg-white/80"></span>
                   <span>Official Channel</span>
                 </div>
-                <span className="text-[11px] font-mono px-2 py-0.5 rounded-[4px] border border-white/10 bg-white/[0.04] text-[#A6B4C7]">
+                <span className="text-[11px] font-mono px-2 py-0.5 rounded-[4px] border border-white/10 bg-white/[0.04] text-muted">
                   @nafatechnologies
                 </span>
               </div>
@@ -199,7 +196,7 @@ export default function AboutSection() {
               <h3 className="text-xl sm:text-2xl font-medium text-white tracking-[-0.02em] mb-2">
                 Nafa on Instagram
               </h3>
-              <p className="text-xs sm:text-sm text-[#A6B4C7] leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm text-muted leading-relaxed mb-6">
                 Follow our official channel for real-time voice demo recordings, speed-to-lead breakdowns, and engineering updates.
               </p>
             </div>
@@ -218,7 +215,7 @@ export default function AboutSection() {
                 </svg>
                 <span>Follow @nafatechnologies</span>
               </div>
-              <ArrowRight className="w-3.5 h-3.5 text-[#A6B4C7] group-hover:translate-x-0.5 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5 text-muted group-hover:translate-x-0.5 transition-transform" />
             </a>
           </div>
         </div>
@@ -229,7 +226,7 @@ export default function AboutSection() {
             <div className="text-sm font-semibold text-white">
               Want to learn more about our company background and security architecture?
             </div>
-            <div className="text-xs text-[#A6B4C7] mt-0.5">
+            <div className="text-xs text-muted mt-0.5">
               Read our full story, leadership principles, and technical architecture specifications.
             </div>
           </div>
@@ -248,7 +245,7 @@ export default function AboutSection() {
             </button>
             <Link
               href="/about"
-              className="btn btn-ghost h-[40px] px-3 text-xs font-medium gap-1 text-[#A6B4C7] hover:text-white"
+              className="btn btn-ghost h-[40px] px-3 text-xs font-medium gap-1 text-muted hover:text-white"
             >
               <span>About Us</span>
               <ArrowRight className="w-3.5 h-3.5" />
