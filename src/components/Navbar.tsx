@@ -52,7 +52,7 @@ export default function Navbar() {
         className="logo appear appear--scale inline-flex items-center gap-3 justify-self-start text-white no-underline group"
         aria-label="Nafa Technologies home"
       >
-        <div className="relative w-8 h-8 rounded-[6px] overflow-hidden border border-white/20 bg-white/[0.04] backdrop-blur-md flex items-center justify-center p-0.5 shrink-0 transition-transform duration-300 group-hover:scale-105">
+        <div className="relative w-8 h-8 rounded-[6px] overflow-hidden border border-white/20 bg-white/[0.04] backdrop-blur-md flex items-center justify-center p-0.5 shrink-0 transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none">
           <Image
             src="/nafa-logo-white.png"
             alt="Nafa Technologies Logo"
@@ -66,7 +66,7 @@ export default function Navbar() {
           <span className="text-[15px] font-semibold tracking-[-0.03em] text-white leading-tight">
             Nafa
           </span>
-          <span className="text-[10px] font-mono tracking-wider uppercase text-[#A6B4C7] leading-none">
+          <span className="text-xs text-muted leading-none">
             Technologies
           </span>
         </div>
@@ -83,6 +83,7 @@ export default function Navbar() {
           indicator="dot"
           surface="glass"
           theme="dark"
+          highlightTextColor="#ffffff"
           size="md"
           collapse="never"
         />
@@ -90,13 +91,13 @@ export default function Navbar() {
 
       {/* Right: SpecularButton CTA & Mobile Burger */}
       <div className="flex items-center gap-3 justify-self-end">
-        <span className="hidden xl:inline-block text-[11px] font-mono tracking-wider uppercase text-[#A6B4C7] px-2.5 py-1 rounded-full border border-white/10 bg-white/[0.03]">
+        <span className="hidden xl:inline-block text-xs text-muted px-2.5 py-1 rounded-full border border-white/10 bg-white/[0.03]">
           Nafa Technologies
         </span>
         <div className="hidden sm:flex items-center gap-2.5">
           <button
             onClick={openSchedule}
-            className="btn btn-ghost h-[38px] px-3 text-xs font-medium text-white/80 hover:text-white"
+            className="btn btn-ghost h-[44px] px-3 text-xs font-medium text-white/80 hover:text-white"
           >
             Book a Call
           </button>
@@ -120,7 +121,7 @@ export default function Navbar() {
             autoAnimate={true}
             speed={0.35}
             proximity={220}
-            className="h-[38px] px-4 text-xs font-semibold"
+            className="h-[44px] px-4 text-xs font-semibold"
           >
             Get a Quote
           </SpecularButton>
@@ -146,7 +147,7 @@ export default function Navbar() {
           className="fixed inset-x-0 top-[65px] bottom-0 z-50 bg-black/95 backdrop-blur-2xl px-6 py-8 flex flex-col justify-between overflow-y-auto border-t border-white/10"
         >
           <div className="grid gap-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#A6B4C7] mb-2 px-2">
+            <p className="text-xs font-semibold  text-muted mb-2 px-2">
               Navigation
             </p>
             {navItems.map((item) => (
@@ -157,11 +158,11 @@ export default function Navbar() {
                 className="flex items-center justify-between rounded-md border border-white/10 bg-white/[0.03] px-4 py-3.5 text-sm font-medium text-white transition-colors hover:border-white/30 hover:bg-white/[0.08] min-h-[44px]"
               >
                 <span>{item.label}</span>
-                <span className="text-xs text-[#A6B4C7]">→</span>
+                <span className="text-xs text-muted"></span>
               </Link>
             ))}
 
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#A6B4C7] mt-4 mb-2 px-2">
+            <p className="text-xs font-semibold  text-muted mt-4 mb-2 px-2">
               Explore More
             </p>
             {mobileExtraItems.map((item) => (
@@ -169,10 +170,10 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center justify-between rounded-md border border-white/5 bg-transparent px-4 py-3 text-sm text-[#A6B4C7] transition-colors hover:border-white/20 hover:text-white min-h-[44px]"
+                className="flex items-center justify-between rounded-md border border-white/5 bg-transparent px-4 py-3 text-sm text-muted transition-colors hover:border-white/20 hover:text-white min-h-[44px]"
               >
                 <span>{item.label}</span>
-                <span className="text-xs text-white/50">→</span>
+                <span className="text-xs text-white/50"></span>
               </Link>
             ))}
           </div>
@@ -209,7 +210,7 @@ export default function Navbar() {
             >
               Book a Call
             </button>
-            <p className="text-center text-xs text-[#A6B4C7]">
+            <p className="text-center text-xs text-muted">
               24/7 Voice & Speed-to-Lead Infrastructure
             </p>
           </div>

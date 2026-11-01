@@ -140,7 +140,7 @@ export default function AIChatWidget({ onOpenSchedule, onOpenQuote }: AIChatWidg
                   Nafa AI Agent
                   <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
                 </h4>
-                <p className="text-[10px] text-[#9a9a9a]">24/7 Voice & Systems Assistant</p>
+                <p className="text-[11px] text-[#9a9a9a]">24/7 Voice & Systems Assistant</p>
               </div>
             </div>
             <button
@@ -196,7 +196,7 @@ export default function AIChatWidget({ onOpenSchedule, onOpenQuote }: AIChatWidg
                     </button>
                   )}
                 </div>
-                <span className="text-[10px] text-[#9a9a9a] mt-1 px-1 font-mono">
+                <span className="text-[11px] text-[#9a9a9a] mt-1 px-1 font-mono">
                   {m.time}
                 </span>
               </div>

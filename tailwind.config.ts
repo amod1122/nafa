@@ -11,10 +11,10 @@ const config: Config = {
       colors: {
         bg: "#000000",
         text: "#ffffff",
-        muted: "#9a9a9a",
-        stat: "#d8d8d8",
-        border: "rgba(255, 255, 255, 0.16)",
-        "border-soft": "rgba(255, 255, 255, 0.12)",
+        muted: "var(--muted, #a6b4c7)",
+        stat: "var(--stat, #d8d8d8)",
+        border: "var(--border, rgba(255, 255, 255, 0.16))",
+        "border-soft": "var(--border-soft, rgba(255, 255, 255, 0.12))",
         nafa: {
           canvas: "#000000",
           "canvas-muted": "#080808",

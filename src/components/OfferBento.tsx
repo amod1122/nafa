@@ -67,11 +67,11 @@ export default function OfferBento() {
     <section id="services" className="relative py-14 sm:py-20 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-12">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.03em] text-white leading-[1.1]">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.03em] text-white leading-[1.1] [text-wrap:balance]">
           Engineered to capture every dollar your competitors miss.
         </h2>
 
-        <p className="mt-4 text-[15px] sm:text-[16px] text-[#A6B4C7] max-w-[65ch] mx-auto leading-relaxed">
+        <p className="mt-4 text-[15px] sm:text-[16px] text-muted max-w-[65ch] mx-auto leading-relaxed">
           Minimal, reliable infrastructure deployed directly into your existing business operations. Done-for-you end to end.
         </p>
       </div>
@@ -95,21 +95,21 @@ export default function OfferBento() {
             >
               <div>
                 {/* Header row */}
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-2">
                     <Icon className="w-4 h-4 text-white" />
-                    <span className="text-xs font-mono uppercase tracking-wider text-[#A6B4C7]">
+                    <span className="text-xs font-mono text-muted text-muted">
                       {system.subtitle}
                     </span>
                   </div>
-                  <span className="text-xs font-mono uppercase tracking-wider text-[#A6B4C7] px-2.5 py-1 rounded bg-white/5 border border-white/10">
+                  <span className="text-xs font-mono text-muted text-muted px-2.5 py-1 rounded bg-white/5 border border-white/10">
                     {system.badge}
                   </span>
                 </div>
 
-                <h3 className={`text-xl sm:text-2xl font-medium tracking-[-0.02em] mb-4 ${
+                <h3 className={`text-xl sm:text-2xl font-medium tracking-[-0.02em] mb-2 [text-wrap:balance] ${
                   system.id === "ai-call-agent"
-                    ? "font-voice-agent font-normal text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#A6B4C7]"
+                    ? "font-voice-agent font-normal text-2xl sm:text-3xl text-white"
                     : "text-white"
                 }`}>
                   {system.title}
@@ -130,13 +130,13 @@ export default function OfferBento() {
               <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-3">
                 <button
                   onClick={() => openQuoteModal(system.title)}
-                  className="btn btn-solid flex-1 h-[38px] text-xs font-semibold"
+                  className="btn btn-solid flex-1 h-[44px] text-xs font-semibold"
                 >
                   <span>Configure</span>
                 </button>
                 <Link
                   href={system.link}
-                  className="text-xs font-medium text-[#A6B4C7] hover:text-white flex items-center gap-1 transition-colors px-2 py-2"
+                  className="text-xs font-medium text-muted hover:text-white flex items-center gap-1 transition-colors px-2 py-2"
                 >
                   <span>Details</span>
                   <ArrowRight className="w-3.5 h-3.5" />

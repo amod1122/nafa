@@ -28,7 +28,7 @@ export default function MobileStickyBar() {
         {/* Quote button - Prioritized */}
         <button
           onClick={() => openQuoteModal()}
-          className="btn btn-solid flex-[1.25] h-[40px] text-xs font-semibold gap-1.5"
+          className="btn btn-solid flex-[1.25] h-[44px] text-xs font-semibold gap-1.5"
           aria-label="Get a custom quote"
         >
           <MessageSquareQuote className="w-3.5 h-3.5" />
@@ -38,7 +38,7 @@ export default function MobileStickyBar() {
         {/* Book Call button */}
         <button
           onClick={openSchedule}
-          className="btn btn-ghost flex-1 h-[40px] text-xs font-medium gap-1.5"
+          className="btn btn-ghost flex-1 h-[44px] text-xs font-medium gap-1.5"
           aria-label="Book a call"
         >
           <Calendar className="w-3.5 h-3.5" />

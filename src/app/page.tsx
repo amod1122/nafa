@@ -26,14 +26,14 @@ export default function HomePage() {
           ========================================================================= */}
       <section
         id="top"
-        className="relative pt-6 sm:pt-10 pb-12 sm:pb-16 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto flex flex-col justify-center min-h-[calc(80vh-80px)]"
+        className="relative pt-6 sm:pt-10 pb-12 sm:pb-16 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto flex flex-col justify-center min-h-[calc(80dvh-80px)]"
       >
         <div className="w-full flex justify-start">
           <div className="w-full max-w-2xl text-left flex flex-col items-start z-10">
             {/* Main Headline (Clean, Razor-Sharp High-Contrast Typography) */}
-            <h1 className="font-sans text-[36px] sm:text-[48px] lg:text-[58px] font-medium leading-[1.08] tracking-[-0.035em] text-white">
+            <h1 className="font-sans text-[36px] sm:text-[48px] lg:text-[58px] font-medium leading-[1.08] tracking-[-0.035em] text-white [text-wrap:balance]">
               Deploy{" "}
-              <span className="font-voice-agent font-normal text-[1.12em] tracking-normal text-transparent bg-clip-text bg-gradient-to-r from-white via-[#E2E8F0] to-[#A6B4C7] pr-1">
+              <span className="font-voice-agent font-normal text-[1.12em] tracking-normal text-white pr-1">
                 AI call agents
               </span>{" "}
               that
@@ -42,7 +42,7 @@ export default function HomePage() {
             </h1>
 
             {/* Subhead Lede */}
-            <p className="mt-5 max-w-[56ch] text-[15px] sm:text-[16.5px] leading-[1.6] text-[#A6B4C7]">
+            <p className="mt-5 max-w-[56ch] text-[15px] sm:text-[16.5px] leading-[1.6] text-muted">
               Custom voice receptionists and immediate response pipelines that
               answer inbound phone calls, qualify caller intent, and book revenue onto
               your calendar 24/7/365. Zero hold times. Zero missed opportunities.
@@ -84,7 +84,7 @@ export default function HomePage() {
             </div>
 
             {/* Trust Assurance Bar */}
-            <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap items-center gap-y-3 gap-x-6 text-xs text-[#A6B4C7]">
+            <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap items-center gap-y-3 gap-x-6 text-xs text-muted">
               <div className="flex items-center gap-2 text-white/90">
                 <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
                 <span>Keep your current phone number</span>
@@ -174,11 +174,11 @@ export default function HomePage() {
           {/* Subtle top edge glow */}
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.03em] text-white leading-[1.1] max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.03em] text-white leading-[1.1] max-w-3xl mx-auto [text-wrap:balance]">
             Ready to deploy an AI voice receptionist that never sleeps?
           </h2>
 
-          <p className="mt-4 text-[15px] sm:text-[16px] text-[#A6B4C7] max-w-[58ch] mx-auto leading-relaxed">
+          <p className="mt-4 text-[15px] sm:text-[16px] text-muted max-w-[58ch] mx-auto leading-relaxed">
             Book a 15-minute technical discovery call. We will calculate your exact revenue at risk and demo your custom voice agent live on the phone.
           </p>
 
@@ -216,7 +216,7 @@ export default function HomePage() {
             </button>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-[#A6B4C7]">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-muted">
             <span className="flex items-center gap-1.5">
               <CheckCircle2 className="w-4 h-4 text-white/80" />
               No contracts or long-term lock-in

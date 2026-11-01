@@ -23,6 +23,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Hallmark artifacts
+.hallmark/
+scratch/
+
 # local env files
 .env*.local
 .env

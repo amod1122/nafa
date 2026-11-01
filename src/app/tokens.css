@@ -1,0 +1,34 @@
+/* Hallmark · tokens.css · design tokens and color variables */
+:root {
+  --color-bg: #030508;
+  --color-ink: #fbfcfe;
+  --color-muted: #a6b4c7;
+  --color-ice: #e2e8f0;
+  --color-stat: #d8d8d8;
+  --color-border: rgba(255, 255, 255, 0.16);
+  --color-border-soft: rgba(255, 255, 255, 0.12);
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-surface: #0a0c10;
+  --color-surface-hover: #141720;
+  --color-surface-glass: rgba(255, 255, 255, 0.04);
+  --color-surface-glass-border: rgba(255, 255, 255, 0.12);
+  --color-accent-sky: #38bdf8;
+
+  --bg: var(--color-bg);
+  --text: var(--color-ink);
+  --muted: var(--color-muted);
+  --ice: var(--color-ice);
+  --stat: var(--color-stat);
+  --border: var(--color-border);
+  --border-soft: var(--color-border-soft);
+
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-body: "Plus Jakarta Sans", var(--font-inter, "Inter"), system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+
+  --nav-h: 44px;
+  --btn-h: 44px;
+  --hero-btn-h: 46px;
+  --h1: 48px;
+  --lede: 16px;
+}

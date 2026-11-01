@@ -12,7 +12,7 @@ const groups = [
     links: [
       ["AI Call Agent", "/services/ai-call-agent"],
       ["Speed-to-Lead", "/services/speed-to-lead"],
-      ["Website & Redesign", "/services/ai-website"],
+      ["Web Architecture", "/services/ai-website"],
       ["All Services", "/services"],
     ],
   },
@@ -66,37 +66,37 @@ export default function Footer() {
                 <span className="text-[15px] font-semibold tracking-[-0.03em] text-white leading-tight">
                   Nafa
                 </span>
-                <span className="text-[10px] font-mono tracking-wider uppercase text-[#A6B4C7] leading-none">
+                <span className="text-xs text-muted leading-none">
                   Technologies
                 </span>
               </div>
             </Link>
 
-            <p className="mt-4 max-w-sm text-sm leading-6 text-[#A6B4C7]">
+            <p className="mt-4 max-w-sm text-sm leading-6 text-muted">
               Operational AI voice infrastructure, immediate speed-to-lead systems, and high-converting web architecture for businesses that never miss an opportunity.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-2.5">
               <button
                 onClick={() => openQuoteModal()}
-                className="btn btn-solid h-[40px] px-4 text-xs font-semibold"
+                className="btn btn-solid h-[44px] px-4 text-xs font-semibold"
               >
                 Get a Quote <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
               </button>
               <button
                 onClick={openSchedule}
-                className="btn btn-ghost h-[40px] px-3.5 text-xs font-medium text-white/80 hover:text-white"
+                className="btn btn-ghost h-[44px] px-3.5 text-xs font-medium text-white/80 hover:text-white"
               >
                 Book a Call
               </button>
             </div>
 
-            <div className="mt-4 flex items-center gap-2.5">
+            <div className="mt-4 flex flex-wrap items-center gap-2.5">
               <a
                 href="https://www.instagram.com/nafatechnologies?rpxt=YWZ0dmdiNDM2djMz&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-8 px-2.5 rounded-[5px] border border-white/10 bg-white/[0.03] hover:bg-white/10 text-[#A6B4C7] hover:text-white flex items-center gap-1.5 text-xs transition-colors"
+                className="h-8 px-2.5 rounded-[5px] border border-white/10 bg-white/[0.03] hover:bg-white/10 text-muted hover:text-white flex items-center gap-1.5 text-xs transition-colors"
                 aria-label="Nafa Instagram"
               >
                 <svg className="w-3.5 h-3.5 fill-none stroke-current stroke-2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -110,7 +110,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/ahmad-ali-8527a93ba?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-8 px-2.5 rounded-[5px] border border-white/10 bg-white/[0.03] hover:bg-white/10 text-[#A6B4C7] hover:text-white flex items-center gap-1.5 text-xs transition-colors"
+                className="h-8 px-2.5 rounded-[5px] border border-white/10 bg-white/[0.03] hover:bg-white/10 text-muted hover:text-white flex items-center gap-1.5 text-xs transition-colors"
                 aria-label="CEO LinkedIn"
               >
                 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -120,7 +120,7 @@ export default function Footer() {
               </a>
               <a
                 href="mailto:contact@nafatech.site"
-                className="h-8 px-2.5 rounded-[5px] border border-white/10 bg-white/[0.03] hover:bg-white/10 text-[#A6B4C7] hover:text-white flex items-center gap-1.5 text-xs transition-colors"
+                className="h-8 px-2.5 rounded-[5px] border border-white/10 bg-white/[0.03] hover:bg-white/10 text-muted hover:text-white flex items-center gap-1.5 text-xs transition-colors"
                 aria-label="Direct Email"
               >
                 <Mail className="w-3.5 h-3.5" />
@@ -132,7 +132,7 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
             {groups.map((group) => (
               <div key={group.label}>
-                <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-[#A6B4C7]">
+                <h3 className="text-xs font-semibold  text-muted">
                   {group.label}
                 </h3>
                 <ul className="mt-4 space-y-2.5">
@@ -140,7 +140,7 @@ export default function Footer() {
                     <li key={href}>
                       <Link
                         href={href}
-                        className="text-sm text-[#A6B4C7] transition-colors hover:text-white"
+                        className="text-sm text-muted transition-colors hover:text-white"
                       >
                         {label}
                       </Link>
@@ -152,11 +152,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-[#A6B4C7] sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Nafa Technologies. All rights reserved.</p>
+        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} Nafa Technologies. </p>
           <button
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 self-start text-[#A6B4C7] transition-colors hover:text-white sm:self-auto cursor-pointer min-h-[44px]"
+            className="inline-flex items-center gap-1.5 self-start text-muted transition-colors hover:text-white sm:self-auto cursor-pointer min-h-[44px]"
           >
             Back to top <ArrowUp className="h-3.5 w-3.5" />
           </button>

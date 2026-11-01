@@ -40,7 +40,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about-us" className="relative py-14 sm:py-20 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto">
+    <section id="about-us" className="relative py-14 sm:py-20 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto overflow-hidden">
       {/* Background ambient lighting */}
       <div
         className="absolute top-1/3 left-1/4 w-[500px] h-[300px] bg-white/[0.02] blur-[100px] pointer-events-none rounded-full"

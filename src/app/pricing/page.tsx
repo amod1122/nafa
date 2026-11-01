@@ -163,7 +163,7 @@ export default function PricingPage() {
               </div>
 
               <div className="p-5 rounded-[6px] bg-white/[0.06] border border-white/25 relative">
-                <span className="absolute -top-2.5 right-4 bg-white text-black text-[10px] font-bold uppercase px-2 py-0.5 rounded-[4px]">
+                <span className="absolute -top-2.5 right-4 bg-white text-black text-[11px] font-bold uppercase px-2 py-0.5 rounded-[4px]">
                   Best Value
                 </span>
                 <h4 className="font-medium text-base text-white mb-1">
