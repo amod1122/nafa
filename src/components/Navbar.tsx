@@ -101,30 +101,13 @@ export default function Navbar() {
           >
             Book a Call
           </button>
-          <SpecularButton
+          <AnimatedShinyButton
             onClick={() => openQuoteModal()}
-            size="sm"
-            radius={8}
-            tint="#ffffff"
-            tintOpacity={0.06}
-            blur={10}
-            textColor="#ffffff"
-            lineColor="#ffffff"
-            baseColor="#525252"
-            intensity={1.1}
-            idleIntensity={0.35}
-            shineSize={12}
-            shineFade={32}
-            thickness={1.3}
-            glow={1}
-            followMouse={true}
-            autoAnimate={true}
-            speed={0.35}
-            proximity={220}
-            className="h-[44px] px-4 text-xs font-semibold"
+            colorScheme="white"
+            className="h-[38px] px-4 text-xs font-semibold shadow-md"
           >
             Get a Quote
-          </SpecularButton>
+          </AnimatedShinyButton>
         </div>
 
         <button
