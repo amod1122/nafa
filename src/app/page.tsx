@@ -1,292 +1,231 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import {
-  BRAND_NAME,
-  TAGLINE,
-  CTA_LABELS,
-  HOW_IT_WORKS_STEPS,
-  INDUSTRIES,
-  FAQ_ITEMS,
-  TESTIMONIAL_BANNERS,
-  filterApprovedTestimonials,
-  SEO_METADATA,
-} from "@/content";
-import { TrustStrip } from "@/components/TrustStrip";
-import { SuccessStoryBanner } from "@/components/SuccessStoryBanner";
-import { FAQAccordion } from "@/components/FAQAccordion";
-import { IndustryCard } from "@/components/IndustryCard";
-import GradientBlinds from "@/components/GradientBlinds";
+"use client";
 
-export const metadata: Metadata = {
-  title: { absolute: SEO_METADATA.home.title },
-  description: SEO_METADATA.home.description,
-  alternates: { canonical: SEO_METADATA.home.canonical },
-  openGraph: {
-    title: SEO_METADATA.home.title,
-    description: SEO_METADATA.home.description,
-    url: SEO_METADATA.home.canonical,
-    siteName: BRAND_NAME,
-    type: "website",
-  },
-};
+import React from "react";
+import {
+  ArrowRight,
+  Clock,
+  ShieldCheck,
+  Zap,
+  CheckCircle2,
+} from "lucide-react";
+import { useSiteModals } from "@/context/ModalContext";
+import CostSavingsCalculator from "@/components/CostSavingsCalculator";
+import OfferBento from "@/components/OfferBento";
+import AboutSection from "@/components/AboutSection";
+import FAQAccordion from "@/components/FAQAccordion";
+import { AnimatedShinyButton } from "@/components/eldoraui/animated-shiny-button";
+import SpecularButton from "@/components/ui/SpecularButton";
 
 export default function HomePage() {
-  const approvedTestimonials = filterApprovedTestimonials(TESTIMONIAL_BANNERS);
-  const homeFaqs = FAQ_ITEMS.slice(0, 5);
-
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: homeFaqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: { "@type": "Answer", text: faq.answer },
-    })),
-  };
+  const { openSchedule, openQuoteModal } = useSiteModals();
 
   return (
-    <main className="min-h-screen bg-white text-slate">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-
-      {/* ── Hero ── */}
+    <div className="relative w-full overflow-hidden bg-transparent text-white selection:bg-white selection:text-black">
+      {/* =========================================================================
+          HERO SECTION (CLEAN LEFT-DOCKED COPY ON PURE BLACK WITH MAGIC UI PARTICLES)
+          ========================================================================= */}
       <section
-        id="hero"
-        className="bg-ink text-white py-16 sm:py-24 px-5 sm:px-8 text-center relative overflow-hidden min-h-[480px] sm:min-h-[560px] flex items-center justify-center"
+        id="top"
+        className="relative pt-6 sm:pt-10 pb-12 sm:pb-16 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto flex flex-col justify-center min-h-[calc(80dvh-80px)]"
       >
-        <div className="absolute inset-0 z-0 pointer-events-auto opacity-90">
-          <GradientBlinds
-            gradientColors={["#0F3554", "#1E4B75", "#090E12"]}
-            angle={22}
-            blindCount={18}
-            blindMinWidth={55}
-            spotlightRadius={0.55}
-            spotlightSoftness={1.1}
-            shine={0.35}
-            relief={0.45}
-            glow={0.3}
-            sway={0.25}
-            speed={0.8}
-            hoverTilt={0.5}
-            clickEffect="ripple"
-            noise={0.25}
-            lightColor="#C6DDF5"
-          />
-        </div>
-        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-ink/60 via-transparent to-ink pointer-events-none" />
+        <div className="w-full flex justify-start">
+          <div className="w-full max-w-2xl text-left flex flex-col items-start z-10">
+            {/* Main Headline (Clean, Razor-Sharp High-Contrast Typography) */}
+            <h1 className="font-sans text-[36px] sm:text-[48px] lg:text-[58px] font-medium leading-[1.08] tracking-[-0.035em] text-white [text-wrap:balance]">
+              Deploy{" "}
+              <span className="font-voice-agent font-normal text-[1.12em] tracking-normal text-white pr-1">
+                AI call agents
+              </span>{" "}
+              that
+              <br />
+              answer every lead in seconds.
+            </h1>
 
-        <div className="max-w-3xl mx-auto flex flex-col items-center relative z-10 gap-5">
-          <h1 className="font-serif text-[36px] sm:text-[56px] md:text-[68px] leading-[1.05] tracking-[-0.02em] font-normal text-white">
-            {TAGLINE}
-          </h1>
-          {/* §7: safe-area padding so CTA buttons aren't under the notch */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto pb-[env(safe-area-inset-bottom,0px)]">
-            <Link
-              href="/book-a-call"
-              className="w-full sm:w-auto inline-flex items-center justify-center font-medium px-7 py-3.5 rounded-[2px] bg-white text-ink shadow-sm active:scale-[0.98] active:bg-mist transition-transform"
-            >
-              {CTA_LABELS.primary}
-            </Link>
-            <Link
-              href="/services"
-              className="w-full sm:w-auto inline-flex items-center justify-center font-medium px-7 py-3.5 rounded-[2px] bg-white/10 text-white border border-white/20 active:scale-[0.98] active:bg-white/20 transition-transform"
-            >
-              {CTA_LABELS.secondaryServices}
-            </Link>
-          </div>
-        </div>
-      </section>
+            {/* Subhead Lede */}
+            <p className="mt-4 max-w-[48ch] text-[16px] sm:text-[17px] leading-relaxed text-muted">
+              Voice receptionists that answer every phone call, qualify caller intent, and book revenue onto your calendar 24/7. Zero hold times. Zero missed calls.
+            </p>
 
-      {/* ── Trust Strip ── */}
-      <TrustStrip variant="light" showProofPoints showLogos />
-
-      {/* ── Services ── */}
-      <section id="services-overview" className="py-12 sm:py-16 px-5 sm:px-8 max-w-5xl mx-auto">
-        <h2 className="font-serif text-[28px] sm:text-[40px] text-charcoal text-center mb-8">
-          Specialized Staffing for Every Workflow
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {[
-            {
-              label: "Admin & Clinical",
-              body: "Front desk, appointment scheduling, patient intake, and medical assistants.",
-              href: "/services#admin-and-executive",
-              cta: "Explore →",
-            },
-            {
-              label: "Revenue Cycle",
-              body: "Medical billing, coding, RCM management, and credentialing.",
-              href: "/services#revenue-cycle-and-compliance",
-              cta: "Explore →",
-            },
-            {
-              label: "After-Hours & Creative",
-              body: "24/7 call answering, clinical triage routing, and clinic marketing.",
-              href: "/services#extended-and-creative",
-              cta: "Explore →",
-            },
-          ].map((card) => (
-            <div
-              key={card.label}
-              className="p-6 border border-line rounded-[2px] bg-white flex flex-col justify-between gap-4"
-            >
-              <div>
-                <h3 className="text-base font-semibold text-charcoal">{card.label}</h3>
-                <p className="text-sm text-slate mt-2 leading-relaxed">{card.body}</p>
-              </div>
-              <Link
-                href={card.href}
-                className="text-xs text-navy font-medium hover:underline"
+            {/* Clean 2-Button CTAs: Specular Button with dynamic rim light */}
+            <div className="mt-8 flex flex-wrap items-center gap-3.5">
+              <SpecularButton
+                size="lg"
+                radius={18}
+                tint="#ffffff"
+                tintOpacity={0.04}
+                textColor="#f5f5f5"
+                lineColor="#ffffff"
+                baseColor="#525252"
+                intensity={1}
+                idleIntensity={0.35}
+                shineSize={10}
+                shineFade={34}
+                thickness={1.2}
+                glow={1}
+                followMouse={true}
+                proximity={250}
+                onClick={() => openQuoteModal()}
               >
-                {card.cta}
-              </Link>
+                Get a Quote
+              </SpecularButton>
+
+              <button
+                onClick={openSchedule}
+                className="btn btn-ghost h-[44px] px-6 text-sm font-medium text-white/90 hover:text-white"
+              >
+                <span>Book a Call</span>
+              </button>
             </div>
-          ))}
-        </div>
-        <div className="text-center mt-8">
-          <Link
-            href="/services"
-            className="inline-flex items-center justify-center font-medium px-6 py-3 rounded-[2px] bg-charcoal text-white text-sm active:bg-ink transition-colors"
-          >
-            {CTA_LABELS.secondaryServices}
-          </Link>
-        </div>
-      </section>
 
-      {/* ── How It Works ── */}
-      <section
-        id="how-it-works"
-        className="py-12 sm:py-16 px-5 sm:px-8 bg-mist border-y border-line"
-      >
-        <div className="max-w-5xl mx-auto">
-          <h2 className="font-serif text-[28px] sm:text-[40px] text-charcoal text-center mb-8">
-            How It Works
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            {HOW_IT_WORKS_STEPS.map((step) => (
-              <div
-                key={step.step}
-                className="p-4 bg-white border border-line rounded-[2px] flex flex-col gap-1"
-              >
-                <span className="text-xs font-mono font-bold text-navy">0{step.step}</span>
-                <h3 className="text-sm font-semibold text-charcoal leading-snug">{step.title}</h3>
+            {/* Trust Assurance Bar */}
+            <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap items-center gap-y-3 gap-x-6 text-xs text-muted">
+              <div className="flex items-center gap-2 text-white/90">
+                <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
+                <span>Keep your current phone number</span>
               </div>
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link
-              href="/how-it-works"
-              className="inline-flex items-center justify-center font-medium px-6 py-3 rounded-[2px] bg-charcoal text-white text-sm active:bg-ink transition-colors"
-            >
-              See Full Process
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Savings Calculator Teaser ── */}
-      <section id="savings-calculator" className="py-12 sm:py-16 px-5 sm:px-8 max-w-3xl mx-auto text-center">
-        <h2 className="font-serif text-[28px] sm:text-[40px] text-charcoal mb-3">
-          See Your Savings
-        </h2>
-        <p className="text-slate text-sm sm:text-base mb-6">
-          Most practices save 50–60% vs. local hiring. Try the calculator.
-        </p>
-        <Link
-          href="/savings-calculator"
-          className="inline-flex items-center justify-center font-medium px-6 py-3 rounded-[2px] bg-charcoal text-white text-sm active:bg-ink transition-colors"
-        >
-          {CTA_LABELS.secondaryCalculator}
-        </Link>
-      </section>
-
-      {/* ── Industries ── */}
-      <section
-        id="industries"
-        className="py-12 sm:py-16 px-5 sm:px-8 bg-mist border-y border-line"
-      >
-        <div className="max-w-5xl mx-auto">
-          <h2 className="font-serif text-[28px] sm:text-[40px] text-charcoal text-center mb-8">
-            Industries We Serve
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {INDUSTRIES.map((industry) => (
-              <IndustryCard key={industry.id} industry={industry} variant="card" />
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link
-              href="/industries"
-              className="inline-flex items-center justify-center font-medium px-6 py-3 rounded-[2px] bg-charcoal text-white text-sm active:bg-ink transition-colors"
-            >
-              View All Industries
-            </Link>
+              <div className="flex items-center gap-2 text-white/90">
+                <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
+                <span>Live in 3 to 7 business days</span>
+              </div>
+              <div className="flex items-center gap-2 text-white/90">
+                <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
+                <span>100% direct engineering</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Success Stories ── */}
-      {approvedTestimonials.length > 0 && (
-        <section id="success-stories" className="py-12 sm:py-16 px-5 sm:px-8 max-w-5xl mx-auto">
-          <h2 className="font-serif text-[28px] sm:text-[40px] text-charcoal text-center mb-8">
-            Client Stories
-          </h2>
-          <div className="flex justify-center">
-            <SuccessStoryBanner testimonial={approvedTestimonials[0]} />
+      {/* =========================================================================
+          KEY TELEMETRY / 3-STAT METRICS BAR
+          ========================================================================= */}
+      <section className="relative z-10 stats-grid border-y border-white/10 bg-black/80 backdrop-blur-xl">
+        {/* Stat 1: 24/7 Coverage */}
+        <div className="stat-item">
+          <div className="stat-icon" aria-hidden="true">
+            <Clock className="w-4 h-4 text-white" />
           </div>
-          <div className="text-center mt-8">
-            <Link
-              href="/success-stories"
-              className="inline-flex items-center justify-center font-medium px-6 py-3 rounded-[2px] bg-charcoal text-white text-sm active:bg-ink transition-colors"
-            >
-              More Stories
-            </Link>
+          <div>
+            <div className="stat-title">24/7 Phone Answering</div>
+            <p className="stat-desc">
+              Human-grade AI answering after-hours, weekends, and overflow calls. Zero voicemail.
+            </p>
           </div>
-        </section>
-      )}
+        </div>
 
-      {/* ── FAQ ── */}
-      <section id="faq" className="py-12 sm:py-16 px-5 sm:px-8 bg-mist border-t border-line">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="font-serif text-[28px] sm:text-[40px] text-charcoal text-center mb-8">
-            FAQs
-          </h2>
-          <FAQAccordion items={homeFaqs} allowMultiple={false} />
+        {/* Stat 2: Speed-to-lead */}
+        <div className="stat-item">
+          <div className="stat-icon" aria-hidden="true">
+            <Zap className="w-4 h-4 text-white" />
+          </div>
+          <div>
+            <div className="stat-title">&lt;60s Speed-to-Lead</div>
+            <p className="stat-desc">
+              Calls and texts inbound form leads in under 60 seconds before competitors respond.
+            </p>
+          </div>
+        </div>
+
+        {/* Stat 3: 0s Hold time */}
+        <div className="stat-item">
+          <div className="stat-icon" aria-hidden="true">
+            <ShieldCheck className="w-4 h-4 text-white" />
+          </div>
+          <div>
+            <div className="stat-title">Live CRM Booking</div>
+            <p className="stat-desc">
+              Books qualified appointments directly into your CRM or team calendar with instant SMS confirmation.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* ── Final CTA ── */}
-      <section
-        id="cta"
-        className="py-16 sm:py-20 px-5 sm:px-8 bg-ink text-white text-center relative overflow-hidden"
-        style={{ paddingBottom: "calc(4rem + env(safe-area-inset-bottom, 0px))" }}
-      >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-gradient-to-r from-navy/40 via-sky/20 to-peach/10 blur-3xl rounded-full pointer-events-none -z-0" />
-        <div className="max-w-2xl mx-auto relative z-10">
-          <h2 className="font-serif text-[30px] sm:text-[44px] leading-tight mb-4">
-            Give Your Practice Its Time Back
+      {/* =========================================================================
+          THE INTERACTIVE COST SAVINGS & LOST REVENUE CALCULATOR
+          ========================================================================= */}
+      <CostSavingsCalculator />
+
+      {/* =========================================================================
+          THE 3 CORE SYSTEMS (AI RECEPTIONIST, SPEED-TO-LEAD AGENT, WEB BUILD & REDESIGN)
+          ========================================================================= */}
+      <OfferBento />
+
+      {/* =========================================================================
+          ABOUT US & THE NAFA STANDARD
+          ========================================================================= */}
+      <AboutSection />
+
+      {/* =========================================================================
+          INTERACTIVE FAQ ACCORDION
+          ========================================================================= */}
+      <FAQAccordion />
+
+      {/* =========================================================================
+          FINAL HIGH-CONVERTING CLOSING CTA BANNER
+          ========================================================================= */}
+      <section className="relative py-14 sm:py-20 px-6 sm:px-10 lg:px-12 max-w-7xl mx-auto">
+        <div className="rounded-xl border border-white/20 bg-gradient-to-b from-white/[0.08] via-black/90 to-black p-8 sm:p-12 lg:p-14 text-center relative overflow-hidden shadow-2xl">
+          {/* Subtle top edge glow */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.03em] text-white leading-[1.1] max-w-3xl mx-auto [text-wrap:balance]">
+            Ready to deploy an AI voice receptionist that never sleeps?
           </h2>
-          <p className="text-sm sm:text-base text-slate-300 mb-8">
-            15-minute discovery call. No commitment.
+
+          <p className="mt-3 text-[15px] sm:text-[16px] text-muted max-w-[50ch] mx-auto leading-relaxed">
+            Book a 15-minute call to calculate your revenue at risk and test a live custom voice agent on your phone.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Link
-              href="/book-a-call"
-              className="w-full sm:w-auto inline-flex items-center justify-center font-medium px-7 py-3.5 rounded-[2px] bg-white text-ink shadow-sm active:scale-[0.98] active:bg-mist transition-transform"
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <SpecularButton
+              onClick={() => openQuoteModal()}
+              size="md"
+              radius={10}
+              tint="#ffffff"
+              tintOpacity={0.06}
+              blur={12}
+              textColor="#ffffff"
+              lineColor="#ffffff"
+              baseColor="#525252"
+              intensity={1.2}
+              idleIntensity={0.4}
+              shineSize={14}
+              shineFade={36}
+              thickness={1.4}
+              glow={1.2}
+              followMouse={true}
+              autoAnimate={true}
+              speed={0.4}
+              proximity={260}
+              className="h-[46px] px-8 text-sm font-semibold shadow-xl"
             >
-              {CTA_LABELS.primary}
-            </Link>
-            <Link
-              href="/services"
-              className="w-full sm:w-auto inline-flex items-center justify-center font-medium px-7 py-3.5 rounded-[2px] bg-white/10 text-white border border-white/20 active:scale-[0.98] active:bg-white/20 transition-transform"
+              Get a Quote
+            </SpecularButton>
+
+            <button
+              onClick={openSchedule}
+              className="btn btn-ghost h-[44px] px-7 text-sm font-medium text-white"
             >
-              {CTA_LABELS.secondaryServices}
-            </Link>
+              <span>Book a Call</span>
+            </button>
+          </div>
+
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-muted">
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-3.5 h-3.5 text-white/80" />
+              No long-term contracts
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-3.5 h-3.5 text-white/80" />
+              Keep your numbers
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-3.5 h-3.5 text-white/80" />
+              Live in 3 to 7 business days
+            </span>
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
