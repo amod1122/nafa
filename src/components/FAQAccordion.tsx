@@ -16,37 +16,37 @@ const faqs: FAQItem[] = [
     category: "Voice Quality",
     question: "Will our callers know they are speaking with an AI voice agent?",
     answer:
-      "Most callers cannot distinguish our voice agents from a seasoned human receptionist. Our neural speech synthesis reproduces realistic speech cadence, breath pauses, active listening acknowledgments ('I understand', 'Sure thing', 'Let me check that for you'), and conversational tone. If a caller explicitly asks if they are speaking with an AI, the agent answers with complete honesty according to your compliance guidelines.",
+      "Most callers cannot distinguish our agents from a seasoned receptionist, thanks to sub-500ms response times and natural speech cadence. If explicitly asked, the agent answers honestly per your compliance guidelines.",
   },
   {
     category: "Integration",
     question: "Do we need to switch our business phone number or telephone carrier?",
     answer:
-      "No. You keep your current business phone number, VoIP provider, or cellular carrier. We provide a dedicated routing line, and you simply set up conditional call forwarding (e.g. forward when busy, after 3 rings, or after hours) or forward 100% of inbounds. It takes less than 5 minutes to configure.",
+      "No. You keep your current carrier and phone numbers. We set up simple conditional call forwarding (when busy, after 3 rings, or after hours) in under 5 minutes.",
   },
   {
     category: "Edge Cases",
     question: "What happens if a caller asks a complex question or has an emergency?",
     answer:
-      "During system onboarding, we define explicit escalation criteria with your team. If the caller mentions an urgent emergency (e.g. water leak, acute dental pain, urgent arrest), the AI triggers an immediate warm transfer to your on-call team member's cell phone or sends high-priority SMS alerts. If the question is outside its knowledge base, it gracefully notes the request and sets expectations for a callback.",
+      "Urgent calls trigger an immediate live warm transfer to your on-call staff alongside instant SMS alerts. Unrecognized questions are noted for team follow-up.",
   },
   {
     category: "CRM & Calendar",
     question: "Which calendars and CRMs does Nafa synchronize with?",
     answer:
-      "We natively integrate with Google Calendar, Outlook 365, GoHighLevel, ServiceTitan, Jobber, Housecall Pro, Clio, Dentrix, HubSpot, Salesforce, and Zapier/Make webhooks. Booked appointments and captured lead data are written to your calendar and CRM within seconds.",
+      "We integrate directly with ServiceTitan, Jobber, Housecall Pro, Clio, GoHighLevel, Google Calendar, Outlook, and Zapier. Appointments sync in seconds.",
   },
   {
     category: "Speed-to-Lead",
     question: "How does the Speed-to-Lead system work for website and Facebook form fills?",
     answer:
-      "The instant an inbound lead submits a form on your website, Google Local Services ad, or Meta lead ad, Nafa's webhook triggers an outbound call to the lead within 45 seconds while their intent is peak. Simultaneously, an automated conversational SMS is sent to establish contact before your competitors can even open their inbox.",
+      "When a lead submits a web or ad form, Nafa dials them within 45 seconds while buyer intent is highest. Simultaneously, an automated SMS reaches them immediately.",
   },
   {
     category: "Launch Timeline",
     question: "How long does deployment take from kickoff to going live?",
     answer:
-      "Standard deployments take between 3 and 7 business days. We ingest your company FAQs, service menus, pricing policies, and intake criteria, build the custom voice agent in our staging environment, test edge cases together on a live call, and deploy when you are 100% satisfied.",
+      "Deployments take 3 to 7 business days. We configure your company knowledge base, test live calls together, and launch once you are 100% satisfied.",
   },
 ];
 

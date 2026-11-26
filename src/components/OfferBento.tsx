@@ -68,11 +68,11 @@ export default function OfferBento() {
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-12">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.03em] text-white leading-[1.1] [text-wrap:balance]">
-          Engineered to capture every dollar your competitors miss.
+          Core Systems
         </h2>
 
-        <p className="mt-4 text-[15px] sm:text-[16px] text-muted max-w-[65ch] mx-auto leading-relaxed">
-          Minimal, reliable infrastructure deployed directly into your existing business operations. Done-for-you end to end.
+        <p className="mt-3 text-[15px] sm:text-[16px] text-muted max-w-[48ch] mx-auto leading-relaxed">
+          Reliable AI voice and speed-to-lead pipelines deployed directly into your operations.
         </p>
       </div>
 
