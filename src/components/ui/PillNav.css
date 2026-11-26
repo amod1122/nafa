@@ -428,8 +428,10 @@
   flex: none;
 }
 
-.pill-nav__row:hover {
-  background: var(--pn-row-hover);
+@media (hover: hover) and (pointer: fine) {
+  .pill-nav__row:hover {
+    background: var(--pn-row-hover);
+  }
 }
 
 .pill-nav__row[aria-current] {

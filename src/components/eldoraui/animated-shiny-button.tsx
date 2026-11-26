@@ -208,25 +208,39 @@ export function AnimatedShinyButton({
           animation-composition: add;
         }
 
-        .shiny-cta:is(:hover, :focus-visible),
-        .shiny-cta-link:is(:hover, :focus-visible) {
+        .shiny-cta:focus-visible,
+        .shiny-cta-link:focus-visible {
           --gradient-percent: 20%;
           --gradient-angle-offset: 95deg;
           --gradient-shine: var(--shiny-cta-highlight-subtle);
         }
 
-        .shiny-cta:is(:hover, :focus-visible),
-        .shiny-cta:is(:hover, :focus-visible)::before,
-        .shiny-cta:is(:hover, :focus-visible)::after,
-        .shiny-cta-link:is(:hover, :focus-visible),
-        .shiny-cta-link:is(:hover, :focus-visible)::before,
-        .shiny-cta-link:is(:hover, :focus-visible)::after {
-          animation-play-state: running;
+        .shiny-cta:focus-visible span::before,
+        .shiny-cta-link:focus-visible span::before {
+          opacity: 1;
         }
 
-        .shiny-cta:is(:hover, :focus-visible) span::before,
-        .shiny-cta-link:is(:hover, :focus-visible) span::before {
-          opacity: 1;
+        @media (hover: hover) and (pointer: fine) {
+          .shiny-cta:hover,
+          .shiny-cta-link:hover {
+            --gradient-percent: 20%;
+            --gradient-angle-offset: 95deg;
+            --gradient-shine: var(--shiny-cta-highlight-subtle);
+          }
+
+          .shiny-cta:hover,
+          .shiny-cta:hover::before,
+          .shiny-cta:hover::after,
+          .shiny-cta-link:hover,
+          .shiny-cta-link:hover::before,
+          .shiny-cta-link:hover::after {
+            animation-play-state: running;
+          }
+
+          .shiny-cta:hover span::before,
+          .shiny-cta-link:hover span::before {
+            opacity: 1;
+          }
         }
 
         @keyframes gradient-angle {
