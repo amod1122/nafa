@@ -1,51 +1,55 @@
 import type { Metadata, Viewport } from "next";
+import { Instrument_Serif, Inter } from "next/font/google";
 import "./globals.css";
-import SiteShell from "@/components/SiteShell";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { COMPANY_NAME, DOMAIN, TAGLINE, CONTACT_INFO, SOCIAL_LINKS } from "@/content";
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nafatechnologies.com"),
-  title: "Nafa Technologies — 24/7 AI Call Agents & Speed-to-Lead",
+  metadataBase: new URL("https://www.rephero.co"),
+  title: {
+    default: "RepHero — Trained Remote Healthcare Staffing",
+    template: "%s | RepHero",
+  },
   description:
-    "Nafa builds and deploys 24/7 AI call agents, <60-second speed-to-lead follow-up systems, and high-converting websites for local businesses. Fully done for you, with zero fluff.",
-  keywords: [
-    "AI Call Agent",
-    "AI Voice Receptionist",
-    "Speed to Lead",
-    "Local Business Automation",
-    "Appointment Booking AI",
-    "High Converting Websites",
-    "Nafa Technologies",
-  ],
-  authors: [{ name: "Nafa Technologies" }],
+    "RepHero places trained, HIPAA-compliant remote professionals into US healthcare practices. Front desk, medical billing, clinical support, and after-hours coverage.",
   openGraph: {
-    title: "Nafa Technologies — 24/7 AI Call Agents & Speed-to-Lead",
+    title: "RepHero — Trained Remote Healthcare Staffing",
     description:
-      "Never miss a lead again. Deploy 24/7 AI phone agents and automated response pipelines that answer every call and book appointments while you sleep.",
-    url: "https://nafatechnologies.com",
-    siteName: "Nafa Technologies",
-    images: [
-      {
-        url: "/logo.jpg",
-        width: 800,
-        height: 800,
-        alt: "Nafa Technologies Logo",
-      },
-    ],
+      "Trained remote professionals for healthcare practices. 50-60% savings, HIPAA-compliant with signed BAA on every engagement.",
+    url: "https://www.rephero.co",
+    siteName: "RepHero",
     locale: "en_US",
     type: "website",
-  },
-  icons: {
-    icon: "/logo.jpg",
-    apple: "/logo.jpg",
   },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 5,
+  // §7 viewport-fit=cover: paint edge-to-edge under notch/Dynamic Island
+  // interactive-widget: keyboard shrinks layout on Android Chrome so dvh works
   viewportFit: "cover",
-  themeColor: "#000000",
+  interactiveWidget: "resizes-content",
+  // §10 theme-color per color-scheme so the status bar matches the dark header
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#090E12" },
+    { media: "(prefers-color-scheme: light)", color: "#090E12" },
+  ],
 };
 
 export default function RootLayout({
@@ -53,56 +57,52 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: COMPANY_NAME,
+    url: `https://${DOMAIN}`,
+    logo: `https://${DOMAIN}/logo.jpg`,
+    description: TAGLINE,
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: CONTACT_INFO.phone,
+      contactType: "customer service",
+      email: CONTACT_INFO.email,
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "100 Pine Street, Suite 1250",
+      addressLocality: "San Francisco",
+      addressRegion: "CA",
+      postalCode: "94111",
+      addressCountry: "US",
+    },
+    sameAs: [
+      SOCIAL_LINKS.linkedin,
+    ],
+  };
+
   return (
-    <html lang="en" className="scroll-smooth bg-black text-white" style={{ background: "#000000", color: "#ffffff" }}>
+    <html lang="en" className={`${inter.variable} ${instrumentSerif.variable}`}>
       <head>
-        <link rel="icon" href="/logo.jpg" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Instrument+Serif:ital@1&display=swap"
-          rel="stylesheet"
-        />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              name: "Nafa Technologies",
-              email: "contact@nafatech.site",
-              url: "https://nafatechnologies.com",
-              logo: "https://nafatechnologies.com/logo.jpg",
-              description:
-                "AI automation agency providing 24/7 AI call agents, speed-to-lead systems, and high-converting web design for local businesses.",
-              address: {
-                "@type": "PostalAddress",
-                addressCountry: "US",
-              },
-              priceRange: "$$",
-              openingHoursSpecification: {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday",
-                ],
-                opens: "00:00",
-                closes: "23:59",
-              },
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body
-        className="min-h-screen bg-black text-white font-sans antialiased selection:bg-white selection:text-black"
-        style={{ background: "#000000", color: "#ffffff" }}
-      >
-        <SiteShell>{children}</SiteShell>
+      <body className="min-h-screen flex flex-col bg-white text-slate font-sans antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-charcoal focus:text-white focus:rounded-[2px] focus:shadow-md"
+        >
+          Skip to main content
+        </a>
+        <Header />
+        <div id="main-content" className="flex-1 w-full">
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   );
