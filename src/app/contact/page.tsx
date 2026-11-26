@@ -5,7 +5,6 @@ import QuoteFormSection from "@/components/QuoteFormSection";
 import {
   Mail,
   Phone,
-  Clock,
   Calendar,
   MapPin,
   CheckCircle2,
@@ -20,10 +19,6 @@ export default function ContactPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="badge-pill inline-flex items-center gap-1.5 mb-4">
-            <Clock className="w-3.5 h-3.5 text-white" />
-            <span>Response-Time Promise: Under 5 Minutes</span>
-          </div>
           <h1 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-4">
             Let's Stop Your <em className="font-editorial not-italic text-[#9a9a9a]">Lead Leakage</em>.
           </h1>
@@ -37,9 +32,6 @@ export default function ContactPage() {
           {/* Schedule Direct Meeting (Primary) */}
           <div className="apple-glass rounded-lg p-6 sm:p-8 lg:col-span-2 flex flex-col justify-between border border-white/20">
             <div className="space-y-4">
-              <span className="badge-pill text-xs">
-                ★ Preferred Channel
-              </span>
               <h2 className="text-2xl sm:text-3xl font-medium text-white tracking-tight">
                 Book a 15-Minute Strategy Consultation
               </h2>

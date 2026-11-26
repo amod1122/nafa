@@ -119,9 +119,6 @@ export default function BlogPostPage({ params }: PageProps) {
         {/* Closing Post CTA Band */}
         <div className="apple-glass rounded-lg p-8 sm:p-10 border border-white/20 mt-12 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-2">
-            <span className="badge-pill text-xs">
-              Never Miss a Lead Again
-            </span>
             <h3 className="text-2xl font-medium text-white tracking-tight">
               Get an Automated Response System Built for Your Business
             </h3>

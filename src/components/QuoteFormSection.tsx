@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Send, Sparkles, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 
 export interface LeadData {
   name: string;
@@ -78,10 +78,6 @@ export default function QuoteFormSection({ onLeadSubmitted }: QuoteFormSectionPr
     <section id="quote" className="py-12 sm:py-16 bg-transparent relative text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-12">
-          <div className="badge-pill inline-flex items-center gap-1.5 mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-white" />
-            <span>Fast & Tailored Architecture</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white mb-4">
             Get Your Free Custom Quote
           </h2>

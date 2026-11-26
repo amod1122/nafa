@@ -3,7 +3,6 @@
 import React from "react";
 import Link from "next/link";
 import {
-  PhoneCall,
   Calendar,
   CheckCircle2,
   ArrowRight,
@@ -51,10 +50,6 @@ export default function AICallAgentPage() {
 
         {/* Hero */}
         <div className="max-w-3xl mb-14">
-          <div className="badge-pill inline-flex items-center gap-2 mb-4">
-            <PhoneCall className="w-3.5 h-3.5 text-white" />
-            <span>24/7 Voice Receptionist</span>
-          </div>
           <h1 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-4">
             Never Send a Customer to <em className="font-editorial not-italic text-[#9a9a9a]">Voicemail</em> Again.
           </h1>
@@ -174,9 +169,6 @@ export default function AICallAgentPage() {
         {/* Bundle Upsell & Final CTA */}
         <div className="apple-glass rounded-lg p-8 sm:p-10 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6 border border-white/20">
           <div className="space-y-2">
-            <span className="badge-pill text-xs">
-              Pair It With Speed-to-Lead
-            </span>
             <h3 className="text-2xl font-medium text-white tracking-tight">
               Combine Inbound Answering with Outbound Follow-Up
             </h3>

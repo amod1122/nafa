@@ -27,10 +27,6 @@ export default function AIWebsitePage() {
 
         {/* Hero */}
         <div className="max-w-3xl mb-14">
-          <div className="badge-pill inline-flex items-center gap-2 mb-4">
-            <Globe className="w-3.5 h-3.5 text-white" />
-            <span>Domain & Fast Cloud Hosting Included</span>
-          </div>
           <h1 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-4">
             Websites Built for One Action: <em className="font-editorial not-italic text-[#9a9a9a]">Booking Clients</em>.
           </h1>
@@ -109,9 +105,6 @@ export default function AIWebsitePage() {
         {/* Bundle Banner */}
         <div className="apple-glass rounded-lg p-8 sm:p-10 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6 border border-white/20">
           <div className="space-y-2">
-            <span className="badge-pill text-xs">
-              Combine and Save
-            </span>
             <h3 className="text-2xl font-medium tracking-tight text-white">
               Pair Website + Speed-to-Lead
             </h3>

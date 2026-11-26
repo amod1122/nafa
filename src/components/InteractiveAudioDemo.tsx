@@ -417,10 +417,6 @@ export default function InteractiveAudioDemo() {
         <div className="interactive-card rounded-lg p-6 sm:p-10 border border-white/15 max-w-4xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-8 justify-between">
             <div className="w-full lg:w-1/2 space-y-3">
-              <span className="badge-pill text-xs inline-flex items-center gap-1.5">
-                <Zap className="w-3.5 h-3.5 text-white" />
-                Live Speed-to-Lead Simulator
-              </span>
               <h3 className="text-2xl sm:text-3xl font-medium tracking-tight text-white">
                 See How Fast We Contact New Leads
               </h3>

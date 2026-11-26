@@ -86,6 +86,9 @@ export default function HomePage() {
           </div>
           <div>
             <div className="stat-title">24/7 Phone Answering</div>
+            <p className="stat-desc">
+              Human-grade AI answering after-hours, weekends, and overflow calls. Zero voicemail.
+            </p>
           </div>
         </div>
 
@@ -96,6 +99,9 @@ export default function HomePage() {
           </div>
           <div>
             <div className="stat-title">&lt;60s Speed-to-Lead</div>
+            <p className="stat-desc">
+              Calls and texts inbound form leads in under 60 seconds before competitors respond.
+            </p>
           </div>
         </div>
 
@@ -106,6 +112,9 @@ export default function HomePage() {
           </div>
           <div>
             <div className="stat-title">Live CRM Booking</div>
+            <p className="stat-desc">
+              Books qualified appointments directly into your CRM or team calendar with instant SMS confirmation.
+            </p>
           </div>
         </div>
       </section>

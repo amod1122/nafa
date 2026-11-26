@@ -13,10 +13,6 @@ export default function DemoPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="badge-pill inline-flex items-center gap-1.5 mb-4">
-            <span className="w-2 h-2 rounded-full bg-white"></span>
-            <span>Live Audio & Speed Sandbox</span>
-          </div>
           <h1 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-4">
             Experience Our AI in <em className="font-editorial not-italic text-[#9a9a9a]">Action</em>
           </h1>

@@ -8,7 +8,6 @@ import {
   Globe,
   CheckCircle2,
   ArrowRight,
-  Sparkles,
   ChevronRight,
 } from "lucide-react";
 import { useSiteModals } from "@/context/ModalContext";
@@ -69,10 +68,6 @@ export default function ServicesPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-          <div className="badge-pill inline-flex items-center gap-2 mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-white" />
-            <span>Core Capabilities • 100% Done For You</span>
-          </div>
           <h1 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-4">
             Our AI <em className="font-editorial not-italic text-[#9a9a9a]">Automation</em> Systems
           </h1>
@@ -154,9 +149,6 @@ export default function ServicesPage() {
         <div className="apple-glass rounded-lg p-8 sm:p-10 text-center lg:text-left mb-16 border border-white/20">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="space-y-3 max-w-2xl">
-              <span className="badge-pill text-xs">
-                ★ Maximized Conversion Package
-              </span>
               <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-white">
                 The Full <em className="font-editorial not-italic text-[#9a9a9a]">Growth System</em>
               </h2>

@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowLeft, FileText } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 export default function TermsOfServicePage() {
   return (
@@ -18,10 +18,6 @@ export default function TermsOfServicePage() {
 
         <div className="apple-glass rounded-lg p-6 sm:p-10 space-y-6">
           <div className="border-b border-white/10 pb-6">
-            <div className="badge-pill inline-flex items-center gap-1.5 mb-3">
-              <FileText className="w-3.5 h-3.5 text-white" />
-              <span>Legal Agreements</span>
-            </div>
             <h1 className="text-3xl sm:text-4xl font-medium tracking-tight text-white">
               Terms of Service
             </h1>

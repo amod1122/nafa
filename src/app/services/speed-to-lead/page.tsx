@@ -50,10 +50,6 @@ export default function SpeedToLeadPage() {
 
         {/* Hero */}
         <div className="max-w-3xl mb-14">
-          <div className="badge-pill inline-flex items-center gap-2 mb-4">
-            <Zap className="w-3.5 h-3.5 text-white" />
-            <span>Under 60-Second Contact Pipeline</span>
-          </div>
           <h1 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-4">
             Connect With Leads While They're Still <em className="font-editorial not-italic text-[#9a9a9a]">Hot</em>.
           </h1>
@@ -148,9 +144,6 @@ export default function SpeedToLeadPage() {
         {/* Bundle Upsell */}
         <div className="apple-glass rounded-lg p-8 sm:p-10 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6 border border-white/20">
           <div className="space-y-2">
-            <span className="badge-pill text-xs">
-              Pair with High-Converting Website
-            </span>
             <h3 className="text-2xl font-medium tracking-tight text-white">
               A Website Designed Specifically for Instant Callbacks
             </h3>

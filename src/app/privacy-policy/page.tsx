@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ShieldCheck, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 export default function PrivacyPolicyPage() {
   return (
@@ -18,10 +18,6 @@ export default function PrivacyPolicyPage() {
 
         <div className="apple-glass rounded-lg p-6 sm:p-10 space-y-6">
           <div className="border-b border-white/10 pb-6">
-            <div className="badge-pill inline-flex items-center gap-1.5 mb-3">
-              <ShieldCheck className="w-3.5 h-3.5 text-white" />
-              <span>Compliance & Legal</span>
-            </div>
             <h1 className="text-3xl sm:text-4xl font-medium tracking-tight text-white">
               Privacy Policy
             </h1>

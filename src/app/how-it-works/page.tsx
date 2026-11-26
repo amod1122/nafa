@@ -8,7 +8,6 @@ import {
   Headphones,
   CheckCircle2,
   Calendar,
-  ShieldCheck,
   Users,
 } from "lucide-react";
 import { useSiteModals } from "@/context/ModalContext";
@@ -72,10 +71,6 @@ export default function HowItWorksPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-          <div className="badge-pill inline-flex items-center gap-1.5 mb-4">
-            <ShieldCheck className="w-3.5 h-3.5 text-white" />
-            <span>Zero Fluff • Direct Access to Builders</span>
-          </div>
           <h1 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-4">
             How We Get You Live in <em className="font-editorial not-italic text-[#9a9a9a]">Days</em>, Not Months
           </h1>

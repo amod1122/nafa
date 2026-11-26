@@ -5,7 +5,6 @@ import {
   Calendar,
   CheckCircle2,
   ArrowRight,
-  Sparkles,
   PhoneCall,
   Zap,
   Globe,
@@ -69,10 +68,6 @@ export default function PricingPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="badge-pill inline-flex items-center gap-1.5 mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-white" />
-            <span>Transparent & Customized to Your Volume</span>
-          </div>
           <h1 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-4">
             Pricing <em className="font-editorial not-italic text-[#9a9a9a]">Tailored</em> to Your Scale
           </h1>
@@ -136,9 +131,6 @@ export default function PricingPage() {
         {/* Bundles Breakdown - Pure Liquid Glass */}
         <div className="apple-glass rounded-lg p-8 sm:p-12 mb-16 border border-white/20">
           <div className="max-w-3xl mx-auto text-center space-y-4">
-            <span className="badge-pill text-xs">
-              Combine Systems for Maximum Savings
-            </span>
             <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-white">
               Growth System <em className="font-editorial not-italic text-[#9a9a9a]">Bundles</em>
             </h2>
